@@ -1,0 +1,16 @@
+/* Default pagination dot */
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: white; /* White dots */
+    opacity: 1; /* Full visibility */
+  }
+  
+  /* Active dot with an outline */
+  .swiper-pagination-bullet-active {
+    background-color: transparent; /* Transparent center */
+    border: 2px solid white; /* White outline */
+    width: 12px;
+    height: 12px;
+  }
+  
