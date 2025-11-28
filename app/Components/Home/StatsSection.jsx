@@ -19,32 +19,121 @@ const StatsSection = () => {
   return (
     <section
       ref={ref}
-      className="w-full px-4 sm:px-6 md:px-20 py-10 flex flex-col items-center"
+      className="w-full px6 md:px-20 md:py-10 flex flex-col justify-center items-center"
     >
       {/* Top Border */}
-      <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-6"></div>
+      <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
 
-      {/* Stats Grid */}
-      <div className="w-full flex flex-wrap justify-center gap-6">
-        {stats.map((stat, index) => (
+      {/*Mobile Stats Grid */}
+      <div className=" md:hidden grid grid-cols-2 md:grid-cols-4 gap-7 text-center py-6">
+        {stats.slice(0, 2).map((stat, index) => (
           <div
             key={index}
-            className="flex flex-col items-center sm:items-start text-center sm:text-left gap-2 min-w-[120px] md:min-w-[180px]"
+            className={`flex md:flex-row items-center justify-center text-start gap-2 px-4 ${
+              index < 3 ? "md:border-r border-gray-300" : ""
+            }`}
           >
-            <span className="font-antonio text-2xl sm:text-3xl md:text-5xl">
+            <span className="font-antonio text-2xl md:text-5xl">
               {inView && (
-                <CountUp start={0} end={stat.value} duration={2.5} separator="," />
+                <CountUp
+                  start={0}
+                  end={stat.value}
+                  duration={2.5}
+                  separator=","
+                />
               )}
             </span>
-            <span className="text-gray-500 text-sm sm:text-base md:text-2xl font-normal mt-1 font-poppins">
+            <span className="text-gray-500 text-sm md:text-2xl font-normal mt-1 font-poppins">
+              {stat.label}
+            </span>
+          </div>
+        ))}
+      </div>
+<div className="block md:hidden w-full h-[2px] bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
+       <div className=" md:hidden grid grid-cols-2 md:grid-cols-4 gap-4 text-center py-6">
+        {stats.slice(2, 4).map((stat, index) => (
+          <div
+            key={index}
+            className={`flex md:flex-row items-center justify-center text-start gap-2 px-4 ${
+              index < 3 ? "md:border-r border-gray-300" : ""
+            }`}
+          >
+            <span className="font-antonio text-2xl md:text-5xl">
+              {inView && (
+                <CountUp
+                  start={0}
+                  end={stat.value}
+                  duration={2.5}
+                  separator=","
+                />
+              )}
+            </span>
+            <span className="text-gray-500 text-sm md:text-2xl font-normal mt-1 font-poppins">
               {stat.label}
             </span>
           </div>
         ))}
       </div>
 
+      {/* Stats Grid */}
+      <div className="hidden md:grid grid-cols-2 md:grid-cols-4 gap-4 text-center py-6">
+        {stats.slice(0, 4).map((stat, index) => (
+          <div
+            key={index}
+            className={`flex md:flex-row items-center justify-center text-start gap-2 px-4 ${
+              index < 3 ? "md:border-r border-gray-300" : ""
+            }`}
+          >
+            <span className="font-antonio text-2xl md:text-5xl">
+              {inView && (
+                <CountUp
+                  start={0}
+                  end={stat.value}
+                  duration={2.5}
+                  separator=","
+                />
+              )}
+            </span>
+            <span className="text-gray-500 text-sm md:text-2xl font-normal mt-1 font-poppins">
+              {stat.label}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* Middle Border */}
+      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
+
+      {/* Second Row */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-center py-6">
+        {stats.slice(4).map((stat, index) => (
+<div
+  key={index}
+  className={`flex flex-row items-center md:justify-center text-start gap-2 md:gap-4 px-4 ${
+    index < 2 ? "md:border-r border-gray-300" : ""
+  } ${index === 2 ? "hidden md:flex" : ""}`}
+>
+  <span className="font-antonio text-2xl md:text-5xl ">
+    {inView && (
+      <CountUp
+        start={0}
+        end={stat.value}
+        duration={2.5}
+        separator=","
+      />
+    )}
+  </span>
+  <span className="text-gray-500 text-sm md:text-2xl font-normal mt-1 font-poppins">
+    {stat.label}
+  </span>
+</div>
+
+
+        ))}
+      </div>
+
       {/* Bottom Border */}
-      <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-gray-300 to-transparent mt-6"></div>
+      <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
     </section>
   );
 };

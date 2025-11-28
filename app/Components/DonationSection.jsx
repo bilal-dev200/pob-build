@@ -60,20 +60,23 @@ const DonationSection = ({ handleDonateClick }) => {
   const donateClick = handleDonateClick || (() => console.warn("⚠️ handleDonateClick is not defined"));
 
   return (
-    <div className="py-12 text-center">
+     <div className="py-12 text-center">
+      {/* <h2 className="text-[#F39C12] font-Amaranth text-lg uppercase mb-2">
+        Give
+      </h2> */}
       <h3 className="text-3xl md:text-4xl mb-8 font-Amaranth">
-        How You Can Help & Donate
+      How You Can Help & Donate
       </h3>
 
-      <div className="grid grid-cols-2 w-[90%] md:w-full md:grid-cols-3 max-w-4xl mx-auto gap-4">
+      <div className="grid grid-cols-2 w-[90%] md:w-full md:grid-cols-3 max-w-4xl mx-auto ">
         {donationOptions.map((item) => (
           <div
             key={item.id}
-            className="group p-4 md:p-6 rounded-[10px] border cursor-pointer flex flex-col justify-center md:justify-start md:items-start text-center transition-all duration-300 hover:bg-[#28A745]"
+            className="group p-4 md:p-6 rounded-[10px] border border-gray-200 cursor-pointer flex flex-col justify-center md:justify-start md:items-start text-center transition-all duration-300 hover:bg-[#28A745]"
           >
             {/* Icon Container */}
             <div className="bg-[#F5F5F5] p-4 rounded-full mx-auto md:mx-0">
-              <div className="text-3xl text-[#28A745] transition-all duration-300">
+              <div className="text-3xl text-[#28A745]   transition-all duration-300">
                 {item.icon}
               </div>
             </div>
@@ -84,17 +87,14 @@ const DonationSection = ({ handleDonateClick }) => {
             </h4>
 
             {/* Description */}
-            <p className="text-[#777777] text-center md:text-start text-[10px] md:text-sm mt-2 md:h-10 font-inter group-hover:text-white transition-all duration-300">
+            <p className="text-[#777777] text-center md:text-start text-[10px] md:text-sm mt-2 md:h-10  font-inter group-hover:text-white transition-all duration-300">
               {item.description}
             </p>
 
             {/* Button */}
             <Link href={item.link}>
-              <button
-                onClick={donateClick}
-                className="mt-4 px-4 py-2 rounded-full text-[14px] font-inter text-white bg-[#28A745] group-hover:bg-white group-hover:text-[#28A745] transition-all duration-300"
-              >
-                {item.title === "Volunteer" ? "Register Now" : "Donate Now"}
+              <button className="mt-4 px-4 py-2 rounded-full text-[14px] font-inter text-white bg-[#28A745] group-hover:bg-white group-hover:text-[#28A745] transition-all duration-300">
+              {item.title == 'Volunteer' ? 'Register Now' : 'Donate Now' }   
               </button>
             </Link>
           </div>

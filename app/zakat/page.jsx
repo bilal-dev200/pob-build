@@ -5,7 +5,7 @@ import ImpactSection from "../Components/Zakat/ZakatImpact";
 import ContactSection from "../Components/ContactSection";
 import Pillar from "../Components/Zakat/Pillar";
 import Hope from "../Components/Zakat/Hope";
-import ZakatImpact from "../Components/Zakat/ZakatImpact";
+import ZakatImpact from "../Components/ZakatImpact";
 import Faqs from "../Components/Home/Faqs";
 import { Image_Url } from "../../Utils/const";
 import fetchData from "../Components/fetchData";

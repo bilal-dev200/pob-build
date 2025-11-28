@@ -1,7 +1,7 @@
 "use client"; // ❗ Client-side component
 
 import React, { useState } from "react";
-import DOMPurify from "dompurify";
+import DOMPurify from "isomorphic-dompurify"; 
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 const Faqs = ({ faqs }) => {
@@ -32,7 +32,8 @@ const Faqs = ({ faqs }) => {
         {/* FAQ List */}
         <div className="w-[90%] md:w-[60%]">
           {faqData?.pages_faq_details?.map((faq, index) => (
-            <div key={faq.id} className="w-full mb-2">
+           <div key={faq.id || index} className="w-full mb-2">
+
               <div className="transition duration-300">
                 <div
                   className="flex justify-between items-center cursor-pointer"

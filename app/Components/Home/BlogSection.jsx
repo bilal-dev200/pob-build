@@ -106,7 +106,7 @@ const BlogsSection = () => {
                     .join(" ")}
                   ...
                 </p>
-                <span className="mt-2 text-[10px] w-full md:w-fit text-[#F39C12] font-semibold">
+                <span className="mt-2 text-[10px] w-full md:w-fit  font-semibold">
                   Read More →
                 </span>
               </div>

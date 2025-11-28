@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import DOMPurify from "dompurify";
+import DOMPurify from "isomorphic-dompurify"; 
 
 const Purpose = ({ yellowHead, head, des, pageName, btnName, img,  }) => {
   const [isClient, setIsClient] = useState(false);

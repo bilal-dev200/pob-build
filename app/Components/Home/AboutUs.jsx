@@ -39,7 +39,7 @@ const AboutUs = ({ img, yellowHead, head, pageName, btnName, des }) => {
           </div>
         )}
 
-        <Link href="#">
+        <Link href="/about-us">
           <button className="mt-6 px-6 py-3 bg-green-500 text-white rounded-full text-[12px] hover:bg-green-600 transition duration-300">
             {btnName}
           </button>
