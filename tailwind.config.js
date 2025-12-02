@@ -20,12 +20,28 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        antonio: ['Antonio', 'sans-serif'],
+        antonio: ["Antonio", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
         inter: ["Inter", "sans-serif"],
         Amaranth: ["Amaranth", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme("colors.gray.700"),
+            fontFamily: theme("fontFamily.inter").join(","),
+            ul: {
+              listStyleType: "disc",
+              paddingLeft: "1.5rem",
+            },
+            li: {
+              marginTop: "0.25rem",
+              marginBottom: "0.25rem",
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [],

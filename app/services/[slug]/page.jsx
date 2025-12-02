@@ -6,7 +6,7 @@ import axios from "../../../Utils/axios";
 import { Image_Url } from "../../../Utils/const";
 
 // Components
-import Banner from "../../Components/Banner/Banner";
+
 
 import Purpose from "../../Components/Purpose";
 
@@ -17,6 +17,7 @@ import EyeExams from "../../Components/Service/EyeExam";
 import RetinaExcellence from "../../Components/Service/RetinaExcellence";
 import DonationSection from "../../Components/Service/DonationSection";
 import OrbitDisorder from "../../Components/Service/OrbitDisorder";
+import Banner from "../../Components/Service/Banner";
 
 
 const Service = () => {

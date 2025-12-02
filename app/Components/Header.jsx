@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose, IoMdMail } from "react-icons/io";
-
+import { usePathname } from "next/navigation";
 import { HiPhone } from "react-icons/hi2";
 import {
   FaFacebookF,
@@ -16,9 +16,12 @@ import {
   FaChevronUp,
 } from "react-icons/fa";
 import fetchData from "./fetchData";
+import axios from "../../Utils/axios"
 import { Image_Url } from "../../Utils/const";
 
-const Header = ({ handleDonateClick }) => {
+
+const Header = () => {
+  const pathname = usePathname();
   const [showNav, setShowNav] = useState(false);
   const [showServiceDropdown, setShowServiceDropdown] = useState(false);
   const [showMediaDropdown, setShowMediaDropdown] = useState(false);
@@ -26,14 +29,40 @@ const Header = ({ handleDonateClick }) => {
   const [showMegaMenu, setShowMegaMenu] = useState(false);
   const hideMenuTimeout = useRef(null);
 
-  useEffect(() => {
-    fetchData({
-      url: "services-types/index",
-      slug: "",
-      setState: setMegaMenu,
-      setLoading: () => {},
-    });
+  // useEffect(() => {
+  //  const data = fetchData({
+  //     url: "services-types/index",
+  //     slug: "",
+  //     setState: setMegaMenu,
+  //     setLoading: () => {},
+  //   });
+  //   setMegaMenu(data)
+  // }, []);
+
+    useEffect(() => {
+    const fetchMegaMenu = async () => {
+      
+      try {
+        const res = await axios.public.post("services-types/index");
+      console.log('das',res)
+        setMegaMenu(res.data.data || []);
+      } catch (error) {
+        console.error("Error fetching mega menu:", error);
+        setMegaMenu([]);
+      }
+      //  finally {
+      //   setLoading(false);
+      // }
+    };
+
+    fetchMegaMenu();
   }, []);
+  const handleDonateClick = () => {
+  const footer = document.getElementById("footer-section");
+  if (footer) {
+    footer.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
   const desktopNavItems = [
     { name: "Home", link: "/" },
@@ -41,12 +70,12 @@ const Header = ({ handleDonateClick }) => {
     { name: "Academics", link: "/academics/" },
     { name: "Services", link: "/services/" },
     { name: "Gallery", link: "/gallery/" },
-    // {
-    //   name: "Media & Publications",
-    //   link: "/media-publications",
-    //   submenu: [{ name: "Annual Reports", link: "/annual-reports/" }],
-    // },
-    { name: "Blogs", link: "/blogs/" },
+    {
+      name: "Media & Publications",
+      link: "/media-publications",
+      submenu: [{ name: "Annual Reports", link: "/annual-reports/" }],
+    },
+    { name: "Blogs", link: "/blog/" },
     {
       name: "How You Can Help",
       submenu: [
@@ -55,6 +84,7 @@ const Header = ({ handleDonateClick }) => {
         { name: "Waqf", link: "/waqf/" },
         { name: "Kaffara", link: "/kaffara/" },
         { name: "Volunteers", link: "/volunteer/" },
+        { name: "Sponser a Surgery", link: "/sponser-surgery/" },
       ],
     },
     { name: "Contact Us", link: "/contact-us/" },
@@ -153,63 +183,75 @@ const Header = ({ handleDonateClick }) => {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex w-full max-w-[1300px] mx-auto justify-center items-center gap-6 px-3">
-            {desktopNavItems.map((item, index) => (
-              <div
-                key={index}
-                className="relative cursor-pointer font-inter text-[15px] group"
-              >
-                {item.name === "Services" ? (
-                  <div
-                    className="relative"
-                    onMouseEnter={() => {
-                      clearTimeout(hideMenuTimeout.current);
-                      setShowMegaMenu(true);
-                    }}
-                    onMouseLeave={() => {
-                      hideMenuTimeout.current = setTimeout(
-                        () => setShowMegaMenu(false),
-                        300
-                      );
-                    }}
-                  >
-                    <Link
-                      href={item.link}
-                      className="text-black hover:border-[#F39C12] hover:border-b-2 transition duration-200"
-                    >
-                      {item.name}
-                    </Link>
-                  </div>
-                ) : item.submenu ? (
-                  <div>
-                    <Link
-                      href={item.link || "#"}
-                      className="text-black hover:border-[#F39C12] hover:border-b-2 transition duration-200"
-                    >
-                      {item.name}
-                    </Link>
+           {desktopNavItems.map((item, index) => {
+  const normalizePath = (path) => (path || "").replace(/\/$/, "");
+  const isActive = normalizePath(pathname) === normalizePath(item.link || "");
 
-                    <div className="absolute bg-white shadow-lg rounded-md hidden group-hover:block z-50 w-56">
-                      {item.submenu.map((subItem, subIndex) => (
-                        <Link
-                          key={subIndex}
-                          href={subItem.link}
-                          className="block px-4 py-2 text-sm text-gray-800 hover:bg-[#F39C12] hover:text-white"
-                        >
-                          {subItem.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                ) : (
-                  <Link
-                    href={item.link}
-                    className="text-black hover:border-[#F39C12] hover:border-b-2 transition duration-200"
-                  >
-                    {item.name}
-                  </Link>
-                )}
-              </div>
+  return (
+    <div
+      key={index}
+      className="relative cursor-pointer font-inter text-[15px] group"
+    >
+      {item.name === "Services" ? (
+        <div
+          className="relative"
+          onMouseEnter={() => {
+            clearTimeout(hideMenuTimeout.current);
+            setShowMegaMenu(true);
+          }}
+          onMouseLeave={() => {
+            hideMenuTimeout.current = setTimeout(
+              () => setShowMegaMenu(false),
+              300
+            );
+          }}
+        >
+          <Link
+            href={item.link || "#"}
+            className={`text-black hover:border-[#F39C12] hover:border-b-2 transition duration-200 ${
+              isActive ? "border-b-2 border-[#F39C12]" : ""
+            }`}
+          >
+            {item.name}
+          </Link>
+        </div>
+      ) : item.submenu ? (
+        <div>
+          <Link
+            href={item.link || "#"}
+            className={`text-black hover:border-[#F39C12] hover:border-b-2 transition duration-200 ${
+              isActive ? "border-b-2 border-[#F39C12]" : ""
+            }`}
+          >
+            {item.name}
+          </Link>
+
+          <div className="absolute bg-white shadow-lg rounded-md hidden group-hover:block z-50 w-56">
+            {item.submenu.map((subItem, subIndex) => (
+              <Link
+                key={subIndex}
+                href={subItem.link || "#"}
+                className="block px-4 py-2 text-sm text-gray-800 hover:bg-[#F39C12] hover:text-white"
+              >
+                {subItem.name}
+              </Link>
             ))}
+          </div>
+        </div>
+      ) : (
+        <Link
+          href={item.link || "#"}
+          className={`text-black hover:border-[#F39C12] hover:border-b-2 transition duration-200 ${
+            isActive ? "border-b-2 border-[#F39C12]" : ""
+          }`}
+        >
+          {item.name}
+        </Link>
+      )}
+    </div>
+  );
+})}
+
           </div>
 
           {/* Mega Menu */}
@@ -233,7 +275,7 @@ const Header = ({ handleDonateClick }) => {
                     megaMenu.servicesType.map((service, index) => (
                       <Link
                         key={index}
-                        href={`/${service.slug}`}
+                        href={`/services/${service.slug}`}
                         onClick={() => setShowMegaMenu(false)}
                         className="flex hover:bg-[#F6F6F6] py-3 px-2 items-start gap-2"
                       >
@@ -249,21 +291,21 @@ const Header = ({ handleDonateClick }) => {
 
                 {/* Blogs */}
                 <div className="w-1/3 bg-[#F6F6F6] rounded-lg p-6">
-                  <h3 className="text-lg mb-4">New Blogs</h3>
+                  <h3 className="text-lg  mb-4">New Blogs</h3>
+
+                  {/* Mapping Blog Items */}
                   {megaMenu?.blogs?.map((blog) => (
                     <div key={blog.id} className="flex items-start gap-4 mb-4">
-                      <Image
+                      <img
                         src={`${Image_Url}/${blog.main_image}`}
                         alt={blog.blog_title}
-                        width={64}
-                        height={64}
-                        className="rounded-md object-cover"
+                        className="w-16 h-16 rounded-md object-cover"
                       />
-
                       <div>
-                        <h4 className="text-sm">{blog.blog_title}</h4>
+                        <h4 className="text-sm ">{blog.blog_title}</h4>
+                        {/* <p className="text-black text-xs">{blog.description}</p> */}
                         <Link
-                          href={`/blog/${blog.slug}`}
+                        href={`/blog/${blog.slug}`}
                           onClick={() => setShowMegaMenu(false)}
                           className="text-[#F39C12] text-xs flex items-center gap-1 mt-1"
                         >
@@ -272,6 +314,8 @@ const Header = ({ handleDonateClick }) => {
                       </div>
                     </div>
                   ))}
+
+                  {/* Blog Buttons */}
                   <div className="flex gap-2 mt-4">
                     {["Donate Now", "Subscribe Now", "Join Now"].map(
                       (btn, i) => (
@@ -280,9 +324,9 @@ const Header = ({ handleDonateClick }) => {
                           onClick={
                             btn === "Donate Now"
                               ? () => {
-                                  handleDonateClick();
-                                  setShowMegaMenu(false);
-                                }
+                                handleDonateClick();
+                                setShowMegaMenu(false);
+                              }
                               : undefined
                           }
                           className="border border-black text-[12px] px-3 py-2 font-inter rounded-[41px] hover:bg-gray-200 transition"

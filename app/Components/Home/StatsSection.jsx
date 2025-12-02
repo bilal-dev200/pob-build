@@ -7,13 +7,13 @@ const StatsSection = () => {
   const { ref, inView } = useInView({ triggerOnce: true });
 
   const stats = [
-    { value: 157772, label: "Diagnostics" },
-    { value: 3613, label: "Laser Treatment" },
-    { value: 134, label: "Corneal Transplant" },
-    { value: 73505, label: "Other Procedures" },
-    { value: 1739628, label: "OPD" },
-    { value: 156145, label: "Cataract Surgeries" },
-    { value: 9502, label: "Vitreo-Retinal Surgeries" },
+    { value: 161858, label: "Diagnostics" },
+    { value: 31495, label: "Laser Treatment" },
+    { value: 140, label: "Corneal Transplant" },
+    { value: 74077, label: "Other Procedures" },
+    { value: 1766323, label: "OPD" },
+    { value: 159257, label: "Cataract Surgeries" },
+    { value: 9652, label: "Vitreo-Retinal Surgeries" },
   ];
 
   return (

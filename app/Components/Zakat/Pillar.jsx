@@ -29,7 +29,8 @@ const Pillar = ({ section_4 }) => {
         </h2>
 
         <div
-          className="text-sm text-[#777777] my-4 font-inter"
+          className="text-sm text-[#777777] my-4 font-inter prose
+             prose-li:list-disc prose-ul:list-disc prose-li:ml-6"
           dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(piller_of_compassion_description),
           }}

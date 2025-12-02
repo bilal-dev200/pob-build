@@ -789,7 +789,7 @@ const Footer = () => {
           <div className=" lg:border-r text-white border-white lg:w-1/4 lg:p-10 md:pl-0 py-10 flex flex-col justify-center items-center md:items-start gap-5">
             <img
               className="w-56 object-cover "
-              src="/logo.png"
+              src="/poblogo.png"
               alt="Company Logo"
             />
             <p className="text-[14px] text-center font-inter">

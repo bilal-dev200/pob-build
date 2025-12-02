@@ -58,11 +58,11 @@ const OrbitDisorder = ({
         </div>
 
         {/* Section 8: Orbital Disease Cards */}
-        <OrbitalDisease
+        {/* <OrbitalDisease
           section_8_main_heading={section_8_main_heading}
           section_8_sub_heading={section_8_sub_heading}
           section_8_cards={section_8_cards}
-        />
+        /> */}
       </div>
     </div>
   );

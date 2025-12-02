@@ -36,7 +36,7 @@ const Values = () => {
     ],
     Excellence: [
       {
-        src: "/excellence.jpg",
+        src: "/excellence .jpg",
         alt: "Excellence",
         name: "At POB Trust, excellence is our standard. We are dedicated to providing the highest quality eye care, using advanced treatments and best medical practices. Our doctors and staff continuously improve their skills to ensure top-notch service. Every patient deserves the best, and we strive to exceed expectations in every aspect of care. From diagnosis to treatment, we maintain excellence in everything we do, ensuring that our patients receive the finest eye care possible.",
       },

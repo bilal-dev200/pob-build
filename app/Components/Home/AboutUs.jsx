@@ -22,7 +22,7 @@ const AboutUs = ({ img, yellowHead, head, pageName, btnName, des }) => {
 
         {pageName === "home" ? (
           <div
-  className="font-inter text-gray-600"
+  className="font-inter text-gray-600 prose"
   dangerouslySetInnerHTML={{ __html: sanitizedDescription }}
 />
 

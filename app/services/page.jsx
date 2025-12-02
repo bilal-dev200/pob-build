@@ -1,5 +1,6 @@
-import Banner from "../Components/Banner/Banner";
+
 import Faqs from "../Components/Home/Faqs";
+import Banner from "../Components/Service/Banner";
 import AboutUs from "../Components/ServicesList/AboutUs";
 import CataractSurgeries from "../Components/ServicesList/CataractSurgeries";
 import Diagnostics from "../Components/ServicesList/Diagnostics";

@@ -10,6 +10,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  trailingSlash: true, 
   images: {
     domains: ['pob.datainovate.com'], // your remote domain
   },
@@ -17,4 +18,3 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-  

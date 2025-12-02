@@ -1,15 +1,9 @@
 @import "tailwindcss";
 
 
-body {
-  /* background: var(--background); */
-  /* color: var(--foreground); */
-  /* font-family: Arial, Helvetica, sans-serif; */
-}
-
 @font-face {
   font-family: 'Amaranth';
-  src: url('/fontcopy/Amaranth/Amaranth-Regular.ttf') format('truetype');
+  src: url('/public/font/Amaranth/Amaranth-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -17,7 +11,7 @@ body {
 
 @font-face {
   font-family: 'Inter';
-  src: url('/fontcopy/Inter/Inter-Regular.ttf') format('truetype');
+  src: url('/public/font/Inter/Inter-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -25,7 +19,7 @@ body {
 
 @font-face {
   font-family: 'Poppins';
-  src: url('/fontcopy/Poppins/Poppins-Regular.ttf') format('truetype');
+  src: url('/public/font/Poppins/Poppins-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -33,8 +27,50 @@ body {
 
 @font-face {
   font-family: 'Antonio';
-  src: url('/fontcopy/Antonio/Antonio-Regular.ttf') format('truetype');
+  src: url('/public/fontcopy/Antonio/Antonio-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+}
+
+.Amaranth{
+  font-family: 'Amaranth';
+}
+
+.inter{
+  font-family: 'Inter';
+}
+
+.poppins{
+  font-family: 'Poppins';
+}
+
+.antonio{
+  font-family: 'Antonio';
+}
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }

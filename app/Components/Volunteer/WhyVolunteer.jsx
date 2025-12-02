@@ -30,9 +30,9 @@ const WhyVolunteer = ({ heading, para, handleDonateClick }) => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row pt-8 pb-12 md:pb-24 gap-8 md:gap-4 items-center justify-center">
-      <div className="md:w-7/12 w-[90%] font-inter flex flex-col gap-2 items-center">
-        <h2 className="text-4xl max-w-2xl font-Amaranth text-center">
+    <div className="flex flex-col md:flex-row  pt-8 pb-12 md:pb-24 gap-8  md:gap-4 items-center justify-center ">
+      <div className="  md:w-7/12 w-[90%] font-inter items-center  md:items-center  flex flex-col gap-2 ">
+        <h2 className=" text-4xl  max-w-2xl font-Amaranth  text-center ">
           {heading}
         </h2>
         <div
@@ -40,15 +40,14 @@ const WhyVolunteer = ({ heading, para, handleDonateClick }) => {
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(para) }}
         ></div>
 
-        <div
-          onClick={() => setIsOpen(true)}
-          className="mt-4 px-4 py-2 w-fit rounded-full text-[12px] font-inter text-white bg-[#28A745] cursor-pointer hover:bg-white hover:text-[#28A745] transition-all duration-300"
+        <div onClick={() => setIsOpen(true)}
+          className="mt-4 px-4 py-2 w-fit rounded-full text-[12px] font-inter text-white bg-[#28A745] group-hover:bg-white group-hover:text-[#28A745] transition-all duration-300 cursor-pointer"
         >
           Register for Volunteering
         </div>
+        <p></p>
       </div>
-
-      {/* Modal */}
+       {/* Modal */}
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-2xl shadow-lg w-[90%] max-w-md relative">
