@@ -13,7 +13,6 @@ const Pillar = ({ section_4 }) => {
 
   return (
     <section className="flex flex-col md:flex-row items-center justify-center gap-10 px-4 md:px-10 py-12 bg-white md:w-[95%]">
-      {/* Image Section */}
       <div className="w-full md:w-4/12 flex justify-center">
         <img
           src={`${Image_Url}/${piller_of_compassion_image}`}

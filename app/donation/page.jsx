@@ -119,12 +119,12 @@ export default async function DonationPage() {
         pageName="donation"
       />
 
-      {/* <HowYourDonation
+      <HowYourDonation
         donationPageHowYourDonationHelp={
           donation?.donationPageHowYourDonationHelp
         }
         pageName="donation"
-      /> */}
+      />
 
       <Future />
 

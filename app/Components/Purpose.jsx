@@ -53,13 +53,15 @@ const Purpose = ({ yellowHead, head, des, pageName, btnName, img,  }) => {
         ) : (
           // Only render sanitized HTML on client
           isClient && des && (
-  <p
-    className="text-[#777777] text-center md:text-start 2xl:text-xl 2xl:max-w-xl md:max-w-lg mt-4"
-    dangerouslySetInnerHTML={{
-      __html: des
-        
-    }}
-  />
+ <div
+  className="text-[#777777] text-center md:text-start 2xl:text-xl 2xl:max-w-xl md:max-w-lg mt-4"
+  dangerouslySetInnerHTML={{
+    __html: des
+      ?.replaceAll("<ul>", "<ul class='list-disc list-inside space-y-2'>")
+      ?.replaceAll("<li>", "<li class='text-[#777777] leading-relaxed'>")
+  }}
+/>
+
 ) 
 
         )}
