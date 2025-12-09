@@ -6,9 +6,50 @@ import fetchData from "../Components/fetchData";
 import ContactSection from "../Components/ContactUs/ContactSection";
 import OurStory from "../Components/ContactUs/OurStory";
 
+// Server-side fetch for SEO + initial data
+const getContactPageData = async () => {
+  const contactRes = await fetchData({
+    url: "contact-us-page/show-data",
+    slug: "contact-us/",
+  });
+
+  return {
+    contactData: contactRes?.data || null,
+  };
+};
+
+export async function generateMetadata() {
+  const { contactData } = await getContactPageData();
+
+  return {
+    title: contactData?.pagesSeoDetail?.meta_title || "Contact POB Trust",
+    description:
+      contactData?.pagesSeoDetail?.meta_description ||
+      "Get in touch with POB Trust Karachi",
+    keywords: contactData?.pagesSeoDetail?.focus_keyword || undefined,
+    alternates: { canonical: contactData?.pagesSeoDetail?.canonical_url },
+    openGraph: {
+      title: contactData?.pagesSeoDetail?.meta_title,
+      description: contactData?.pagesSeoDetail?.meta_description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: contactData?.pagesSeoDetail?.meta_title,
+      description: contactData?.pagesSeoDetail?.meta_description,
+    },
+    other: contactData?.pagesSeoDetail?.schema
+      ? [
+          {
+            tagName: "script",
+            type: "application/ld+json",
+            innerHTML: contactData.pagesSeoDetail.schema,
+          },
+        ]
+      : [],
+  };
+}
 
 export default async function ContactPage() {
-
   const contact = await fetchData({
     url: "contact-us-page/show-data",
     slug: "contact-us/",

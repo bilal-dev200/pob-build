@@ -1,20 +1,3 @@
-// import axios from '../../Utils/axios'; // adjust the path if needed
-
-// const fetchData = async ({ url, slug, setState, setLoading }) => {
-//   try {
-//     if (setLoading) setLoading(true);
-//     const res = await axios.public.post(url, { slug });
-//     setState(res.data?.data);
-//   } catch (error) {
-//     console.error("Error fetching data:", error);
-//   } finally {
-//     if (setLoading) setLoading(false);
-//   }
-// };
-
-// export default fetchData;
-
-
 import axios from "axios";
 
 const BASE_URL =
@@ -22,16 +5,15 @@ const BASE_URL =
     ? process.env.NEXT_PUBLIC_API_URL_LIVE
     : process.env.NEXT_PUBLIC_API_URL_LOCAL;
 
-const fetchData = async ({ url, slug, setState }) => {
+const fetchData = async ({ url, slug }) => {
   try {
     if (!BASE_URL) throw new Error("API base URL is not defined");
 
-    // Properly combine base URL and endpoint
-    const apiUrl = new URL(url, BASE_URL).href;
+    const apiUrl = `${BASE_URL}${url}`; // agar url me / included hai to theek hai
 
     const res = await axios.post(apiUrl, { slug });
-    console.log('api', res)
-    // setState(res.data.data || null );
+    console.log("API RESPONSE:", res.data);
+
     return res.data?.data || null;
   } catch (error) {
     console.error("Error fetching data:", error.message);
@@ -40,4 +22,3 @@ const fetchData = async ({ url, slug, setState }) => {
 };
 
 export default fetchData;
-

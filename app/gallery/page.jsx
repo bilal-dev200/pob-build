@@ -2,25 +2,63 @@
 
 import Banner from "../Components/Banner/Banner";
 import MediaGallery from "../Components/Gallerypage/MediaGallery";
-// import VideoSection from "@/Components/Gallery/VideoSection";
+import VideoSection from "../Components/Gallerypage/VideoSection";
 import CustomSeo from "../Components/CustomSeo";
 import { Image_Url } from "../../Utils/const";
 import fetchData from "../Components/fetchData";
-import VideoSection from "../Components/Gallerypage/VideoSection";
 
-// ---- Server-side Fetch in Next.js ----
-export default async function GalleryPage() {
-  // Fetch data server-side
-  const gallery = await fetchData({
+// -------------------------------------------
+// Server-side fetch function
+// -------------------------------------------
+const getGalleryData = async () => {
+  return await fetchData({
     url: "gallery-page/show-data",
     slug: "gallery/",
   });
+};
 
-  console.log("GALLERY DATA:", gallery);
+// -------------------------------------------
+// App Router metadata function
+// -------------------------------------------
+export async function generateMetadata() {
+  const gallery = await getGalleryData();
 
+  return {
+    title: gallery?.galleryPageSeo?.meta_title || "POB Trust Karachi Gallery",
+    description:
+      gallery?.galleryPageSeo?.meta_description ||
+      "Explore photos and videos of POB Trust Karachi",
+    keywords: gallery?.galleryPageSeo?.focus_keyword || undefined,
+    alternates: {
+      canonical: gallery?.galleryPageSeo?.canonical_url || undefined,
+    },
+    openGraph: {
+      title: gallery?.galleryPageSeo?.meta_title,
+      description: gallery?.galleryPageSeo?.meta_description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: gallery?.galleryPageSeo?.meta_title,
+      description: gallery?.galleryPageSeo?.meta_description,
+    },
+    other: gallery?.galleryPageSeo?.schema
+      ? [
+          {
+            tagName: "script",
+            type: "application/ld+json",
+            innerHTML: gallery.galleryPageSeo.schema,
+          },
+        ]
+      : [],
+  };
+}
 
+// -------------------------------------------
+// GalleryPage component (default export)
+// -------------------------------------------
+export default async function GalleryPage() {
+  const gallery = await getGalleryData();
 
-  // Format images (same logic)
   const formattedGalleryImages =
     gallery?.gallery_images?.images?.map((img, index) => ({
       image: `${Image_Url}${img.images}`,
@@ -30,7 +68,7 @@ export default async function GalleryPage() {
 
   return (
     <div className="pt-20 md:pt-32">
-      {/* SEO */}
+      {/* ---------------- SEO Rendering ---------------- */}
       <CustomSeo
         title={gallery?.galleryPageSeo?.meta_title}
         des={gallery?.galleryPageSeo?.meta_description}
@@ -38,6 +76,7 @@ export default async function GalleryPage() {
         canonicalUrl={gallery?.galleryPageSeo?.canonical_url}
         schema={gallery?.galleryPageSeo?.schema}
       />
+      {/* ------------------------------------------------ */}
 
       {/* Banner */}
       <Banner
@@ -52,7 +91,7 @@ export default async function GalleryPage() {
       <MediaGallery
         gallery_heading={gallery?.gallery_heading}
         imageGalleryImages={formattedGalleryImages}
-      />    
+      />
 
       {/* Videos */}
       <VideoSection />

@@ -70,11 +70,11 @@ const Header = () => {
     { name: "Academics", link: "/academics/" },
     { name: "Services", link: "/services/" },
     { name: "Gallery", link: "/gallery/" },
-    {
-      name: "Media & Publications",
-      link: "/media-publications",
-      submenu: [{ name: "Annual Reports", link: "/annual-reports/" }],
-    },
+    // {
+    //   name: "Media & Publications",
+    //   link: "/media-publications",
+    //   submenu: [{ name: "Annual Reports", link: "/annual-reports/" }],
+    // },
     { name: "Blogs", link: "/blog/" },
     {
       name: "How You Can Help",

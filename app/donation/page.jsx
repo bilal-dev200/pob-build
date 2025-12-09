@@ -73,6 +73,7 @@ import DonationSection from "../Components/DonationSection";
 import Future from "../Components/Donation/Future";
 import ImpactSection from "../Components/Donation/ImpactSection";
 import CustomSeo from "../Components/CustomSeo";
+import HowYourDonation from "../Components/Donation/HowYourDonation";
 
 export default async function DonationPage() {
 
@@ -80,6 +81,8 @@ export default async function DonationPage() {
     url: "donation-page/show-data",
     slug: "donation/",
   });
+  // console.log("donation" , donation);
+  
 
   return (
     <div className="pt-20 md:pt-32">
@@ -115,6 +118,13 @@ export default async function DonationPage() {
         donationPageHowYourDonationHelp={donation?.donationPageHowYourDonationHelp}
         pageName="donation"
       />
+
+      {/* <HowYourDonation
+        donationPageHowYourDonationHelp={
+          donation?.donationPageHowYourDonationHelp
+        }
+        pageName="donation"
+      /> */}
 
       <Future />
 

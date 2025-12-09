@@ -41,10 +41,11 @@ const WhyVolunteer = ({ heading, para, handleDonateClick }) => {
         ></div>
 
         <div onClick={() => setIsOpen(true)}
-          className="mt-4 px-4 py-2 w-fit rounded-full text-[12px] font-inter text-white bg-[#28A745] group-hover:bg-white group-hover:text-[#28A745] transition-all duration-300 cursor-pointer"
-        >
-          Register for Volunteering
-        </div>
+  className="mt-4 px-4 py-2 w-fit rounded-full text-[12px] font-inter text-white bg-[#28A745] group-hover:bg-white group-hover:text-[#28A745] transition-all duration-300 cursor-pointer"
+>
+  Donate Now
+</div>
+
         <p></p>
       </div>
        {/* Modal */}

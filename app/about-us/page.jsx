@@ -1,15 +1,7 @@
+// app/about-us/page.jsx
 import React from "react";
 import Banner from "../Components/Banner/Banner";
-// import OurStory from "../../Components/About/OurStory/OurStory";
-// import Timeline from "../../Components/About/Timeline/Timeline";
-// import VisionSection from "../../Components/About/VisionSection/VisionSection";
-// import Mission from "../../Components/About/Mission/Mission";
-// import Values from "../../Components/About/Values/Values";
-// import LeaderShip from "../../Components/LeaderShip/LeaderShip";
-// import Hope from "../../Components/About/Hope/Hope";
-// import Vision from "../../Components/About/Vision/Vision";
 import Faqs from "../Components/Home/Faqs";
-import CustomSeo from "../Components/CustomSeo";
 import fetchData from "../Components/fetchData";
 import { Image_Url } from "../../Utils/const";
 import OurStory from "../Components/About/OurStory";
@@ -21,23 +13,58 @@ import LeaderShip from "../Components/Leadership";
 import Hope from "../Components/About/Hope";
 import Vision from "../Components/About/Vision";
 
-export default async function AboutPage() {
-  // Fetch data server-side
-  const about = await fetchData({
+// -------------------------------------------
+// Server-side fetch function
+// -------------------------------------------
+const getAboutData = async () => {
+  return await fetchData({
     url: "about-us-page/show-data",
     slug: "about-us/",
   });
+};
+
+// -------------------------------------------
+// App Router metadata function
+// -------------------------------------------
+export async function generateMetadata() {
+  const about = await getAboutData();
+
+  return {
+    title: about?.aboutUsPageSeo?.meta_title || "About Us - POB Trust",
+    description: about?.aboutUsPageSeo?.meta_description || "About POB Trust Karachi",
+    keywords: about?.aboutUsPageSeo?.focus_keyword || undefined,
+    alternates: {
+      canonical: about?.aboutUsPageSeo?.canonical_url || undefined,
+    },
+    openGraph: {
+      title: about?.aboutUsPageSeo?.meta_title,
+      description: about?.aboutUsPageSeo?.meta_description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: about?.aboutUsPageSeo?.meta_title,
+      description: about?.aboutUsPageSeo?.meta_description,
+    },
+    other: about?.aboutUsPageSeo?.schema
+      ? [
+          {
+            tagName: "script",
+            type: "application/ld+json",
+            innerHTML: about.aboutUsPageSeo.schema,
+          },
+        ]
+      : [],
+  };
+}
+
+// -------------------------------------------
+// AboutPage component (default export)
+// -------------------------------------------
+export default async function AboutPage() {
+  const about = await getAboutData();
 
   return (
     <div className="pt-20 md:pt-32">
-      <CustomSeo
-        title={about?.aboutUsPageSeo?.meta_title}
-        des={about?.aboutUsPageSeo?.meta_description}
-        focuskey={about?.aboutUsPageSeo?.focus_keyword}
-        canonicalUrl={about?.aboutUsPageSeo?.canonical_url}
-        schema={about?.aboutUsPageSeo?.schema}
-      />
-
       <Banner image={`${Image_Url}/${about?.aboutUsBannerImage?.image_path}`} />
 
       <h1 className="md:text-6xl text-2xl text-black text-center font-Amaranth px-4 pb-4 rounded-md">
@@ -45,12 +72,12 @@ export default async function AboutPage() {
       </h1> 
 
       <OurStory aboutOurStorySection={about?.aboutOurStorySection} />
-       <Timeline />
+      <Timeline />
       <VisionSection aboutUsVisionSection={about?.aboutUsVisionSection} />
       <Mission aboutusPageOurMession={about?.aboutusPageOurMession} />
-     <Values />
+      <Values />
       <LeaderShip /> 
-    <Hope aboutusPageBojectives={about?.aboutusPageBojectives} />
+      <Hope aboutusPageBojectives={about?.aboutusPageBojectives} />
       <Vision aboutusPageWhatWeDo={about?.aboutusPageWhatWeDo} />
       <Faqs faqs={about?.aboutUsPageFaq} />
     </div>

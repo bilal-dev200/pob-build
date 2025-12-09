@@ -1,15 +1,8 @@
 import Banner from "../Components/Banner/Banner";
-// import ArabicVerse from "@/components/donation/ArabicVerse";
-// import Vision2 from "@/components/Waqf/Vision2";
-// import WaqfSection from "@/components/Waqf/WaqfSection";
-// import DonationSection from "@/components/Waqf/DonationSection";
-// import ContactSection from "@/components/Sadaqah/ContactSection/ContactSection";
-// import ImpactSection from "@/components/Waqf/ImpactSection";
-// import WaqfBenefits from "@/components/Waqf/WaqfBenefits";
 import fetchData from "../Components/fetchData";
 import CustomSeo from "../Components/CustomSeo";
 import Faqs from "../Components/Home/Faqs";
-import ContactSection from "../Components/ContactSection"
+import ContactSection from "../Components/ContactSection";
 import { Image_Url } from "../../Utils/const";
 import ArabicVerse from "../Components/Donation/ArabicVerse";
 import Vision2 from "../Components/Waqf/Vision2";
@@ -20,15 +13,51 @@ import DonationSection from "../Components/Waqf/DonationSection";
 
 export const dynamic = "force-dynamic"; // ensures fresh fetch every time
 
+// Server-side fetch for SEO + initial data
+const getWaqfPageData = async () => {
+  const waqfRes = await fetchData({ url: "waqf-page/show-data", slug: "waqf/" });
+  return { waqfData: waqfRes?.data || null };
+};
+
+// SEO metadata
+export async function generateMetadata() {
+  const { waqfData } = await getWaqfPageData();
+
+  return {
+    title: waqfData?.pagesSeoDetail?.meta_title || "Waqf Page",
+    description: waqfData?.pagesSeoDetail?.meta_description || "Learn about Waqf with POB Trust",
+    keywords: waqfData?.pagesSeoDetail?.focus_keyword || undefined,
+    alternates: { canonical: waqfData?.pagesSeoDetail?.canonical_url },
+    openGraph: {
+      title: waqfData?.pagesSeoDetail?.meta_title,
+      description: waqfData?.pagesSeoDetail?.meta_description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: waqfData?.pagesSeoDetail?.meta_title,
+      description: waqfData?.pagesSeoDetail?.meta_description,
+    },
+    other: waqfData?.pagesSeoDetail?.schema
+      ? [
+          {
+            tagName: "script",
+            type: "application/ld+json",
+            innerHTML: waqfData.pagesSeoDetail.schema,
+          },
+        ]
+      : [],
+  };
+}
+
 export default async function WaqfPage() {
   const arabicVerseTranslation =
     "Whatever Allah has bestowed upon His Messenger from the people of the towns—[it is] for Allah ... indeed, Allah is severe in penalty.";
 
-  // ===== SERVER-SIDE FETCH (NO useEffect) =====
   const waqf = await fetchData({ url: "waqf-page/show-data", slug: "waqf/" });
 
   return (
     <div className="pt-20 md:pt-32">
+      {/* SEO */}
       <CustomSeo
         title={waqf?.pagesSeoDetail?.meta_title}
         des={waqf?.pagesSeoDetail?.meta_description}
@@ -61,9 +90,9 @@ export default async function WaqfPage() {
         button="Contact Us"
       />
 
-       <WaqfBenefits section_6={waqf?.section_6} />
+      <WaqfBenefits section_6={waqf?.section_6} />
 
-        <DonationSection section_7={waqf?.section_7} />
+      <DonationSection section_7={waqf?.section_7} />
 
       <Faqs faqs={waqf?.zakatPageFaqs} />
     </div>

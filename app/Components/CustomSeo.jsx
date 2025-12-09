@@ -26,7 +26,10 @@ const CustomSeo = ({ title, des, focuskey, canonicalUrl, schema }) => {
 
       {/* Schema markup */}
       {schema && (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: schema }}
+        />
       )}
     </Head>
   );

@@ -1,7 +1,5 @@
 import React from "react";
 import Image from "next/image";
-
-// import CustomSeo from "../Components/CustomSeo";
 import fetchData from "../Components/fetchData";
 import { Image_Url } from "./../../Utils/const";
 import Banner from "../Components/Banner/Banner";
@@ -14,16 +12,48 @@ import Contribute from "../Components/Contribute";
 import SadaqahBenefits from "../Components/SadaqahBenefits";
 import CustomSeo from "../Components/CustomSeo";
 
+// Server-side fetch for SEO + initial data
+const getSadaqahPageData = async () => {
+  const sadaqahRes = await fetchData({ url: "sadaqah-page/show-data", slug: "sadaqah/" });
+  return { sadaqahData: sadaqahRes?.data || null };
+};
+
+// SEO metadata
+export async function generateMetadata() {
+  const { sadaqahData } = await getSadaqahPageData();
+
+  return {
+    title: sadaqahData?.pagesSeoDetail?.meta_title || "Sadaqah Page",
+    description: sadaqahData?.pagesSeoDetail?.meta_description || "Learn about Sadaqah with POB Trust",
+    keywords: sadaqahData?.pagesSeoDetail?.focus_keyword || undefined,
+    alternates: { canonical: sadaqahData?.pagesSeoDetail?.canonical_url },
+    openGraph: {
+      title: sadaqahData?.pagesSeoDetail?.meta_title,
+      description: sadaqahData?.pagesSeoDetail?.meta_description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: sadaqahData?.pagesSeoDetail?.meta_title,
+      description: sadaqahData?.pagesSeoDetail?.meta_description,
+    },
+    other: sadaqahData?.pagesSeoDetail?.schema
+      ? [
+          {
+            tagName: "script",
+            type: "application/ld+json",
+            innerHTML: sadaqahData.pagesSeoDetail.schema,
+          },
+        ]
+      : [],
+  };
+}
 
 export default async function SadaqahPage() {
-
-  const sadaqah = await fetchData({
-    url: "sadaqah-page/show-data",
-    slug: "sadaqah/",
-  });
+  const sadaqah = await fetchData({ url: "sadaqah-page/show-data", slug: "sadaqah/" });
 
   return (
     <div className="pt-20 md:pt-32">
+      {/* SEO */}
       <CustomSeo
         title={sadaqah?.pagesSeoDetail?.meta_title}
         des={sadaqah?.pagesSeoDetail?.meta_description}

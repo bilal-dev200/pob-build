@@ -11,8 +11,43 @@ import { Image_Url } from "../../Utils/const";
 import fetchData from "../Components/fetchData";
 import CustomSeo from "../Components/CustomSeo";
 
+// Server-side fetch for SEO + initial data
+const getZakatPageData = async () => {
+  const zakatRes = await fetchData({ url: "zakat-page/show-data", slug: "zakat/" });
+  return { zakatData: zakatRes?.data || null };
+};
+
+// SEO metadata
+export async function generateMetadata() {
+  const { zakatData } = await getZakatPageData();
+
+  return {
+    title: zakatData?.pagesSeoDetail?.meta_title || "Zakat Page",
+    description: zakatData?.pagesSeoDetail?.meta_description || "Learn about Zakat with POB Trust",
+    keywords: zakatData?.pagesSeoDetail?.focus_keyword || undefined,
+    alternates: { canonical: zakatData?.pagesSeoDetail?.canonical_url },
+    openGraph: {
+      title: zakatData?.pagesSeoDetail?.meta_title,
+      description: zakatData?.pagesSeoDetail?.meta_description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: zakatData?.pagesSeoDetail?.meta_title,
+      description: zakatData?.pagesSeoDetail?.meta_description,
+    },
+    other: zakatData?.pagesSeoDetail?.schema
+      ? [
+          {
+            tagName: "script",
+            type: "application/ld+json",
+            innerHTML: zakatData.pagesSeoDetail.schema,
+          },
+        ]
+      : [],
+  };
+}
+
 export default async function ZakatPage() {
-  // Server-side fetch
   const zakat = await fetchData({ url: "zakat-page/show-data", slug: "zakat/" });
 
   const arabicVerseTranslation =
@@ -20,13 +55,15 @@ export default async function ZakatPage() {
 
   return (
     <div className="pt-20 md:pt-32">
+      {/* SEO */}
       <CustomSeo
-                    title={zakat?.pagesSeoDetail?.meta_title}
-                    des={zakat?.pagesSeoDetail?.meta_description}
-                    focuskey={zakat?.pagesSeoDetail?.focus_keyword}
-                    canonicalUrl={zakat?.pagesSeoDetail?.canonical_url}
-                    schema={zakat?.pagesSeoDetail?.schema}
-                  />
+        title={zakat?.pagesSeoDetail?.meta_title}
+        des={zakat?.pagesSeoDetail?.meta_description}
+        focuskey={zakat?.pagesSeoDetail?.focus_keyword}
+        canonicalUrl={zakat?.pagesSeoDetail?.canonical_url}
+        schema={zakat?.pagesSeoDetail?.schema}
+      />
+
       <Banner
         title={zakat?.section_1?.image_banner_heading}
         image={`${Image_Url}/${zakat?.section_1?.image_banner}`}
