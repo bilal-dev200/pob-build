@@ -1,9 +1,10 @@
-// app/blogs/[slug]/page.jsx
+
+"use client";
 
 import { Image_Url } from "../../../Utils/const";
 import fetchData from "../../Components/fetchData";
 import CustomSeo from "../../Components/CustomSeo";
-import BlogBanner from "../../Components/BlogBanner";
+import {BlogBanner} from "../../Components/BlogBanner";
 
 // -------------------------------------------
 // Server-side fetch for metadata
@@ -54,7 +55,7 @@ export async function generateMetadata({ params }) {
 // -------------------------------------------
 // Client-side BlogDetailPage component
 // -------------------------------------------
-"use client";
+
 
 import React, { useState, useEffect } from "react";
 import axios from "../../../Utils/axios";

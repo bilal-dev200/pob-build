@@ -1,4 +1,4 @@
-import React from "react";
+
 import Banner from "../Components/Banner/Banner";
 import ArabicVerse from "../Components/Donation/ArabicVerse";
 import ImpactSection from "../Components/Zakat/ZakatImpact";

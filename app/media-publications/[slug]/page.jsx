@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from "react";
 
-import { BlogBanner } from "../../Components/BlogBanner";
+import  {BlogBanner}  from "../../Components/BlogBanner";
 import { RxCross2 } from "react-icons/rx";
 
 import JoditEditor from "jodit-react";

@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Image_Url } from "../../Utils/const";
 import CustomSeo from "../Components/CustomSeo";
 import Banner from "../Components/Banner/Banner";

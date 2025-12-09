@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../../Utils/axios";
 import { Image_Url } from "../../../Utils/const";
-import { BlogBanner } from "../../Components/BlogBanner";
+import  {BlogBanner}  from "../../Components/BlogBanner";
 import CustomSeo from "../../Components/CustomSeo";
 import DOMPurify from "isomorphic-dompurify";
 import { useRouter, usePathname } from "next/navigation";

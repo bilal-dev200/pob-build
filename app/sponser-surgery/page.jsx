@@ -13,7 +13,6 @@ import SecondCount from '../Components/SecondCount';
 import CustomSeo from '../Components/CustomSeo';
 import fetchData from '../Components/fetchData';
 
-// ===== Server-side fetch for SEO + Schema =====
 const getSponserSurgeriesSeo = async () => {
   const res = await fetchData({ url: "sponser-surgeries-page/show-data", slug: "sponser-surgeries/" });
   return { seoData: res?.data || null };
