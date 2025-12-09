@@ -6,56 +6,6 @@ import fetchData from "../../Components/fetchData";
 import CustomSeo from "../../Components/CustomSeo";
 import {BlogBanner} from "../../Components/BlogBanner";
 
-// -------------------------------------------
-// Server-side fetch for metadata
-// -------------------------------------------
-const getBlogData = async (slug) => {
-  if (!slug) return null;
-  const res = await fetchData({
-    url: "blogs/detail",
-    data: { blog_slug: `${slug}/` }, // server-side post payload
-  });
-  return res?.data || null;
-};
-
-// -------------------------------------------
-// App Router metadata function
-// -------------------------------------------
-export async function generateMetadata({ params }) {
-  const blog = await getBlogData(params.slug);
-
-  return {
-    title: blog?.meta_title || "POB Blog",
-    description: blog?.meta_description || "Read latest updates from POB Trust Karachi",
-    keywords: blog?.focus_keyword || undefined,
-    alternates: {
-      canonical: blog?.canonical_url || undefined,
-    },
-    openGraph: {
-      title: blog?.meta_title,
-      description: blog?.meta_description,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: blog?.meta_title,
-      description: blog?.meta_description,
-    },
-    other: blog?.schema
-      ? [
-          {
-            tagName: "script",
-            type: "application/ld+json",
-            innerHTML: blog.schema,
-          },
-        ]
-      : [],
-  };
-}
-
-// -------------------------------------------
-// Client-side BlogDetailPage component
-// -------------------------------------------
-
 
 import React, { useState, useEffect } from "react";
 import axios from "../../../Utils/axios";
