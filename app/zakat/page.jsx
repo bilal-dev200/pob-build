@@ -14,7 +14,7 @@ import CustomSeo from "../Components/CustomSeo";
 // Server-side fetch for SEO + initial data
 const getZakatPageData = async () => {
   const zakatRes = await fetchData({ url: "zakat-page/show-data", slug: "zakat/" });
-  return { zakatData: zakatRes?.data || null };
+  return { zakatData: zakatRes || null };
 };
 
 // SEO metadata
