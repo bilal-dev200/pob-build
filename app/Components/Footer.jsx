@@ -674,14 +674,14 @@ const Footer = () => {
                   <FaEnvelope className="text-white" />
                   <strong className=" ">Email Address:</strong>
                 </div>
-                {/* <p className="ml-6 mt-1">careers@pobkarachi.org</p>
+                {/* <p className="ml-6 mt-1">info@pobkarachi.org</p>
                 <p className="ml-6">hr@pobtrust.org</p> */}
                 <p className="ml-6 mt-1">
                   <a
-                    href="mailto:careers@pobkarachi.org"
+                    href="mailto:info@pobkarachi.org"
                     className="hover:text-[#f39c12]"
                   >
-                    careers@pobkarachi.org
+                    info@pobkarachi.org
                   </a>
                 </p>
                 <p className="ml-6">
@@ -921,7 +921,7 @@ const Footer = () => {
                       <FaEnvelope className="text-white" />
                       <strong className=" ">Email Address:</strong>
                     </div>
-                    <p className="ml-6 mt-1">careers@pobkarachi.org</p>
+                    <p className="ml-6 mt-1">info@pobkarachi.org</p>
                     <p className="ml-6">hr@pobtrust.org</p>
                   </div>
                 </div>

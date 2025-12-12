@@ -117,10 +117,10 @@ const Header = () => {
             <p className="flex gap-1 text-[11px]">
               <IoMdMail className="mt-[1px] text-[14px]" />
               <a
-                href="mailto:careers@pobkarachi.org"
+                href="mailto:info@pobkarachi.org"
                 className="hover:text-[#F39C12]"
               >
-                careers@pobkarachi.org
+                info@pobkarachi.org
               </a>{" "}
               :
               <a href="mailto:hr@pobtrust.org" className="hover:text-[#F39C12]">
