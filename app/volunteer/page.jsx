@@ -37,12 +37,12 @@ export async function generateMetadata() {
     },
     other: volunteerData?.pagesSeoDetail?.schema
       ? [
-          {
-            tagName: "script",
-            type: "application/ld+json",
-            innerHTML: volunteerData.pagesSeoDetail.schema,
-          },
-        ]
+        {
+          tagName: "script",
+          type: "application/ld+json",
+          innerHTML: volunteerData.pagesSeoDetail.schema,
+        },
+      ]
       : [],
   };
 }

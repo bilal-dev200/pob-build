@@ -31,31 +31,22 @@ const getHomeData = async () => {
 export async function generateMetadata() {
   const home = await getHomeData();
 
+  const CANONICAL = "https://yourdomain.com/";
+  console.log("seo" ,home?.pagesSeoDetail)
   return {
     title: home?.pagesSeoDetail?.meta_title || "Default Title",
-    description: home?.pagesSeoDetail?.meta_description || "Default description",
-    keywords: home?.pagesSeoDetail?.focus_keyword || undefined,
+    description:
+      home?.pagesSeoDetail?.meta_description || "Default description",
+
     alternates: {
-      canonical: home?.pagesSeoDetail?.canonical_url || undefined,
+      canonical: process.env.NEXT_PUBLIC_URL +  home?.pagesSeoDetail?.canonical_url || CANONICAL,
     },
+
     openGraph: {
+      url: home?.pagesSeoDetail?.canonical_url || CANONICAL,
       title: home?.pagesSeoDetail?.meta_title,
       description: home?.pagesSeoDetail?.meta_description,
     },
-    twitter: {
-      card: "summary_large_image",
-      title: home?.pagesSeoDetail?.meta_title,
-      description: home?.pagesSeoDetail?.meta_description,
-    },
-    other: home?.pagesSeoDetail?.schema
-      ? [
-          {
-            tagName: "script",
-            type: "application/ld+json",
-            innerHTML: home.pagesSeoDetail.schema,
-          },
-        ]
-      : [],
   };
 }
 
@@ -107,7 +98,7 @@ export default async function HomePage() {
       <Faqs faqs={home?.homePageFaqs} />
       <BlogsSection />
       <Moments />
-      <NewsEvents />
+      {/* <NewsEvents /> */}
     </div>
   );
 }

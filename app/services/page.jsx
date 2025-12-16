@@ -21,6 +21,7 @@ import fetchData from "../Components/fetchData";
 // Server-side fetch function
 // -------------------------------------------
 const getServiceData = async () => {
+  console.log("Fetching service data...");
   return await fetchData({
     url: "services-pages/detail/",
     slug: "services/",
@@ -32,7 +33,7 @@ const getServiceData = async () => {
 // -------------------------------------------
 export async function generateMetadata() {
   const service = await getServiceData();
-  console.log("serviceservice" , service);
+  // console.log("service seo", service?.meta_title);
   
 
   return {
@@ -40,7 +41,7 @@ export async function generateMetadata() {
     description: service?.meta_description || "Explore our comprehensive eye care services",
     keywords: service?.focus_keyword || undefined,
     alternates: {
-      canonical: service?.canonical_url || undefined,
+      canonical: process.env.NEXT_PUBLIC_URL + service?.canonical_url || undefined,
     },
     openGraph: {
       title: service?.meta_title,
@@ -67,7 +68,6 @@ export async function generateMetadata() {
 // ServiceList component (default export)
 // -------------------------------------------
 export default async function ServiceList() {
-  const service = await getServiceData();
 
   const pages_faq_details = [
     {

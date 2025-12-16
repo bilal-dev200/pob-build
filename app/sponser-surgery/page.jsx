@@ -58,7 +58,7 @@ const SponserSurgeries = () => {
         des={"Join us to sponser surgeries and save lives"}
         focuskey={undefined}
         canonicalUrl={undefined}
-        schema={undefined} // Schema already handled in generateMetadata
+        schema={undefined} 
       />
 
       <Banner

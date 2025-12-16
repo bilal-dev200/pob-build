@@ -9,7 +9,7 @@ const fetchData = async ({ url, slug }) => {
   try {
     if (!BASE_URL) throw new Error("API base URL is not defined");
 
-    const apiUrl = `${BASE_URL}${url}`; // agar url me / included hai to theek hai
+    const apiUrl = `${BASE_URL}${url}`;
 
     const res = await axios.post(apiUrl, { slug });
     console.log("API RESPONSE:", res.data);

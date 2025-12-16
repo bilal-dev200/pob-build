@@ -4,28 +4,7 @@ import { Image_Url } from "../../../Utils/const";
 import BlogBody from "../../Components/BlogBody";
 
 const Efforts = ({ section_3 }) => {
-  // const Data = [
-  //   {
-  //     icon: "/e1.png",
-  //     title: "Personal Growth",
-  //     des: "Gain valuable skills, experience, and a sense of fulfillment through volunteering..",
-  //   },
-  //   {
-  //     icon: "/e2.png",
-  //     title: "Creating Lasting",
-  //     des: "Your contributions leave a lasting legacy, benefiting future generations..",
-  //   },
-  //   {
-  //     icon: "/e3.png",
-  //     title: "Changing Lives",
-  //     des: "Your efforts provide direct assistance to those in need, making a tangible difference..",
-  //   },
-  //   {
-  //     icon: "/e4.png",
-  //     title: "Building Stronger",
-  //     des: "Strengthen social responsibility and foster unity within society..",
-  //   },
-  // ];
+  console.log("section_3" , section_3)
   if (!section_3) return null;
 
   const {

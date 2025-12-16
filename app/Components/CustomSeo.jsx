@@ -9,7 +9,6 @@ const CustomSeo = ({ title, des, focuskey, canonicalUrl, schema }) => {
       ? canonicalUrl
       : `${mainUrl}${canonicalUrl}`
     : null;
-
   return (
     <Head>
       {/* Title */}
