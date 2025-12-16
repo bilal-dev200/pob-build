@@ -123,8 +123,8 @@ const Header = () => {
                 info@pobkarachi.org
               </a>{" "}
               :
-              <a href="mailto:hr@pobtrust.org" className="hover:text-[#F39C12]">
-                hr@pobtrust.org
+              <a href="mailto:careers@pobkarachi.org" className="hover:text-[#F39C12]">
+                careers@pobkarachi.org
               </a>
             </p>
           </div>

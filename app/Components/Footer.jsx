@@ -675,7 +675,7 @@ const Footer = () => {
                   <strong className=" ">Email Address:</strong>
                 </div>
                 {/* <p className="ml-6 mt-1">info@pobkarachi.org</p>
-                <p className="ml-6">hr@pobtrust.org</p> */}
+                <p className="ml-6">careers@pobkarachi.org</p> */}
                 <p className="ml-6 mt-1">
                   <a
                     href="mailto:info@pobkarachi.org"
@@ -686,10 +686,10 @@ const Footer = () => {
                 </p>
                 <p className="ml-6">
                   <a
-                    href="mailto:hr@pobtrust.org"
+                    href="mailto:careers@pobkarachi.org"
                     className="hover:text-[#f39c12]"
                   >
-                    hr@pobtrust.org
+                    careers@pobkarachi.org
                   </a>
                 </p>
               </div>
@@ -922,7 +922,7 @@ const Footer = () => {
                       <strong className=" ">Email Address:</strong>
                     </div>
                     <p className="ml-6 mt-1">info@pobkarachi.org</p>
-                    <p className="ml-6">hr@pobtrust.org</p>
+                    <p className="ml-6">careers@pobkarachi.org</p>
                   </div>
                 </div>
               )}
