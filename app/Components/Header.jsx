@@ -275,7 +275,7 @@ const Header = () => {
                     megaMenu.servicesType.map((service, index) => (
                       <Link
                         key={index}
-                        href={`/services/${service.slug}`}
+                        href={`/${service.slug}`}
                         onClick={() => setShowMegaMenu(false)}
                         className="flex hover:bg-[#F6F6F6] py-3 px-2 items-start gap-2"
                       >

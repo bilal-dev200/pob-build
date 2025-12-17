@@ -120,7 +120,7 @@ const ContactSection = ({ contactUsHeading, hospitalLocation }) => {
               <div className="w-1/2">
                 <label className="text-black text-sm">Phone Number</label>
                 <PhoneInput
-                  country={"ae"}
+                  country={"pk"}
                   value={formData.contact}
                   onChange={handlePhoneChange}
                   inputStyle={{

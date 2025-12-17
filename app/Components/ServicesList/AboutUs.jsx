@@ -31,7 +31,7 @@ const AboutUs = ({ img, yellowHead, head, pageName, btnName, slug }) => {
             : "Cataracts cloud the natural lens of the eye, making vision blurry and dim. At POB Eye Hospital, cataract extraction replaces this lens with a clear artificial one to restore brightness. The surgery is safe, effective, and improves the quality of life for patients of all ages. Our skilled specialists ensure comfort and excellent outcomes. Learn how cataract treatment can bring clarity back to your life. Click below to read the full details of this service."}
         </p>
 
-        <Link href={`/services/${slug}`}>
+        <Link href={`/${slug}`}>
           <button className="mt-4 px-4 py-2 w-32 rounded-full text-[12px] font-inter text-white bg-[#28A745] hover:bg-white hover:text-[#28A745] transition-all duration-300">
             {btnName || "View Details"}
           </button>

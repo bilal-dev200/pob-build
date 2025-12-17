@@ -563,18 +563,18 @@ const Footer = () => {
             </div>
             {/* Quick Links */}
 
- {/* <div className="absolute bottom-16 left-20 flex items-end justify-start gap-3 mb-10 ml-14">
+ <div className="absolute bottom-16 left-20 flex items-end justify-start gap-3 mb-10 ml-14">
   <img
-    src="/logoleft.png"
+    src="/poblogo.png"
     alt="Logo 1"
     className="h-[6.3rem] md:h-[7.3rem] object-contain"
   />
-  <img
+  {/* <img
     src="/logoright.png"
     alt="Logo 2"
     className="h-[6.3rem] md:h-[7.3rem] object-contain"
-  />
-</div> */}
+  /> */}
+</div>
 
 
 

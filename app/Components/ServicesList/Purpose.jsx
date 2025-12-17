@@ -19,15 +19,11 @@ const Purpose = ({ yellowHead, head, pageName, btnName, img, slug }) => {
           {head || "Expert Care For Everyday Vision"}
         </h2>
         <p className="text-[#777777] text-center md:text-start md:max-w-xl">
-          Optometry ensures everyday vision remains clear and comfortable. At
-          POB Eye Hospital, our optometrists provide eye exams, prescription
-          lenses, and early detection of potential conditions. Patients of all
-          ages benefit from customized care. This service plays a vital role in
-          maintaining healthy eyesight. Want to see how optometry supports your
-          daily sight? Click below to read more about this service.
+       Optometry ensures everyday vision remains clear and comfortable. At POB Eye Hospital, our optometrists provide eye exams, prescription lenses, and early detection of potential conditions. Patients of all ages benefit from customized care. This service plays a vital role in maintaining healthy eyesight.
+Want to see how optometry supports your daily sight? Click below to read more about this service.
         </p>
 
-        <Link href={`/services/${slug}`}>
+        <Link href={`/${slug}`}>
           <button
             onClick={handleDonateClick}
             className="mt-4 px-4 py-2 w-32 rounded-full text-[12px] font-inter text-white bg-[#28A745] hover:bg-white hover:text-[#28A745] transition-all duration-300"

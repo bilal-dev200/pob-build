@@ -98,7 +98,7 @@ export default async function HomePage() {
       <Faqs faqs={home?.homePageFaqs} />
       <BlogsSection />
       <Moments />
-      {/* <NewsEvents /> */}
+      <NewsEvents />
     </div>
   );
 }

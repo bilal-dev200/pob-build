@@ -44,7 +44,7 @@ const OrbitDisorder = ({slug}) => {
           ensures a brighter future. Click below for more details about this
           service.
         </p>
-        <Link href={`/services/${slug}`}>
+        <Link href={`/${slug}`}>
           <button className="mt-4 px-4 py-2 w-32 rounded-full text-[12px] font-inter text-white bg-[#28A745] hover:bg-white hover:text-[#28A745] transition-all duration-300">
             View Details
           </button>
