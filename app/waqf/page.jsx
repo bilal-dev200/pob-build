@@ -1,6 +1,6 @@
 import Banner from "../Components/Banner/Banner";
 import fetchData from "../Components/fetchData";
-import CustomSeo from "../Components/CustomSeo";
+
 import Faqs from "../Components/Home/Faqs";
 import ContactSection from "../Components/ContactSection";
 import { Image_Url } from "../../Utils/const";
@@ -39,12 +39,12 @@ export async function generateMetadata() {
     },
     other: waqfData?.pagesSeoDetail?.schema
       ? [
-          {
-            tagName: "script",
-            type: "application/ld+json",
-            innerHTML: waqfData.pagesSeoDetail.schema,
-          },
-        ]
+        {
+          tagName: "script",
+          type: "application/ld+json",
+          innerHTML: waqfData.pagesSeoDetail.schema,
+        },
+      ]
       : [],
   };
 }
@@ -58,13 +58,13 @@ export default async function WaqfPage() {
   return (
     <div className="pt-20 md:pt-32">
       {/* SEO */}
-      <CustomSeo
-        title={waqf?.pagesSeoDetail?.meta_title}
-        des={waqf?.pagesSeoDetail?.meta_description}
-        focuskey={waqf?.pagesSeoDetail?.focus_keyword}
-        canonicalUrl={waqf?.pagesSeoDetail?.canonical_url}
-        schema={waqf?.pagesSeoDetail?.schema}
-      />
+      {/* SEO Schema */}
+      {waqf?.pagesSeoDetail?.schema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: waqf.pagesSeoDetail.schema }}
+        />
+      )}
 
       <Banner
         title={waqf?.section_1?.banner_heading}
