@@ -11,7 +11,7 @@ import ImpactSection from "../Components/Waqf/ImpactSection";
 import WaqfBenefits from "../Components/Waqf/WaqfBenefits";
 import DonationSection from "../Components/Waqf/DonationSection";
 
-export const dynamic = "force-dynamic"; // ensures fresh fetch every time
+// export const dynamic = "force-dynamic"; // ensures fresh fetch every time
 
 // Server-side fetch for SEO + initial data
 const getWaqfPageData = async () => {

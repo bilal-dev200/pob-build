@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import DOMPurify from "isomorphic-dompurify"; 
+import DOMPurify from "isomorphic-dompurify";
 import Link from "next/link";
 
 const ContactSection = ({ heading, para, button }) => {
@@ -15,7 +15,7 @@ const ContactSection = ({ heading, para, button }) => {
           <div className="flex px-2 justify-end flex-col md:items-end md:text-right">
             <div
               className="w-72 md:w-[22rem] text-sm font-poppins"
-              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(para) }}
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(para || "") }}
             ></div>
 
             <Link href="/contact-us/">

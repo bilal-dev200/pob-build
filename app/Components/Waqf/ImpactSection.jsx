@@ -1,5 +1,5 @@
-    import React from "react";
-    import DOMPurify from "isomorphic-dompurify"; 
+import React from "react";
+import DOMPurify from "isomorphic-dompurify";
 import { Image_Url } from "../../../Utils/const";
 
 const ImpactSection = ({ section_4 }) => {
@@ -31,7 +31,7 @@ const ImpactSection = ({ section_4 }) => {
               <div
                 className="text-sm text-[#777777] font-inter"
                 dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(options[0]?.description),
+                  __html: DOMPurify.sanitize(options?.[0]?.description),
                 }}
               ></div>
             </div>
@@ -39,13 +39,13 @@ const ImpactSection = ({ section_4 }) => {
           <div className="flex flex-col gap-4">
             <div className="mx-auto md:mx-0 w-fit px-1 py-1 rounded-full bg-[#F39C12]">
               <img
-                src={`${Image_Url}/${options[1]?.image}`}
+                src={`${Image_Url}/${options?.[1]?.image}`}
                 alt="Healthcare Waqf"
                 className="w-10 h-10 rounded-full object-cover"
               />
             </div>
             <div className="text-center md:text-start">
-              <h3 className="font-Amaranth text-lg mb-2">{options[1]?.heading}</h3>
+              <h3 className="font-Amaranth text-lg mb-2">{options?.[1]?.heading}</h3>
               {/* <p className="text-gray-600 text-sm">
                                 It is a long established fact that a reader will be distracted by
                                 the readable content of a page when looking at its layout.
@@ -53,7 +53,7 @@ const ImpactSection = ({ section_4 }) => {
               <div
                 className="text-sm text-[#777777] font-inter"
                 dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(options[1]?.description),
+                  __html: DOMPurify.sanitize(options?.[1]?.description),
                 }}
               ></div>
             </div>
@@ -74,13 +74,13 @@ const ImpactSection = ({ section_4 }) => {
           <div className="flex flex-col gap-4">
             <div className="mx-auto md:mx-0 w-fit px-1 py-1 rounded-full bg-[#F39C12]">
               <img
-                src={`${Image_Url}/${options[2]?.image}`}
+                src={`${Image_Url}/${options?.[2]?.image}`}
                 alt="Mosque Waqf"
                 className="w-10 h-10 rounded-full object-cover"
               />
             </div>
             <div className="text-center md:text-start">
-              <h3 className="font-Amaranth text-lg mb-2">{options[2]?.heading}</h3>
+              <h3 className="font-Amaranth text-lg mb-2">{options?.[2]?.heading}</h3>
               {/* <p className="text-gray-600 text-sm">
                                 It is a long established fact that a reader will be distracted by
                                 the readable content of a page when looking at its layout.
@@ -88,7 +88,7 @@ const ImpactSection = ({ section_4 }) => {
               <div
                 className="text-gray-600 text-sm font-inter"
                 dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(options[2]?.description),
+                  __html: DOMPurify.sanitize(options?.[2]?.description),
                 }}
               ></div>
             </div>
@@ -96,13 +96,13 @@ const ImpactSection = ({ section_4 }) => {
           <div className="flex flex-col gap-4">
             <div className="mx-auto md:mx-0 w-fit px-1 py-1 rounded-full bg-[#F39C12]">
               <img
-                src={`${Image_Url}/${options[3]?.image}`}
+                src={`${Image_Url}/${options?.[3]?.image}`}
                 alt="General Charity Waqf"
                 className="w-10 h-10 rounded-full object-cover"
               />
             </div>
             <div className="text-center md:text-start">
-              <h3 className="font-Amaranth text-lg mb-2">{options[3]?.heading}</h3>
+              <h3 className="font-Amaranth text-lg mb-2">{options?.[3]?.heading}</h3>
               {/* <p className="text-gray-600 text-sm">
                                 It is a long established fact that a reader will be distracted by
                                 the readable content of a page when looking at its layout.
@@ -110,7 +110,7 @@ const ImpactSection = ({ section_4 }) => {
               <div
                 className="text-gray-600 text-sm font-inter"
                 dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(options[3]?.description),
+                  __html: DOMPurify.sanitize(options?.[3]?.description),
                 }}
               ></div>
             </div>

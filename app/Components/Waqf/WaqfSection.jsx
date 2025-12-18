@@ -1,6 +1,6 @@
 "use client";
 
-import DOMPurify from "isomorphic-dompurify"; 
+import DOMPurify from "isomorphic-dompurify";
 import { Image_Url } from "../../../Utils/const";
 
 const WaqfSection = ({ section_3 }) => {
@@ -10,11 +10,11 @@ const WaqfSection = ({ section_3 }) => {
 
   // fallback function if prop not passed
   const handleDonateClick = () => {
-  const footer = document.getElementById("footer-section");
-  if (footer) {
-    footer.scrollIntoView({ behavior: "smooth" });
-  }
-};
+    const footer = document.getElementById("footer-section");
+    if (footer) {
+      footer.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section className="bg-green-600 py-16 px-6 md:px-20 my-6 flex flex-col md:flex-row items-center">
@@ -47,19 +47,19 @@ const WaqfSection = ({ section_3 }) => {
         <div className="bg-white shadow-lg p-6 rounded-lg flex items-center space-x-4 relative">
           <div className="absolute left-0 top-0 h-full w-2 bg-[#F39C12] rounded-l-lg"></div>
           <img
-            src={`${Image_Url}/${options[0]?.image}`}
+            src={`${Image_Url}/${options?.[0]?.image}`}
             alt=""
             className="w-14 h-14"
           />
           <div>
-            <h3 className="text-xl font-Amaranth">{options[0]?.heading}</h3>
+            <h3 className="text-xl font-Amaranth">{options?.[0]?.heading}</h3>
             {/* <p className="text-gray-600 text-sm">
               It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
             </p> */}
             <div
               className="text-gray-600 text-sm font-inter"
               dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(options[0]?.description),
+                __html: DOMPurify.sanitize(options?.[0]?.description),
               }}
             ></div>
           </div>
@@ -68,19 +68,19 @@ const WaqfSection = ({ section_3 }) => {
         <div className="bg-white shadow-lg p-6 rounded-lg flex items-center space-x-4 relative">
           <div className="absolute left-0 top-0 h-full w-2 bg-[#F39C12] rounded-l-lg"></div>
           <img
-            src={`${Image_Url}/${options[1]?.image}`}
+            src={`${Image_Url}/${options?.[1]?.image}`}
             alt=""
             className="w-14 h-14"
           />
           <div>
-            <h3 className="text-xl ">{options[1]?.heading}</h3>
+            <h3 className="text-xl ">{options?.[1]?.heading}</h3>
             {/* <p className="text-gray-600 text-sm">
               It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
             </p> */}
             <div
               className="text-gray-600 text-sm"
               dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(options[1]?.description),
+                __html: DOMPurify.sanitize(options?.[1]?.description),
               }}
             ></div>
           </div>
@@ -89,19 +89,19 @@ const WaqfSection = ({ section_3 }) => {
         <div className="bg-white shadow-lg p-6 rounded-lg flex items-center space-x-4 relative">
           <div className="absolute left-0 top-0 h-full w-2 bg-[#F39C12] rounded-l-lg"></div>
           <img
-            src={`${Image_Url}/${options[2]?.image}`}
+            src={`${Image_Url}/${options?.[2]?.image}`}
             alt=""
             className="w-14 h-14"
           />
           <div>
-            <h3 className="text-xl ">{options[2]?.heading}</h3>
+            <h3 className="text-xl ">{options?.[2]?.heading}</h3>
             {/* <p className="text-gray-600 text-sm">
               It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
             </p> */}
             <div
               className="text-gray-600 text-sm"
               dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(options[2]?.description),
+                __html: DOMPurify.sanitize(options?.[2]?.description),
               }}
             ></div>
           </div>
