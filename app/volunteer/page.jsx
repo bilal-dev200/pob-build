@@ -24,8 +24,8 @@ export async function generateMetadata() {
   return {
     title: volunteerData?.pagesSeoDetail?.meta_title || "Volunteer Page",
     description: volunteerData?.pagesSeoDetail?.meta_description || "Join us as a volunteer with POB Trust",
-    keywords: volunteerData?.pagesSeoDetail?.focus_keyword || undefined,
-    alternates: { canonical: volunteerData?.pagesSeoDetail?.canonical_url },
+    keywords: volunteerData?.pagesSeoDetail?.focus_keyword ,
+    alternates: { canonical:  process.env.NEXT_PUBLIC_URL + "/volunteer/"},
     openGraph: {
       title: volunteerData?.pagesSeoDetail?.meta_title,
       description: volunteerData?.pagesSeoDetail?.meta_description,

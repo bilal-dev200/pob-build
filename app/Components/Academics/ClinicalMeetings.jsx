@@ -17,7 +17,7 @@ const ClinicalMeetings = ({ section_7 }) => {
         <img
           src={`${Image_Url}/${weekly_clinical_meetings_image}`}
           alt="Eye Checkup"
-          className="w-82 h-142 "
+          className="w-[343px] h-[470px] "
         />
       </div>
 

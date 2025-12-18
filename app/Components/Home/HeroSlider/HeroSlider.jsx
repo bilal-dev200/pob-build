@@ -14,7 +14,7 @@ import "./HeroSlider.css";
 
 const HeroSlider = ({ slides }) => {
   return (
-    <div className="relative w-full max-w-[100%]  h-[330px] md:h-[100vh] 2xl:h-[100vh] overflow-hidden">
+    <div className="relative w-full max-w-[100%]  h-[330px] md:h-screen  overflow-hidden">
       <Swiper
         loop={true}
         direction={"vertical"}
@@ -33,7 +33,7 @@ const HeroSlider = ({ slides }) => {
                   src={`${Image_Url}/${slide.image}`}
                   alt={slide.alt_text || "Slider Image"}
                   fill
-                  className="md:object-cover mt-20"
+                  className="object-fit mt-20"
                 />
               </div>
 

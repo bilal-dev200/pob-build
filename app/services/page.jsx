@@ -41,7 +41,7 @@ export async function generateMetadata() {
     description: service?.meta_description || "Explore our comprehensive eye care services",
     keywords: service?.focus_keyword || undefined,
     alternates: {
-      canonical: process.env.NEXT_PUBLIC_URL + service?.canonical_url || undefined,
+      canonical: process.env.NEXT_PUBLIC_URL + "/services/"|| undefined,
     },
     openGraph: {
       title: service?.meta_title,

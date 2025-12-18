@@ -24,7 +24,7 @@ const SecondCount = () => {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="  bg-[rgba(243,156,18,0.7)]  bg-opacity-80 w-full  rounded-[10px] h-full    ">
+        <div className="  bg-[#dd9117]  opacity-80  w-full  rounded-[10px] h-full    ">
           {/* Overlay */}
           <div className=" flex flex-col justify-center h-[100%] items-center text-center  ">
             {/* Heading */}

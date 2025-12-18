@@ -26,7 +26,7 @@ export async function generateMetadata() {
     title: sadaqahData?.pagesSeoDetail?.meta_title || "Sadaqah Page",
     description: sadaqahData?.pagesSeoDetail?.meta_description || "Learn about Sadaqah with POB Trust",
     keywords: sadaqahData?.pagesSeoDetail?.focus_keyword || undefined,
-    alternates: { canonical: sadaqahData?.pagesSeoDetail?.canonical_url },
+    alternates: { canonical: process.env.NEXT_PUBLIC_URL + "/sadaqah/" },
     openGraph: {
       title: sadaqahData?.pagesSeoDetail?.meta_title,
       description: sadaqahData?.pagesSeoDetail?.meta_description,

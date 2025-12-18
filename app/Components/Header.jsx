@@ -24,6 +24,7 @@ const Header = () => {
   const pathname = usePathname();
   const [showNav, setShowNav] = useState(false);
   const [showServiceDropdown, setShowServiceDropdown] = useState(false);
+  const [showHelpDropdown, setShowHelpDropdown] = useState(false);
   const [showMediaDropdown, setShowMediaDropdown] = useState(false);
   const [megaMenu, setMegaMenu] = useState(null);
   const [showMegaMenu, setShowMegaMenu] = useState(false);
@@ -39,12 +40,12 @@ const Header = () => {
   //   setMegaMenu(data)
   // }, []);
 
-    useEffect(() => {
+  useEffect(() => {
     const fetchMegaMenu = async () => {
-      
+
       try {
         const res = await axios.public.post("services-types/index");
-      console.log('das',res)
+        console.log('das', res)
         setMegaMenu(res.data.data || []);
       } catch (error) {
         console.error("Error fetching mega menu:", error);
@@ -58,11 +59,11 @@ const Header = () => {
     fetchMegaMenu();
   }, []);
   const handleDonateClick = () => {
-  const footer = document.getElementById("footer-section");
-  if (footer) {
-    footer.scrollIntoView({ behavior: "smooth" });
-  }
-};
+    const footer = document.getElementById("footer-section");
+    if (footer) {
+      footer.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const desktopNavItems = [
     { name: "Home", link: "/" },
@@ -183,74 +184,71 @@ const Header = () => {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex w-full max-w-[1300px] mx-auto justify-center items-center gap-6 px-3">
-           {desktopNavItems.map((item, index) => {
-  const normalizePath = (path) => (path || "").replace(/\/$/, "");
-  const isActive = normalizePath(pathname) === normalizePath(item.link || "");
+            {desktopNavItems.map((item, index) => {
+              const normalizePath = (path) => (path || "").replace(/\/$/, "");
+              const isActive = normalizePath(pathname) === normalizePath(item.link || "");
 
-  return (
-    <div
-      key={index}
-      className="relative cursor-pointer font-inter text-[15px] group"
-    >
-      {item.name === "Services" ? (
-        <div
-          className="relative"
-          onMouseEnter={() => {
-            clearTimeout(hideMenuTimeout.current);
-            setShowMegaMenu(true);
-          }}
-          onMouseLeave={() => {
-            hideMenuTimeout.current = setTimeout(
-              () => setShowMegaMenu(false),
-              300
-            );
-          }}
-        >
-          <Link
-            href={item.link || "#"}
-            className={`text-black hover:border-[#F39C12] hover:border-b-2 transition duration-200 ${
-              isActive ? "border-b-2 border-[#F39C12]" : ""
-            }`}
-          >
-            {item.name}
-          </Link>
-        </div>
-      ) : item.submenu ? (
-        <div>
-          <Link
-            href={item.link || "#"}
-            className={`text-black hover:border-[#F39C12] hover:border-b-2 transition duration-200 ${
-              isActive ? "border-b-2 border-[#F39C12]" : ""
-            }`}
-          >
-            {item.name}
-          </Link>
+              return (
+                <div
+                  key={index}
+                  className="relative cursor-pointer font-inter text-[15px] group"
+                >
+                  {item.name === "Services" ? (
+                    <div
+                      className="relative"
+                      onMouseEnter={() => {
+                        clearTimeout(hideMenuTimeout.current);
+                        setShowMegaMenu(true);
+                      }}
+                      onMouseLeave={() => {
+                        hideMenuTimeout.current = setTimeout(
+                          () => setShowMegaMenu(false),
+                          300
+                        );
+                      }}
+                    >
+                      <Link
+                        href={item.link || "#"}
+                        className={`text-black hover:border-[#F39C12] hover:border-b-2 transition duration-200 ${isActive ? "border-b-2 border-[#F39C12]" : ""
+                          }`}
+                      >
+                        {item.name}
+                      </Link>
+                    </div>
+                  ) : item.submenu ? (
+                    <div>
+                      <Link
+                        href={item.link || "#"}
+                        className={`text-black hover:border-[#F39C12] hover:border-b-2 transition duration-200 ${isActive ? "border-b-2 border-[#F39C12]" : ""
+                          }`}
+                      >
+                        {item.name}
+                      </Link>
 
-          <div className="absolute bg-white shadow-lg rounded-md hidden group-hover:block z-50 w-56">
-            {item.submenu.map((subItem, subIndex) => (
-              <Link
-                key={subIndex}
-                href={subItem.link || "#"}
-                className="block px-4 py-2 text-sm text-gray-800 hover:bg-[#F39C12] hover:text-white"
-              >
-                {subItem.name}
-              </Link>
-            ))}
-          </div>
-        </div>
-      ) : (
-        <Link
-          href={item.link || "#"}
-          className={`text-black hover:border-[#F39C12] hover:border-b-2 transition duration-200 ${
-            isActive ? "border-b-2 border-[#F39C12]" : ""
-          }`}
-        >
-          {item.name}
-        </Link>
-      )}
-    </div>
-  );
-})}
+                      <div className="absolute bg-white shadow-lg rounded-md hidden group-hover:block z-50 w-56">
+                        {item.submenu.map((subItem, subIndex) => (
+                          <Link
+                            key={subIndex}
+                            href={subItem.link || "#"}
+                            className="block px-4 py-2 text-sm text-gray-800 hover:bg-[#F39C12] hover:text-white"
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.link || "#"}
+                      className={`text-black hover:border-[#F39C12] hover:border-b-2 transition duration-200 ${isActive ? "border-b-2 border-[#F39C12]" : ""
+                        }`}
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                </div>
+              );
+            })}
 
           </div>
 
@@ -305,7 +303,7 @@ const Header = () => {
                         <h4 className="text-sm ">{blog.blog_title}</h4>
                         {/* <p className="text-black text-xs">{blog.description}</p> */}
                         <Link
-                        href={`/blog/${blog.slug}`}
+                          href={`/blog/${blog.slug}`}
                           onClick={() => setShowMegaMenu(false)}
                           className="text-[#F39C12] text-xs flex items-center gap-1 mt-1"
                         >
@@ -373,9 +371,8 @@ const Header = () => {
 
         {/* Mobile Menu */}
         <div
-          className={`fixed inset-0 bg-black h-screen z-50 bg-opacity-50 transition-transform transform ${
-            showNav ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`fixed inset-0 bg-black/30 h-screen z-50 bg-opacity-50 transition-transform transform ${showNav ? "translate-x-0" : "translate-x-full"
+            }`}
           onClick={() => setShowNav(false)}
         >
           <div
@@ -394,56 +391,44 @@ const Header = () => {
                   key={index}
                   className="text-black font-newsLetter border-b border-gray-500"
                 >
+                  {/* SERVICES */}
                   {item.name === "Services" ? (
                     <>
                       <div
-                        onClick={() =>
-                          setShowServiceDropdown(!showServiceDropdown)
-                        }
+                        onClick={() => setShowServiceDropdown(!showServiceDropdown)}
                         className="flex justify-between items-center py-1 cursor-pointer"
                       >
                         <span>Services</span>
-                        {showServiceDropdown ? (
-                          <FaChevronUp />
-                        ) : (
-                          <FaChevronDown />
-                        )}
+                        {showServiceDropdown ? <FaChevronUp /> : <FaChevronDown />}
                       </div>
+
                       {showServiceDropdown && (
                         <ul className="pl-4 pt-2 space-y-2 h-36 overflow-auto">
-                          {Array.isArray(megaMenu?.servicesType) &&
-                            megaMenu.servicesType.map((service, sIndex) => (
-                              <Link
-                                key={sIndex}
-                                href={`/${service.slug}`}
-                                onClick={() => setShowNav(false)}
-                                className="flex items-center gap-2 text-sm text-gray-800"
-                              >
-                                <img
-                                  src={`${Image_Url}/${service.image}`}
-                                  alt="icon"
-                                  className="w-4 h-4"
-                                />
-                                <span>{service.name}</span>
-                              </Link>
-                            ))}
+                          {megaMenu?.servicesType?.map((service, sIndex) => (
+                            <Link
+                              key={sIndex}
+                              href={`/${service.slug}`}
+                              onClick={() => setShowNav(false)}
+                              className="block text-sm text-gray-800"
+                            >
+                              {service.name}
+                            </Link>
+                          ))}
                         </ul>
                       )}
                     </>
-                  ) : item.name === "Media & Publications" ? (
+                  ) : item.submenu ? (
+                    /* HOW YOU CAN HELP */
                     <>
                       <div
-                        onClick={() => setShowMediaDropdown(!showMediaDropdown)}
+                        onClick={() => setShowHelpDropdown(!showHelpDropdown)}
                         className="flex justify-between items-center py-1 cursor-pointer"
                       >
-                        <span>Media & Publications</span>
-                        {showMediaDropdown ? (
-                          <FaChevronUp />
-                        ) : (
-                          <FaChevronDown />
-                        )}
+                        <span>{item.name}</span>
+                        {showHelpDropdown ? <FaChevronUp /> : <FaChevronDown />}
                       </div>
-                      {showMediaDropdown && item.submenu && (
+
+                      {showHelpDropdown && (
                         <ul className="pl-4 pt-2 space-y-2">
                           {item.submenu.map((sub, subIndex) => (
                             <Link
@@ -459,16 +444,18 @@ const Header = () => {
                       )}
                     </>
                   ) : (
+                    /* NORMAL LINKS */
                     <Link
-                      href={item.link || "#"}
-                      className="block py-1"
+                      href={item.link}
                       onClick={() => setShowNav(false)}
+                      className="block py-1"
                     >
                       {item.name}
                     </Link>
                   )}
                 </div>
               ))}
+
             </div>
           </div>
         </div>
