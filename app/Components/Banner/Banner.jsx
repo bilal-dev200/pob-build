@@ -15,7 +15,7 @@ const Banner = ({ title, image }) => {
 
       {/* Text Content */}
       {title && 
-      <div className="absolute left-3 top-20 md:top-44 -translate-y-1/2 z-10">
+      <div className="absolute left-3 top-10 md:top-44 -translate-y-1/2 z-10">
         <h1 className="md:text-7xl text-2xl text-white font-Amaranth w-[70%] md:w-[47%] px-4 py-2 rounded-md mt-18">
           {title}
         </h1>

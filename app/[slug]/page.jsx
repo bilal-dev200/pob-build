@@ -38,7 +38,10 @@ const getServiceData = async (slug) => {
     if (!res.ok) return null;
 
     const json = await res.json();
+    console.log("json",json);
+    
     return json?.data || null;
+
   } catch (err) {
     console.error("Service fetch error:", err);
     return null;
@@ -51,6 +54,7 @@ const getServiceData = async (slug) => {
 export async function generateMetadata({ params }) {
   const { slug } = await params; // ✅ REQUIRED
   const service = await getServiceData(slug);
+  console.log("fetched" , service)
 
   if (!service) {
     return { title: "Service Not Found" };
@@ -59,10 +63,9 @@ export async function generateMetadata({ params }) {
   return {
     title: service.meta_title,
     description: service.meta_description,
-    alternates: {
-      canonical:
-        process.env.NEXT_PUBLIC_URL + "/services" + service?.canonical_url
-    },
+    // alternates:process.env.NEXT_PUBLIC_URL + service.canonical_url || CANONICAL,},
+      canonical:` ${process.env.NEXT_PUBLIC_URL}   ${service?.canonical_url}` || "CANONICAL",
+
     openGraph: {
       title: service.meta_title,
       description: service.meta_description,
@@ -93,13 +96,13 @@ export default async function ServicePage({ params }) {
 
   return (
     <div className="pt-32">
-      <CustomSeo
+      {/* <CustomSeo
         title={service.meta_title}
         des={service.meta_description}
         focuskey={service.focus_keyword}
         canonicalUrl={service.canonical_url}
         schema={service.schema}
-      />
+      /> */}
 
       <Banner
         title={service.banner_heading}

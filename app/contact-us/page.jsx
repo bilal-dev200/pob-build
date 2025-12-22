@@ -27,7 +27,7 @@ export async function generateMetadata() {
       contactData?.pagesSeoDetail?.meta_description ||
       "Get in touch with POB Trust Karachi",
     keywords: contactData?.pagesSeoDetail?.focus_keyword || undefined,
-    alternates: { canonical: contactData?.pagesSeoDetail?.canonical_url },
+    alternates: { canonical: process.env.NEXT_PUBLIC_URL + "/contact-us/" },
     openGraph: {
       title: contactData?.pagesSeoDetail?.meta_title,
       description: contactData?.pagesSeoDetail?.meta_description,

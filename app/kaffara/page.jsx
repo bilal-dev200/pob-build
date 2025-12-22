@@ -26,7 +26,7 @@ export async function generateMetadata() {
     title: kaffaraData?.pagesSeoDetail?.meta_title || "Kaffara Page",
     description: kaffaraData?.pagesSeoDetail?.meta_description || "Learn about Kaffara with POB Trust",
     keywords: kaffaraData?.pagesSeoDetail?.focus_keyword || undefined,
-    alternates: { canonical: kaffaraData?.pagesSeoDetail?.canonical_url },
+    alternates: { canonical: process.env.NEXT_PUBLIC_URL + "/kaffara/" },
     openGraph: {
       title: kaffaraData?.pagesSeoDetail?.meta_title,
       description: kaffaraData?.pagesSeoDetail?.meta_description,

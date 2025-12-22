@@ -48,7 +48,7 @@ const DonationSection = ({ yellowHead, head, pageName, img, des }) => {
         <img
           src={img}
           alt="Donation Help"
-          className="w-132 h-92 object-cover clip-oval"
+          className="w-132 h-[218px] object-cover clip-oval"
         />
       </div>
     </section>

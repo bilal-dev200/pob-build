@@ -10,7 +10,7 @@ const AboutUs = ({ img, yellowHead, head, pageName, btnName, des }) => {
     <section className="flex flex-col md:flex-row items-center justify-center gap-10 px-6 md:px-10 md:py-16 mb-6 md:mb-0 bg-white md:w-[95%]">
       {/* Image Section */}
       <div className="w-full md:w-1/2 flex justify-center">
-        <img src={img} alt="Eye Checkup" className="w-186 h-79" />
+        <img src={img} alt="Eye Checkup" className="w-[483px] h-[194px] sm:w-[581px] sm:h-[346px] mt-7" />
       </div>
 
       {/* Text Section */}

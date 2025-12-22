@@ -91,7 +91,7 @@ const BlogsSection = () => {
 
               {/* Text overlay */}
               <div className="absolute inset-0 px-2 md:px-0 font-inter text-center md:text-start flex flex-col justify-end md:pl-5 pb-5 text-white">
-                <h2 className="text-lg font-semibold">
+                <h2 className="text-lg ">
                   {(blog.blog_title || blog.title)
                     .split(" ")
                     .slice(0, 7)
