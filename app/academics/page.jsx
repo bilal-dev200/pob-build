@@ -27,7 +27,7 @@ export async function generateMetadata() {
     description: academics?.pagesSeoDetail?.meta_description || "POB Trust Academic Programs",
     keywords: academics?.pagesSeoDetail?.focus_keyword || undefined,
     alternates: {
-      canonical: academics?.pagesSeoDetail?.canonical_url || undefined,
+      canonical: process.env.NEXT_PUBLIC_URL +  academics?.pagesSeoDetail?.canonical_url || undefined,
     },
     openGraph: {
       title: academics?.pagesSeoDetail?.meta_title,

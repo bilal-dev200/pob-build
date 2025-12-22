@@ -34,7 +34,7 @@ export async function generateMetadata() {
     description: about?.aboutUsPageSeo?.meta_description || "About POB Trust Karachi",
     keywords: about?.aboutUsPageSeo?.focus_keyword || undefined,
     alternates: {
-      canonical: about?.aboutUsPageSeo?.canonical_url || undefined,
+      canonical: process.env.NEXT_PUBLIC_URL +  about?.aboutUsPageSeo?.canonical_url || undefined,
     },
     openGraph: {
       title: about?.aboutUsPageSeo?.meta_title,

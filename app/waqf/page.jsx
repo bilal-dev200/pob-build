@@ -27,7 +27,7 @@ export async function generateMetadata() {
     title: waqfData?.pagesSeoDetail?.meta_title || "Waqf Page",
     description: waqfData?.pagesSeoDetail?.meta_description || "Learn about Waqf with POB Trust",
     keywords: waqfData?.pagesSeoDetail?.focus_keyword || undefined,
-    alternates: { canonical: waqfData?.pagesSeoDetail?.canonical_url },
+    alternates: {  canonical: process.env.NEXT_PUBLIC_URL + (waqfData?.pagesSeoDetail?.slug || "/waqf/") },
     openGraph: {
       title: waqfData?.pagesSeoDetail?.meta_title,
       description: waqfData?.pagesSeoDetail?.meta_description,

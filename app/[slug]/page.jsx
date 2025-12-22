@@ -64,8 +64,11 @@ export async function generateMetadata({ params }) {
     title: service.meta_title,
     description: service.meta_description,
     // alternates:process.env.NEXT_PUBLIC_URL + service.canonical_url || CANONICAL,},
-      canonical:` ${process.env.NEXT_PUBLIC_URL}   ${service?.canonical_url}` || "CANONICAL",
-
+      // canonical:` ${process.env.NEXT_PUBLIC_URL}   ${service?.canonical_url}` || "CANONICAL",
+ alternates: {
+      canonical:
+        process.env.NEXT_PUBLIC_URL + "/services" + service?.canonical_url
+    },
     openGraph: {
       title: service.meta_title,
       description: service.meta_description,

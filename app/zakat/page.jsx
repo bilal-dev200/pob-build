@@ -25,7 +25,7 @@ export async function generateMetadata() {
     title: zakatData?.pagesSeoDetail?.meta_title || "Zakat Page",
     description: zakatData?.pagesSeoDetail?.meta_description || "Learn about Zakat with POB Trust",
     keywords: zakatData?.pagesSeoDetail?.focus_keyword || undefined,
-    alternates: { canonical: zakatData?.pagesSeoDetail?.canonical_url },
+    alternates: { canonical: process.env.NEXT_PUBLIC_URL +  zakatData?.pagesSeoDetail?.canonical_url },
     openGraph: {
       title: zakatData?.pagesSeoDetail?.meta_title,
       description: zakatData?.pagesSeoDetail?.meta_description,

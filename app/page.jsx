@@ -31,7 +31,7 @@ const getHomeData = async () => {
 export async function generateMetadata() {
   const home = await getHomeData();
 
-  const CANONICAL = "https://yourdomain.com/";
+  const CANONICAL = "https://pobtrust.com/";
   console.log("seo" ,home?.pagesSeoDetail)
   return {
     title: home?.pagesSeoDetail?.meta_title || "Default Title",
@@ -98,7 +98,7 @@ export default async function HomePage() {
       <Faqs faqs={home?.homePageFaqs} />
       <BlogsSection />
       <Moments />
-      <NewsEvents />
+      {/* <NewsEvents /> */}
     </div>
   );
 }

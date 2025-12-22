@@ -27,7 +27,7 @@ export async function generateMetadata() {
     title: seoData?.pagesSeoDetail?.meta_title || "Sponser Surgeries",
     description: seoData?.pagesSeoDetail?.meta_description || "Join us to sponser surgeries and save lives",
     keywords: seoData?.pagesSeoDetail?.focus_keyword || undefined,
-    alternates: { canonical: seoData?.pagesSeoDetail?.canonical_url },
+    alternates: { canonical: process.env.NEXT_PUBLIC_URL +  (seoData?.pagesSeoDetail?.canonical_url || "/sponser-surgery/") },
     openGraph: {
       title: seoData?.pagesSeoDetail?.meta_title,
       description: seoData?.pagesSeoDetail?.meta_description,

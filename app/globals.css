@@ -63,3 +63,7 @@
 .font-antonio {
   font-family: 'Antonio', sans-serif;
 }
+
+.jodit-container.jodit.jodit_theme_default.jodit-wysiwyg_mode {
+  border: none;
+}

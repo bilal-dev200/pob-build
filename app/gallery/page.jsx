@@ -30,7 +30,7 @@ export async function generateMetadata() {
       "Explore photos and videos of POB Trust Karachi",
     keywords: gallery?.galleryPageSeo?.focus_keyword || undefined,
     alternates: {
-      canonical: gallery?.galleryPageSeo?.canonical_url || undefined,
+      canonical: process.env.NEXT_PUBLIC_URL + gallery?.galleryPageSeo?.canonical_url || undefined,
     },
     openGraph: {
       title: gallery?.galleryPageSeo?.meta_title,

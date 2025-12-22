@@ -75,6 +75,38 @@ import ImpactSection from "../Components/Donation/ImpactSection";
 import CustomSeo from "../Components/CustomSeo";
 import HowYourDonation from "../Components/Donation/HowYourDonation";
 
+export async function generateMetadata() {
+   const donationData = await fetchData({
+    url: "donation-page/show-data",
+    slug: "donation/",
+  });
+
+  return {
+    title: donationData?.pagesSeoDetail?.meta_title || "Donation Page",
+    description: donationData?.pagesSeoDetail?.meta_description || "Learn about Donation with POB Trust",
+    keywords: donationData?.pagesSeoDetail?.focus_keyword || undefined,
+    alternates: { canonical: process.env.NEXT_PUBLIC_URL + "/donation/" },
+    openGraph: {
+      title: donationData?.pagesSeoDetail?.meta_title,
+      description: donationData?.pagesSeoDetail?.meta_description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: donationData?.pagesSeoDetail?.meta_title,
+      description: donationData?.pagesSeoDetail?.meta_description,
+    },
+    other: donationData?.pagesSeoDetail?.schema
+      ? [
+          {
+            tagName: "script",
+            type: "application/ld+json",
+            innerHTML: donationData.pagesSeoDetail.schema,
+          },
+        ]
+      : [],
+  };
+}
+
 export default async function DonationPage() {
 
   const donation = await fetchData({
