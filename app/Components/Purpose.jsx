@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import { useState } from "react"
+import { useState,useEffect } from "react"
 
 const Purpose = ({ yellowHead, head, des, pageName, btnName, img, }) => {
   const [isClient, setIsClient] = useState(false);
