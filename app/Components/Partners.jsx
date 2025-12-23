@@ -6,6 +6,7 @@ import "swiper/css";
 import { Autoplay } from "swiper/modules";
 import SwiperCore from "swiper";
 import { Image_Url } from "../../Utils/const";
+import Image from "next/image";
 
 const Partners = ({ middleCarouselImages }) => {
   // Initialize the autoplay module
@@ -36,9 +37,11 @@ const Partners = ({ middleCarouselImages }) => {
         {middleCarouselImages?.map((review, index) => (
           <SwiperSlide key={index}>
             <div className="flex flex-col items-center text-center">
-              <img
+              <Image
                 src={`${Image_Url}/${review.image}`}
                 alt={review?.platform || `Partner ${index + 1}`}
+                width={112}
+                height={100}
                 className="w-28 object-contain"
               />
             </div>

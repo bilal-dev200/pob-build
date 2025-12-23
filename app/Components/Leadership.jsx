@@ -6,6 +6,7 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { useEffect } from "react";
 import { Navigation, Autoplay } from "swiper/modules";
+import Image from "next/image";
 
 const LeaderShip = () => {
   const categories = ["Executive", "Doctors", "Team", "Management"];
@@ -387,11 +388,10 @@ const LeaderShip = () => {
           <button
             key={category}
             onClick={() => setActiveCategory(category)}
-            className={`cursor-pointer px-4 py-2 text-[13px] rounded-[72px] ${
-              activeCategory === category
+            className={`cursor-pointer px-4 py-2 text-[13px] rounded-[72px] ${activeCategory === category
                 ? "bg-white text-black"
                 : "bg-transparent text-white"
-            }`}
+              }`}
           >
             {category}
           </button>
@@ -424,9 +424,11 @@ const LeaderShip = () => {
               key={index}
               className="flex flex-col items-center swiper-slide-custom"
             >
-              <img
+              <Image
                 src={item.src}
                 alt={item.alt}
+                width={400}
+                height={256}
                 className="w-full h-64 object-cover rounded-lg"
               />
               <div className="text-center mt-2">
@@ -439,7 +441,7 @@ const LeaderShip = () => {
       </div>
 
       {/* Custom navigation buttons */}
-     {/* <div className="absolute md:bottom-10 lg:bottom-10 lg:bg-yellow-400 z-10 w-full hidden lg:block">
+      {/* <div className="absolute md:bottom-10 lg:bottom-10 lg:bg-yellow-400 z-10 w-full hidden lg:block">
         <div
           className="leader-custom-prev border ml-5 border-[#B3B3B3] rounded-[50%] swiper-button-prev px-6 "
           style={{

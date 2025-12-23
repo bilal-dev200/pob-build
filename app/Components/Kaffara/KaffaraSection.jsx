@@ -1,19 +1,20 @@
 "use client"; // ❗ Client component for handleDonateClick
 
 import React from "react";
-import DOMPurify from "isomorphic-dompurify"; 
+import DOMPurify from "isomorphic-dompurify";
 import { Image_Url } from "../../../Utils/const";
+import Image from "next/image";
 
 const KaffaraSection = ({ section_2 }) => {
-      const handleDonateClick = () => {
-  const footer = document.getElementById("footer-section");
-  if (footer) {
-    footer.scrollIntoView({ behavior: "smooth" });
-  }
-};
+  const handleDonateClick = () => {
+    const footer = document.getElementById("footer-section");
+    if (footer) {
+      footer.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   if (!section_2) return null;
-  
+
 
   const { concept_heading, concept_description, concept_image1 } = section_2;
 
@@ -43,9 +44,11 @@ const KaffaraSection = ({ section_2 }) => {
       {/* Right Image */}
       <div className="lg:w-1/2 flex justify-center">
         <div className="w-full lg:w-4/5 rounded-tl-[50%] overflow-hidden relative">
-          <img
+          <Image
             src={`${Image_Url}/${concept_image1}`}
             alt="Main Image"
+            width={600}
+            height={400}
             className="w-full h-auto rounded-tl-[50%] object-cover"
           />
         </div>

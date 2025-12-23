@@ -1,6 +1,7 @@
 import React from "react";
-import DOMPurify from "isomorphic-dompurify"; 
+import DOMPurify from "isomorphic-dompurify";
 import { Image_Url } from "../../../Utils/const";
+import Image from "next/image";
 
 const Factors = ({ section_5 }) => {
   // Data array for services section
@@ -45,13 +46,13 @@ const Factors = ({ section_5 }) => {
     <div className=" flex flex-col  pt-12  gap-8 items-center mb-8 md:mb-20 justify-center  ">
       <div className=" flex flex-col gap-2  md:w-full text-center w-[90%] md:text-center items-center justify-center ">
         <h2 className=" text-xl  md:text-4xl  text-center md:text-start  font-Amaranth  text-black ">
-         {make_difference_heading}
+          {make_difference_heading}
         </h2>
       </div>
 
       <div className="flex flex-col md:flex-row  gap-8 items-center justify-center ">
         <div>
-          <img src={`${Image_Url}/${make_difference_image}`} className=" md:max-w-lg rounded-r-full" alt="" />
+          <Image src={`${Image_Url}/${make_difference_image}`} className=" md:max-w-lg rounded-r-full" alt="" width={512} height={500} />
         </div>
         <div className="  md:w-5/12 w-[90%] font-inter items-start  md:items-start  flex md:flex-row flex-col gap-2 ">
           <ul className="space-y-4">
@@ -71,10 +72,10 @@ const Factors = ({ section_5 }) => {
                       </div>
                     ))}
                   </div> */}
-                       <div
-          className="text-sm text-[#777777] mt-4"
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(service.description) }}
-        ></div>
+                  <div
+                    className="text-sm text-[#777777] mt-4"
+                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(service.description) }}
+                  ></div>
                 </div>
               </li>
             ))}
@@ -98,10 +99,10 @@ const Factors = ({ section_5 }) => {
                       </div>
                     ))}
                   </div> */}
-                   <div
-          className="text-gray-600 mt-4"
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(service.description) }}
-        ></div>
+                  <div
+                    className="text-gray-600 mt-4"
+                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(service.description) }}
+                  ></div>
                 </div>
               </li>
             ))}

@@ -1,5 +1,5 @@
 import React from "react";
-import DOMPurify from "isomorphic-dompurify"; 
+import DOMPurify from "isomorphic-dompurify";
 import Image from "next/image";
 import { Image_Url } from "../../Utils/const";
 
@@ -14,7 +14,7 @@ const Kindness = ({ section_2 }) => {
     <div className="flex flex-col md:flex-row pt-12 gap-8 items-center justify-center">
       {/* Image Section */}
       <div className=" px-4 md:px-0 ">
-        <img src={`${Image_Url}/${acts_image}`} className=" md:max-w-lg rounded-b-full" alt="" />
+        <Image src={`${Image_Url}/${acts_image}`} className=" md:max-w-lg rounded-b-full" alt="" width={512} height={512} />
       </div>
 
       {/* Text Section */}

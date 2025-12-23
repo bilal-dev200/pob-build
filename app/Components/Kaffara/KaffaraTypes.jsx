@@ -1,6 +1,7 @@
 import React from "react";
-import DOMPurify from "isomorphic-dompurify"; 
+import DOMPurify from "isomorphic-dompurify";
 import { Image_Url } from "../../../Utils/const";
+import Image from "next/image";
 
 const KaffaraTypes = ({ section_3 }) => {
   // const kaffaraData = [
@@ -54,9 +55,11 @@ const KaffaraTypes = ({ section_3 }) => {
         {cards.map((item, index) => (
           <div key={index} className="bg-white p-6 rounded-lg text-left">
             <div className="bg-[#28A745] p-2 w-fit h-fit rounded-lg mx-auto md:mx-0">
-              <img
+              <Image
                 src={`${Image_Url}/${item.image}`}
                 alt={item.image_alt_text}
+                width={40}
+                height={40}
                 className="w-10 h-10 object-cover"
               />
             </div>

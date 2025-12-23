@@ -1,10 +1,11 @@
 import React from "react";
-import DOMPurify from "isomorphic-dompurify"; 
+import DOMPurify from "isomorphic-dompurify";
 import { Image_Url } from "../../../Utils/const";
+import Image from "next/image";
 import BlogBody from "../../Components/BlogBody";
 
 const Efforts = ({ section_3 }) => {
-  console.log("section_3" , section_3)
+  console.log("section_3", section_3)
   if (!section_3) return null;
 
   const {
@@ -22,10 +23,12 @@ const Efforts = ({ section_3 }) => {
               className="  flex   items-start gap-4  rounded-xl   md:w-[300px] "
             >
               <div className="bg-white  p-3 rounded-[50%] ">
-                <img
+                <Image
                   src={`${Image_Url}/${card.image}`}
                   className=" text-white w-14  md:w-20"
                   alt=""
+                  width={80}
+                  height={80}
                 />
               </div>
               {/* <div>
@@ -34,11 +37,11 @@ const Efforts = ({ section_3 }) => {
                 </h3>
                 <p className=" mt-2 text-[8px] md:text-sm">{card.des}</p>
               </div> */}
-                   {/* <div
+              {/* <div
           className="text-sm text-[#777777] font-inter"
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(card?.description) }}
         ></div> */}
-        <BlogBody body={card?.description} />
+              <BlogBody body={card?.description} />
             </div>
           ))}
         </div>
@@ -53,11 +56,11 @@ const Efforts = ({ section_3 }) => {
             of using Lorem Ipsum is that it has a more-or-less normal
             distribution of letters, as opposed to using 'Content here.
           </p> */}
-               <div
-          className="text-[#777777] text-center md:text-start"
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(efforts_matter_description) }}
-        ></div>
-        
+          <div
+            className="text-[#777777] text-center md:text-start"
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(efforts_matter_description) }}
+          ></div>
+
 
           <p></p>
         </div>

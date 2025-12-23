@@ -1,6 +1,7 @@
 import React from "react";
-import DOMPurify from "isomorphic-dompurify"; 
+import DOMPurify from "isomorphic-dompurify";
 import { Image_Url } from "../../../Utils/const";
+import Image from "next/image";
 
 const DonationSection = ({ section_6 }) => {
   if (!section_6) return null;
@@ -16,7 +17,7 @@ const DonationSection = ({ section_6 }) => {
       {/* Left Side: Text Content */}
       <div className="md:w-1/2">
         <h2 className="text-5xl text-center md:text-start font-Amaranth text-black leading-tight">
-        {how_to_give_kaffara_title}
+          {how_to_give_kaffara_title}
         </h2>
         {/* <p className="text-gray-600 mt-4">
         It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum
@@ -38,9 +39,11 @@ const DonationSection = ({ section_6 }) => {
 
       {/* Right Side: Images */}
       <div className="md:w-1/2 flex justify-center gap-4">
-        <img
+        <Image
           src={`${Image_Url}/${how_to_give_kaffara_image1}`}
           alt="Donation Help"
+          width={648}
+          height={248}
           className="w-162 h-62 object-cover clip-oval"
         />
       </div>

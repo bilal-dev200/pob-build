@@ -1,6 +1,7 @@
 import React from "react";
-import DOMPurify from "isomorphic-dompurify"; 
+import DOMPurify from "isomorphic-dompurify";
 import { Image_Url } from "../../../Utils/const";
+import Image from "next/image";
 
 const KaffaraObligation = ({ section_4 }) => {
   if (!section_4) return null;
@@ -15,9 +16,11 @@ const KaffaraObligation = ({ section_4 }) => {
     <section className="flex flex-col lg:flex-row justify-center items-center gap-14 px-6 lg:px-0 my-16">
       {/* Circular Image */}
       <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden">
-        <img
+        <Image
           src={`${Image_Url}/${who_must_pay_image}`}
           alt="Helping Hands"
+          width={320}
+          height={320}
           className="w-full h-full object-cover"
         />
       </div>
