@@ -5,11 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-let DOMPurify;
-
-if (typeof window !== "undefined") {
-  DOMPurify = require("dompurify")(window);
-}
+import DOMPurify from "isomorphic-dompurify";
 
 const LaserTreatment = ({
   title,
