@@ -1,6 +1,6 @@
 // app/blogs/media-and-publications/page.jsx
 "use client"
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Banner from "../Components/Banner/Banner";
 import CustomSeo from "../Components/CustomSeo";
 import { Image_Url } from "../../Utils/const";
@@ -12,7 +12,7 @@ import fetchData from "../Components/fetchData"
 // Optional: revalidate every request (fresh data)
 
 
-const Mediapublications = () => {
+const MediaPublicationsContent = () => {
   const searchParams = useSearchParams();
   const selectedCategoryState = searchParams.get("selectedCategory") || "";
   const [showFilter, setShowFilter] = useState(false);
@@ -94,35 +94,43 @@ const Mediapublications = () => {
                 />
               </p>
             ) : blogPosts
-                .filter((post) =>
-                  post.blog_title.toLowerCase().includes(searchTerm.toLowerCase())
-                )
-                .sort((a, b) => new Date(b.blog_date) - new Date(a.blog_date))
-                .map((post, index) => (
-                  <div key={index} className="bg-white rounded shadow h-fit">
-                    <img
-                      src={`${Image_Url}/${post.main_image}`}
-                      alt={post.blog_title}
-                      className="w-full h-56 object-cover rounded-t"
-                    />
+              .filter((post) =>
+                post.blog_title.toLowerCase().includes(searchTerm.toLowerCase())
+              )
+              .sort((a, b) => new Date(b.blog_date) - new Date(a.blog_date))
+              .map((post, index) => (
+                <div key={index} className="bg-white rounded shadow h-fit">
+                  <img
+                    src={`${Image_Url}/${post.main_image}`}
+                    alt={post.blog_title}
+                    className="w-full h-56 object-cover rounded-t"
+                  />
 
-                    <div className="p-4 space-y-2 text-center md:text-start">
-                      <h3 className="text-md">{post.blog_title}</h3>
-                      <p className="text-[10px] text-gray-400 font-Amaranth">
-                        {post.blog_date}
-                      </p>
-                      <Link href={`/media-publications/${post?.slug}`}>
-                        <button className="text-xs text-white bg-[#F39C12] px-4 py-2 mt-4 rounded">
-                          Continue Reading
-                        </button>
-                      </Link>
-                    </div>
+                  <div className="p-4 space-y-2 text-center md:text-start">
+                    <h3 className="text-md">{post.blog_title}</h3>
+                    <p className="text-[10px] text-gray-400 font-Amaranth">
+                      {post.blog_date}
+                    </p>
+                    <Link href={`/media-publications/${post?.slug}`}>
+                      <button className="text-xs text-white bg-[#F39C12] px-4 py-2 mt-4 rounded">
+                        Continue Reading
+                      </button>
+                    </Link>
                   </div>
-                ))}
+                </div>
+              ))}
           </div>
         </div>
       </div>
     </div>
+  );
+};
+
+const Mediapublications = () => {
+  return (
+    <Suspense fallback={<div className="h-screen w-full flex items-center justify-center">Loading...</div>}>
+      <MediaPublicationsContent />
+    </Suspense>
   );
 };
 

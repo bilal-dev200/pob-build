@@ -103,7 +103,9 @@
 // export default NewsEvents;
 
 import React from "react";
+import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const newsData = [
   {
@@ -147,11 +149,14 @@ const NewsEvents = () => {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Left Main News */}
           <div className="lg:w-1/2 w-full text-center md:text-start">
-            <img
-              src="/reception.png" // Replace with main image
-              alt="Main news"
-              className="rounded-lg mb-4 w-[600px]"
-            />
+            <div className="relative w-[600px] h-[400px] mx-auto md:mx-0 mb-4">
+              <Image
+                src="/reception.png" // Replace with main image
+                alt="Main news"
+                fill
+                className="rounded-lg object-cover"
+              />
+            </div>
             <p className="text-sm text-gray-600 font-Amaranth mb-1">
               February 2, 2025
             </p>
@@ -165,11 +170,14 @@ const NewsEvents = () => {
           <div className="lg:w-1/2 w-full space-y-4">
             {newsData.map((news, index) => (
               <div key={index} className="flex gap-3 items-start">
-                <img
-                  src={news.image}
-                  alt={news.title}
-                  className="w-[70px] md:w[100px] h-[80px] object-cover rounded"
-                />
+                <div className="relative w-[70px] h-[80px] md:w-[100px]">
+                  <Image
+                    src={news.image}
+                    alt={news.title}
+                    fill
+                    className="object-cover rounded"
+                  />
+                </div>
                 <div>
                   <p className="text-xs text-gray-600 font-Amaranth">
                     {news.date}

@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
@@ -58,11 +60,14 @@ const LaserTreatment = ({
       {/* Image Section */}
       <div className="md:w-1/2 relative">
         <div className=" overflow-hidden roundedfull flex justify-center items-center">
-          <img
-            src={image}
-            alt={title}
-            className="object-cover rounded-b-full"
-          />
+          <div className="relative w-full h-[400px]">
+            <Image
+              src={image}
+              alt={title}
+              fill
+              className="object-cover rounded-b-full"
+            />
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 const donationData = [
   {
@@ -39,11 +40,11 @@ const ZakatDonations = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   const handleDonateClick = () => {
-  const footer = document.getElementById("footer-section");
-  if (footer) {
-    footer.scrollIntoView({ behavior: "smooth" });
-  }
-};
+    const footer = document.getElementById("footer-section");
+    if (footer) {
+      footer.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
 
   useEffect(() => {
@@ -73,11 +74,14 @@ const ZakatDonations = () => {
               key={index}
               className="border border-gray-300 rounded-lg overflow-hidden bg-white shadow-md"
             >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-48 object-cover"
-              />
+              <div className="relative w-full h-48">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <div className="p-4 flex flex-col justify-between items-center h-auto md:h-44">
                 <div className="flex flex-col justify-between h-32">
                   <h3 className="text-sm md:text-base text-black mb-2 font-inter">
