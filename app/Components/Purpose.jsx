@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react"
 
 const Purpose = ({ yellowHead, head, des, pageName, btnName, img, }) => {
-  const [isClient, setIsClient] = useSta(false);
+  const [isClient, setIsClient] = useState(false);
   // const donateClick = handleDonateClick || (() => console.warn("⚠️ handleDonateClick is not defined"));
 
   useEffect(() => {
