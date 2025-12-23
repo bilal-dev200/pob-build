@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Blogs from "../blog/BlogClient";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL_LIVE;
@@ -6,24 +7,29 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL_LIVE;
 // Server-side POST fetch (EXACT same as axios)
 // -------------------------------------------
 const getAcademicsData = async () => {
-  const res = await fetch(`https://pob.datainovate.com/backend/api/blogs/index`, {
-    method: "POST",
-    cache: "no-store",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      blog_category_slug: "", // ✅ same as selectedCategory empty
-      slug: "blogs/",         // ✅ EXACT match
-    }),
-  });
+  try {
+    const res = await fetch(`https://pob.datainovate.com/backend/api/blogs/index`, {
+      method: "POST",
+      cache: "no-store",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        blog_category_slug: "", // ✅ same as selectedCategory empty
+        slug: "blogs/",         // ✅ EXACT match
+      }),
+    });
 
-  if (!res.ok) {
-    console.error("Failed to fetch academics blogs");
+    if (!res.ok) {
+      console.error("Failed to fetch academics blogs");
+      return null;
+    }
+
+    return await res.json(); // response.data
+  } catch (error) {
+    console.error("Error fetching blog data:", error);
     return null;
   }
-
-  return res.json(); // response.data
 };
 
 // -------------------------------------------
@@ -32,6 +38,9 @@ const getAcademicsData = async () => {
 export async function generateMetadata() {
   const academics = await getAcademicsData();
   const seo = academics?.blogSeoDetail; // ✅ CORRECT LEVEL
+
+  const baseUrl = process.env.NEXT_PUBLIC_URL || "https://pobtrust.com";
+  const canonicalPath = seo?.canonical_url || "/blogs";
 
   return {
     title: seo?.meta_title || "Academics - POB Trust",
@@ -42,9 +51,7 @@ export async function generateMetadata() {
     keywords: seo?.focus_keyword || undefined,
 
     alternates: {
-      canonical:
-        process.env.NEXT_PUBLIC_URL +  seo?.canonical_url ||
-        process.env.NEXT_PUBLIC_URL + "/blogs",
+      canonical: baseUrl + canonicalPath,
     },
 
     openGraph: {
@@ -65,5 +72,9 @@ export async function generateMetadata() {
 // Page Component
 // -------------------------------------------
 export default async function Page() {
-  return <Blogs />;
+  return (
+    <Suspense fallback={<div className="h-screen w-full flex items-center justify-center">Loading...</div>}>
+      <Blogs />
+    </Suspense>
+  );
 }
