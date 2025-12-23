@@ -11,7 +11,7 @@ const AboutUs = ({ img, yellowHead, head, pageName, btnName, des }) => {
       {/* Image Section */}
       <div className="w-full md:w-1/2 flex justify-center">
         <div className="relative w-[483px] h-[194px] sm:w-[581px] sm:h-[346px] mt-7">
-          <Image src={img} alt="Eye Checkup" fill className="object-cover" />
+          <Image src={img} alt="Eye Checkup" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
         </div>
       </div>
 

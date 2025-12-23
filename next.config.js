@@ -10,9 +10,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  trailingSlash: true, 
+  trailingSlash: true,
   images: {
-    domains: ['pob.datainovate.com'], // your remote domain
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'pob.datainovate.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
   productionBrowserSourceMaps: false, // disable source maps in production
 };

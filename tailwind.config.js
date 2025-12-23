@@ -24,7 +24,6 @@ export default {
         poppins: ["Poppins", "sans-serif"],
         inter: ["Inter", "sans-serif"],
         Amaranth: ["Amaranth", "sans-serif"],
-        montserrat: ["Montserrat", "sans-serif"],
       },
       typography: (theme) => ({
         DEFAULT: {

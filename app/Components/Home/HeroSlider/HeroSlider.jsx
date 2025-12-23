@@ -34,7 +34,8 @@ const HeroSlider = ({ slides }) => {
                   alt={slide.alt_text || "Slider Image"}
                   fill
                   priority={index === 0}
-                  className="object-fit mt-20"
+                  sizes="100vw"
+                  className="object-cover mt-20"
                 />
               </div>
 
