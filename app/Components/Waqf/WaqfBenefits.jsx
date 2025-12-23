@@ -1,7 +1,8 @@
 import React from "react";
 import { TbPointFilled } from "react-icons/tb";
 import { Image_Url } from "../../../Utils/const";
-import DOMPurify from "isomorphic-dompurify"; 
+import Image from "next/image";
+import DOMPurify from "isomorphic-dompurify";
 
 const WaqfBenefits = ({ section_6 }) => {
   if (!section_6) return null;
@@ -12,9 +13,11 @@ const WaqfBenefits = ({ section_6 }) => {
     <section className="flex flex-col-reverse md:flex-row items-center justify-center gap-10 px-4   md:px-10 pt-12 bg-white md:w-[95%]">
       {/* Image Section */}
       <div className="  w-full md:w-5/12 flex justify-center">
-        <img
+        <Image
           src={`${Image_Url}/${section_6_image}`}
           alt="Eye Checkup"
+          width={600}
+          height={400}
           className=" w-full h-full  "
         />
       </div>

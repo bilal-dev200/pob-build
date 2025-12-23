@@ -1,6 +1,7 @@
 import React from "react";
 import DOMPurify from "isomorphic-dompurify"; // SSR-safe DOMPurify
 import { Image_Url } from "../../../Utils/const";
+import Image from "next/image";
 
 const Pillar = ({ section_4 }) => {
   if (!section_4) return null;
@@ -14,10 +15,12 @@ const Pillar = ({ section_4 }) => {
   return (
     <section className="flex flex-col md:flex-row items-center justify-center gap-10 px-4 md:px-10 py-12 bg-white md:w-[95%]">
       <div className="w-full md:w-4/12 flex justify-center">
-        <img
+        <Image
           src={`${Image_Url}/${piller_of_compassion_image}`}
           alt={piller_of_compassion_heading}
-          className="w-102 h-142"
+          width={408}
+          height={568}
+          className="w-102 h-142 object-cover"
         />
       </div>
 

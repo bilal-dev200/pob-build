@@ -1,6 +1,7 @@
 import React from "react";
 import DOMPurify from "isomorphic-dompurify";
 import { Image_Url } from "../../../Utils/const";
+import Image from "next/image";
 
 const ImpactSection = ({ section_4 }) => {
   if (!section_4) return null;
@@ -16,9 +17,11 @@ const ImpactSection = ({ section_4 }) => {
         <div className="space-y-8 w-full md:w-1/3">
           <div className="flex flex-col gap-4">
             <div className="mx-auto md:mx-0 w-fit px-1 pt-2 rounded-full bg-[#F39C12]">
-              <img
+              <Image
                 src={`${Image_Url}/${options[0]?.image}`}
                 alt="Education Waqf"
+                width={40}
+                height={40}
                 className="w-10 h-10 rounded-full object-cover"
               />
             </div>
@@ -38,9 +41,11 @@ const ImpactSection = ({ section_4 }) => {
           </div>
           <div className="flex flex-col gap-4">
             <div className="mx-auto md:mx-0 w-fit px-1 py-1 rounded-full bg-[#F39C12]">
-              <img
+              <Image
                 src={`${Image_Url}/${options?.[1]?.image}`}
                 alt="Healthcare Waqf"
+                width={40}
+                height={40}
                 className="w-10 h-10 rounded-full object-cover"
               />
             </div>
@@ -62,9 +67,11 @@ const ImpactSection = ({ section_4 }) => {
 
         {/* Center Image */}
         <div className="w-full md:w-1/3 flex justify-center">
-          <img
+          <Image
             src={`${Image_Url}/${section_4_image}`}
             alt="Main Impact"
+            width={320}
+            height={400}
             className="w-80 h-auto object-cover"
           />
         </div>
@@ -73,9 +80,11 @@ const ImpactSection = ({ section_4 }) => {
         <div className="space-y-8 w-full md:w-1/3">
           <div className="flex flex-col gap-4">
             <div className="mx-auto md:mx-0 w-fit px-1 py-1 rounded-full bg-[#F39C12]">
-              <img
+              <Image
                 src={`${Image_Url}/${options?.[2]?.image}`}
                 alt="Mosque Waqf"
+                width={40}
+                height={40}
                 className="w-10 h-10 rounded-full object-cover"
               />
             </div>
@@ -95,9 +104,11 @@ const ImpactSection = ({ section_4 }) => {
           </div>
           <div className="flex flex-col gap-4">
             <div className="mx-auto md:mx-0 w-fit px-1 py-1 rounded-full bg-[#F39C12]">
-              <img
+              <Image
                 src={`${Image_Url}/${options?.[3]?.image}`}
                 alt="General Charity Waqf"
+                width={40}
+                height={40}
                 className="w-10 h-10 rounded-full object-cover"
               />
             </div>

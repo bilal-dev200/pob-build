@@ -5,6 +5,7 @@ import {
   FaShieldAlt,
   FaClock,
 } from "react-icons/fa";
+import Image from "next/image";
 
 const Future = () => {
   const data = [
@@ -19,16 +20,22 @@ const Future = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full lg:w-2/3 font-inter">
         <div className="flex items-start space-x-4 group">
           <div className="group-hover:bg-[#28A745] border  border-[#28A745] text-white p-3 rounded-full ">
-            <img
-              className="group-hover:block hidden w-16"
-              src="/futureImgwhite1.png"
-              alt=""
-            />
-            <img
-              className="group-hover:hidden block w-16"
-              src="/futureImgBlack1.png"
-              alt=""
-            />
+            <div className="group-hover:block hidden w-16 relative h-16">
+              <Image
+                src="/futureImgwhite1.png"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="group-hover:hidden block w-16 relative h-16">
+              <Image
+                src="/futureImgBlack1.png"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
           <div>
             <h3 className=" text-lg font-Amaranth">Flexible Payment Options</h3>
@@ -41,16 +48,22 @@ const Future = () => {
 
         <div className="flex items-start space-x-4 group">
           <div className="group-hover:bg-[#28A745] border  border-[#28A745] text-white p-3 rounded-full ">
-            <img
-              className="group-hover:block hidden w-16"
-              src="/futureImgwhite2.png"
-              alt=""
-            />
-            <img
-              className="group-hover:hidden block w-16"
-              src="/futureImgBlack2.png"
-              alt=""
-            />
+            <div className="group-hover:block hidden w-16 relative h-16">
+              <Image
+                src="/futureImgwhite2.png"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="group-hover:hidden block w-16 relative h-16">
+              <Image
+                src="/futureImgBlack2.png"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
           <div>
             <h3 className=" text-lg font-Amaranth">Tax-Deductible</h3>
@@ -63,16 +76,22 @@ const Future = () => {
 
         <div className="flex items-start space-x-4 group">
           <div className="group-hover:bg-[#28A745] border  border-[#28A745] text-white p-3 rounded-full ">
-            <img
-              className="group-hover:block hidden w-16"
-              src="/futureImgwhite3.png"
-              alt=""
-            />
-            <img
-              className="group-hover:hidden block w-16"
-              src="/futureImgBlack3.png"
-              alt=""
-            />
+            <div className="group-hover:block hidden w-16 relative h-16">
+              <Image
+                src="/futureImgwhite3.png"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="group-hover:hidden block w-16 relative h-16">
+              <Image
+                src="/futureImgBlack3.png"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
           <div>
             <h3 className=" text-lg font-Amaranth">100% Secure Transactions</h3>
@@ -85,16 +104,22 @@ const Future = () => {
 
         <div className="flex items-start space-x-4 group">
           <div className="group-hover:bg-[#28A745] border  border-[#28A745] text-white p-3 rounded-full ">
-            <img
-              className="group-hover:block hidden w-16"
-              src="/futureImgwhite4.png"
-              alt=""
-            />
-            <img
-              className="group-hover:hidden block w-16"
-              src="/futureImgBlack4.png"
-              alt=""
-            />
+            <div className="group-hover:block hidden w-16 relative h-16">
+              <Image
+                src="/futureImgwhite4.png"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="group-hover:hidden block w-16 relative h-16">
+              <Image
+                src="/futureImgBlack4.png"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
           <div>
             <h3 className=" text-lg font-Amaranth">

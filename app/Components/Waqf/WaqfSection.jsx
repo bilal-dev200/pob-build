@@ -2,6 +2,7 @@
 
 import DOMPurify from "isomorphic-dompurify";
 import { Image_Url } from "../../../Utils/const";
+import Image from "next/image";
 
 const WaqfSection = ({ section_3 }) => {
   if (!section_3) return null;
@@ -46,9 +47,11 @@ const WaqfSection = ({ section_3 }) => {
       <div className="md:w-1/2 mt-10 md:mt-0 flex flex-col space-y-6">
         <div className="bg-white shadow-lg p-6 rounded-lg flex items-center space-x-4 relative">
           <div className="absolute left-0 top-0 h-full w-2 bg-[#F39C12] rounded-l-lg"></div>
-          <img
+          <Image
             src={`${Image_Url}/${options?.[0]?.image}`}
             alt=""
+            width={56}
+            height={56}
             className="w-14 h-14"
           />
           <div>
@@ -67,9 +70,11 @@ const WaqfSection = ({ section_3 }) => {
 
         <div className="bg-white shadow-lg p-6 rounded-lg flex items-center space-x-4 relative">
           <div className="absolute left-0 top-0 h-full w-2 bg-[#F39C12] rounded-l-lg"></div>
-          <img
+          <Image
             src={`${Image_Url}/${options?.[1]?.image}`}
             alt=""
+            width={56}
+            height={56}
             className="w-14 h-14"
           />
           <div>
@@ -88,9 +93,11 @@ const WaqfSection = ({ section_3 }) => {
 
         <div className="bg-white shadow-lg p-6 rounded-lg flex items-center space-x-4 relative">
           <div className="absolute left-0 top-0 h-full w-2 bg-[#F39C12] rounded-l-lg"></div>
-          <img
+          <Image
             src={`${Image_Url}/${options?.[2]?.image}`}
             alt=""
+            width={56}
+            height={56}
             className="w-14 h-14"
           />
           <div>

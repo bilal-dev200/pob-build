@@ -17,7 +17,9 @@ import {
 } from "react-icons/fa";
 import fetchData from "./fetchData";
 import axios from "../../Utils/axios"
+import axios from "../../Utils/axios"
 import { Image_Url } from "../../Utils/const";
+import Image from "next/image";
 
 
 const Header = () => {
@@ -163,7 +165,7 @@ const Header = () => {
         <Link href="/donation/" className="w-full border border-r-white">
           <div className="cursor-pointer text-white  bg-[#F39C12] px-2 py-1 gap-1  flex items-center  justify-center   border-2 border-transparent outline-none">
             <div className=" bg-white px-1 py-1 rounded-[50%] ">
-              <img src="/hand.png" alt="" className="w-6" />
+              <Image src="/hand.png" alt="" width={24} height={24} className="w-6" />
             </div>
 
             <p className=" mx-1 font-inter text-md">Donate Now</p>
@@ -175,9 +177,11 @@ const Header = () => {
       <nav className="w-[90%] md:w-[90%] flex justify-center items-center">
         <div className="hidden lg:flex h-full lg:justify-between w-[80%] lg:w-full items-center rounded-bl-[20px] rounded-br-[20px]">
           <Link href="/">
-            <img
+            <Image
               src="/poblogo.png"
               alt="logo"
+              width={112}
+              height={112}
               className="w-10 md:w-28 object-cover"
             />
           </Link>
@@ -294,9 +298,11 @@ const Header = () => {
                   {/* Mapping Blog Items */}
                   {megaMenu?.blogs?.map((blog) => (
                     <div key={blog.id} className="flex items-start gap-4 mb-4">
-                      <img
+                      <Image
                         src={`${Image_Url}/${blog.main_image}`}
                         alt={blog.blog_title}
+                        width={64}
+                        height={64}
                         className="w-16 h-16 rounded-md object-cover"
                       />
                       <div>
@@ -344,7 +350,7 @@ const Header = () => {
             <Link href="/donation/">
               <div className="w-[145px] cursor-pointer text-white bg-[#F39C12] px-2 py-1 gap-1 flex items-center justify-center border-2 border-transparent rounded-full">
                 <div className="bg-white px-1 py-1 rounded-[50%]">
-                  <img src="/hand.png" alt="" className="w-6" />
+                  <Image src="/hand.png" alt="" width={24} height={24} className="w-6" />
                 </div>
                 <p className="mx-1 font-inter text-[14px]">Donate Now</p>
               </div>
@@ -361,9 +367,11 @@ const Header = () => {
             <RxHamburgerMenu size={24} />
           </div>
           <Link href="/">
-            <img
+            <Image
               src="/poblogo.png"
               alt="logo"
+              width={80}
+              height={64}
               className="w-20 h-16 object-contain"
             />
           </Link>

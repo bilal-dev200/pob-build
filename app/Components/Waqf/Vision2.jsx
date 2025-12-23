@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
-import DOMPurify from "isomorphic-dompurify"; 
+import DOMPurify from "isomorphic-dompurify";
 import { Image_Url } from "../../../Utils/const";
+import Image from "next/image";
 
 const Vision2 = ({ section_2 }) => {
   if (!section_2) return null;
@@ -12,10 +13,11 @@ const Vision2 = ({ section_2 }) => {
   return (
     <section className="flex flex-col md:flex-row items-center gap-16 max-w-5xl mx-auto p-6">
       <div className="md:w-1/2 relative">
-        <img
+        <Image
           src={`${Image_Url}/${section_2_image}`}
           alt="Eye Screening Camp"
-          className="w-full h-1/3 rounded-full"
+          fill
+          className="w-full h-1/3 rounded-full object-cover"
         />
       </div>
 

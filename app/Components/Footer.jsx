@@ -1,6 +1,7 @@
 "use client"
 import { useState, useRef, useEffect } from "react";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaLinkedin } from "react-icons/fa";
+import Image from "next/image";
 
 
 import {
@@ -563,18 +564,20 @@ const Footer = () => {
             </div>
             {/* Quick Links */}
 
- <div className="absolute bottom-16 left-20 flex items-end justify-start gap-3 mb-10 ml-14">
-  <img
-    src="/poblogo.png"
-    alt="Logo 1"
-    className="h-[6.3rem] md:h-[7.3rem] object-contain"
-  />
-  {/* <img
+            <div className="absolute bottom-16 left-20 flex items-end justify-start gap-3 mb-10 ml-14">
+              <Image
+                src="/poblogo.png"
+                alt="Logo 1"
+                width={200}
+                height={116}
+                className="h-[6.3rem] md:h-[7.3rem] object-contain w-auto"
+              />
+              {/* <img
     src="/logoright.png"
     alt="Logo 2"
     className="h-[6.3rem] md:h-[7.3rem] object-contain"
   /> */}
-</div>
+            </div>
 
 
 
@@ -587,17 +590,17 @@ const Footer = () => {
               <h4 className="text-lg font-poppins">Quick Links</h4>
               <div className="text-[#FFFFFF] flex flex-col justify-start mt-2 font-inter text-sm space-y-1">
                 {quickLinks.map((link, index) => (
-  <Link href={link?.url} key={index}>
-    {link?.name}
-  </Link>
-))}
+                  <Link href={link?.url} key={index}>
+                    {link?.name}
+                  </Link>
+                ))}
 
               </div>
             </div>
-            
+
             <div>
 
-              
+
               <h4 className="text-lg text-white font-poppins ">Contact Us</h4>
 
               {/* Address Section */}
@@ -737,11 +740,10 @@ const Footer = () => {
       {/* Mobile Footer  */}
       {/* SVG Curved Background */}
       <div
-        className={`md:bg-[#222222] ${
-          isQuickLinksOpen || isContactOpen ? "h-[80rem]" : "h-[60rem]"
-        } block md:hidden`}
+        className={`md:bg-[#222222] ${isQuickLinksOpen || isContactOpen ? "h-[80rem]" : "h-[60rem]"
+          } block md:hidden`}
       >
-        
+
         <div
           className=" h-[100%] font-inter  flex  px-4 items-center flex-col md:bg-cover bg-no-repeat bg-center sm:bg-top "
           style={{
@@ -750,7 +752,7 @@ const Footer = () => {
             backgroundPosition: "center",
           }}
         >
-        
+
           {/* Email Subscription */}
           <section className=" pt-20">
             <div className="flex md:flex-row  text-white  flex-col justify-between gap-10 py-10">
@@ -787,10 +789,12 @@ const Footer = () => {
           </section>
 
           <div className=" lg:border-r text-white border-white lg:w-1/4 lg:p-10 md:pl-0 py-10 flex flex-col justify-center items-center md:items-start gap-5">
-            <img
-              className="w-56 object-cover "
+            <Image
+              className="w-56 object-cover h-auto"
               src="/poblogo.png"
               alt="Company Logo"
+              width={224}
+              height={100}
             />
             <p className="text-[14px] text-center font-inter">
               Prevention of Blindness Trust is a registered charity working for
@@ -821,12 +825,12 @@ const Footer = () => {
                 <FaInstagram className="text-white" size={20} />
               </a>
               <a
-                            href=""
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FaLinkedin className="text-white" size={20} />
-                          </a>
+                href=""
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin className="text-white" size={20} />
+              </a>
             </ul>
           </div>
 
@@ -928,8 +932,8 @@ const Footer = () => {
               )}
             </div>
           </div>
-          </div>
-    
+        </div>
+
         {/* Copyright */}
         <div className="  w-full  bg-[#F39C12] flex flex-col justify-around font-inter   text-center py-2 text-[#FFFFFF] text-sm">
           <div>Copyright 2024 © POB TRUST |</div>
