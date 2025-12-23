@@ -2,14 +2,15 @@
 
 import React from "react";
 import { Image_Url } from "../../../Utils/const";
+import Image from "next/image";
 
 const Hope = ({ aboutusPageBojectives }) => {
-     const handleDonateClick = () => {
-  const footer = document.getElementById("footer-section");
-  if (footer) {
-    footer.scrollIntoView({ behavior: "smooth" });
-  }
-};
+  const handleDonateClick = () => {
+    const footer = document.getElementById("footer-section");
+    if (footer) {
+      footer.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   if (!aboutusPageBojectives) return null;
 
   const { heading, sub_heading, description, image } = aboutusPageBojectives;
@@ -32,7 +33,7 @@ const Hope = ({ aboutusPageBojectives }) => {
         ></div>
 
         <button
-         onClick={handleDonateClick}
+          onClick={handleDonateClick}
           className=" cursor-pointer mt-4 px-4 py-2 w-32 rounded-full text-[14px] font-inter text-white bg-[#28A745] transition-all duration-300 hover:bg-white hover:text-[#28A745] border border-[#28A745]"
         >
           Donate Now
@@ -41,10 +42,12 @@ const Hope = ({ aboutusPageBojectives }) => {
 
       {/* Right Side Image */}
       <div>
-        <img
+        <Image
           src={`${Image_Url}/${image}`}
-          className="md:max-w-lg rounded-full"
+          className="md:max-w-lg rounded-full object-cover"
           alt="Hope Section Image"
+          width={512}
+          height={512}
         />
       </div>
     </div>

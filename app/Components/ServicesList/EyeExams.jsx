@@ -3,12 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const EyeExams = ({slug}) => {
+const EyeExams = ({ slug }) => {
   return (
     <div className="flex flex-col md:flex-row min-w-full pt-12 gap-4 items-center justify-center ">
       <div>
-        <img
+        <Image
           src="/service_change1.webp"
+          width={450}
+          height={450}
           className=" md:max-w-lg md:h-[450px] md:w-[450px] h-[280px] w-[280px] rounded-full"
           alt=""
         />

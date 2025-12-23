@@ -1,14 +1,17 @@
 import React from "react";
+import Image from "next/image";
 
 const Banner = ({ title, image }) => {
   return (
     <div className="relative  w-full h-[350px] md:h-[700px] overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img
+        <Image
           src={image}
           alt="Banner"
-          className="w-screen md:w-full h-full object-cover"
+          fill
+          priority
+          className="object-cover"
         />
       </div>
 
@@ -18,7 +21,7 @@ const Banner = ({ title, image }) => {
           {title}
         </h1>
       </div> */}
-       <div
+      <div
         className="absolute top-1/2 -translate-y-1/2 w-full flex justify-center md:justify-start md:left-10 z-10"
       >
         <h1 className="md:text-6xl text-2xl text-white font-normal font-Amaranth w-4/5 md:w-2/3 text-center md:text-left px-4 py-2 rounded-md">

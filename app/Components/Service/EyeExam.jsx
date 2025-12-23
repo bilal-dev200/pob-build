@@ -2,6 +2,7 @@
 
 import React from "react";
 import DOMPurify from "dompurify";
+import Image from "next/image";
 
 const EyeExams = ({
   section_2_main_heading,
@@ -10,20 +11,22 @@ const EyeExams = ({
   section_2_image,
   // pass from parent
 }) => {
-   const handleDonateClick = () => {
-  const footer = document.getElementById("footer-section");
-  if (footer) {
-    footer.scrollIntoView({ behavior: "smooth" });
-  }
-};
+  const handleDonateClick = () => {
+    const footer = document.getElementById("footer-section");
+    if (footer) {
+      footer.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="flex flex-col md:flex-row pt-12 gap-4 items-center justify-center">
       <div>
-        <img
+        <Image
           src={section_2_image}
-          className="md:max-w-lg rounded-full"
+          className="md:max-w-lg rounded-full object-cover"
           alt={section_2_sub_heading || "Eye Exams"}
+          width={512}
+          height={512}
         />
       </div>
       <div className="md:w-4/12 w-[90%] font-inter items-center md:items-start flex flex-col gap-2">

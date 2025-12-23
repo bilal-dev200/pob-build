@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { FaPlay } from "react-icons/fa";
 import { Image_Url } from "../../../Utils/const";
+import Image from "next/image";
 
 const OurStory = ({ aboutOurStorySection }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -14,10 +15,11 @@ const OurStory = ({ aboutOurStorySection }) => {
     <div className="flex flex-col md:flex-row items-center gap-16 max-w-5xl mx-auto p-6">
       {/* Image Section */}
       <div className="relative w-[300px] h-[350px] md:w-[400px] md:h-[480px] overflow-hidden">
-        <img
+        <Image
           src={`${Image_Url}/${image}`}
           alt={alt_text || "Our Story"}
-          className="w-full h-full object-cover rounded-b-full"
+          fill
+          className="object-cover rounded-b-full"
         />
         {/* Play Button */}
         <div

@@ -1,5 +1,6 @@
 import React from "react";
 import { Image_Url } from "../../../Utils/const";
+import Image from "next/image";
 
 const FutureSpecialists = ({ section_4 }) => {
   // const items = [
@@ -47,9 +48,11 @@ const FutureSpecialists = ({ section_4 }) => {
               className="flex  py-8 px-4 w-72 bg-[#F4F4F4] flex-col justify-center gap-4 rounded-[20px] items-start md:justify-start"
             >
               <div className="bg-white  p-4 mx-auto">
-                <img
+                <Image
                   src={`${Image_Url}/${item.image}`}
                   alt="Ophthalmic Excellence"
+                  width={40}
+                  height={40}
                   className="w-10 h-10  object-contain  "
                 />
               </div>
@@ -58,9 +61,9 @@ const FutureSpecialists = ({ section_4 }) => {
                 {item.heading}
               </h3>
               <div
-        className="text-[14px] font-inter text-[#777777] text-center md:text-start"
-        dangerouslySetInnerHTML={{ __html: item.description }}
-      />
+                className="text-[14px] font-inter text-[#777777] text-center md:text-start"
+                dangerouslySetInnerHTML={{ __html: item.description }}
+              />
             </div>
           ))}
         </div>
@@ -71,9 +74,11 @@ const FutureSpecialists = ({ section_4 }) => {
               className="flex  py-8 px-4 w-72 bg-[#F4F4F4] flex-col gap-4 rounded-[20px] items-start justify-center md:justify-start"
             >
               <div className="bg-white  p-4 mx-auto">
-                <img
+                <Image
                   src={`${Image_Url}/${item.image}`}
                   alt="Ophthalmic Excellence"
+                  width={40}
+                  height={40}
                   className="w-10 h-10  object-contain  "
                 />
               </div>
@@ -82,9 +87,9 @@ const FutureSpecialists = ({ section_4 }) => {
                 {item.heading}
               </h3>
               <div
-        className="text-[14px] text-[#777777] font-inter text-center md:text-start"
-        dangerouslySetInnerHTML={{ __html: item.description }}
-      />
+                className="text-[14px] text-[#777777] font-inter text-center md:text-start"
+                dangerouslySetInnerHTML={{ __html: item.description }}
+              />
             </div>
           ))}
         </div>

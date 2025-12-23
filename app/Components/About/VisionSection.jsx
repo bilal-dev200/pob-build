@@ -1,6 +1,7 @@
 "use client"; // ✅ Required for client-side rendering
 
 import { Image_Url } from "../../../Utils/const";
+import Image from "next/image";
 
 const VisionSection = ({ aboutUsVisionSection }) => {
   // Prevent hydration errors
@@ -29,7 +30,7 @@ const VisionSection = ({ aboutUsVisionSection }) => {
               className="text-center md:text-start bg-[#F4F4F4] flex flex-col justify-between items-start rounded-xl shadow-lg md:w-[265px] p-6"
             >
               <div className="bg-[#FFFFFF] p-4 rounded-lg inline-block mx-auto md:mx-0">
-                <img src={`${Image_Url}/${card.image}`} alt={card.heading || ""} />
+                <Image src={`${Image_Url}/${card.image}`} alt={card.heading || ""} width={56} height={56} />
               </div>
               <h3 className="text-md md:text-2xl mt-4 font-Amaranth">{card.heading}</h3>
               <p

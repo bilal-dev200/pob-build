@@ -12,14 +12,14 @@ const OrbitDisorder = ({
   section_8_main_heading,
   section_8_sub_heading,
   section_8_cards,
-  
+
 }) => {
-     const handleDonateClick = () => {
-  const footer = document.getElementById("footer-section");
-  if (footer) {
-    footer.scrollIntoView({ behavior: "smooth" });
-  }
-};
+  const handleDonateClick = () => {
+    const footer = document.getElementById("footer-section");
+    if (footer) {
+      footer.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="w-full text-white flex justify-center items-center bg-[#28A745] md:my-32">
@@ -27,10 +27,12 @@ const OrbitDisorder = ({
         <div className="w-full flex flex-col md:flex-row md:gap-20 justify-between items-start pb-16">
           {/* Image Section */}
           <div className="md:w-1/2 relative rounded-b-full flex justify-end">
-            <img
-              className="absolute w-2/3 h-[450px] 2xl:w-1/2 -top-28 2xl:mr-20 rounded-b-full"
+            <Image
+              className="absolute w-2/3 h-[450px] 2xl:w-1/2 -top-28 2xl:mr-20 rounded-b-full object-cover"
               src={section_7_image}
               alt=""
+              width={800}
+              height={450}
             />
           </div>
 

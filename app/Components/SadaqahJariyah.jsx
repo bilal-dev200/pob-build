@@ -1,5 +1,5 @@
 import React from "react";
-import DOMPurify from "isomorphic-dompurify"; 
+import DOMPurify from "isomorphic-dompurify";
 import Image from "next/image";
 import { Image_Url } from "../../Utils/const";
 
@@ -26,10 +26,12 @@ const SadaqahJariyah = ({ section_3 }) => {
 
       {/* Image Section */}
       <div className="  w-full md:w-4/12 flex justify-center">
-        <img
+        <Image
           src={`${Image_Url}/${ongoing_image}`}
           alt="Eye Checkup"
-          className="w-92 h-66 "
+          width={368}
+          height={264}
+          className="w-92 h-66 object-cover"
         />
       </div>
     </section>

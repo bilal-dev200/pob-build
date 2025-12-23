@@ -2,6 +2,7 @@
 
 import React from "react";
 import DOMPurify from "dompurify";
+import Image from "next/image";
 
 const DonationSection = ({ yellowHead, head, pageName, img, des }) => {
   return (
@@ -45,9 +46,11 @@ const DonationSection = ({ yellowHead, head, pageName, img, des }) => {
 
       {/* Right Side: Image */}
       <div className="md:w-1/2 flex justify-center gap-4">
-        <img
+        <Image
           src={img}
           alt="Donation Help"
+          width={528}
+          height={218}
           className="w-132 h-[218px] object-cover clip-oval"
         />
       </div>

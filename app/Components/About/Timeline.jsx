@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const Timeline = () => {
   return (
@@ -19,9 +20,11 @@ const Timeline = () => {
                 Outreach Program
               </p>
             </div>
-            <img
-              src="./Polygon1.png"
+            <Image
+              src="/Polygon1.png"
               alt=""
+              width={12}
+              height={12}
               className="w-3 absolute left-0 z-10"
             />
             <div className="bg-green-600 text-white py-2 px-8 mt-2">2007</div>
@@ -36,9 +39,11 @@ const Timeline = () => {
             <div className="bg-gray-200 text-black py-2 px-8 mt-2 border-r border-black">
               2015
             </div>
-            <img
-              src="./Polygon2.png"
+            <Image
+              src="/Polygon2.png"
               alt=""
+              width={12}
+              height={12}
               className="w-3 absolute left-0 z-10"
             />
           </div>
@@ -53,9 +58,11 @@ const Timeline = () => {
                 Gulistan-e-Johar
               </p>
             </div>
-            <img
-              src="./Polygon1.png"
+            <Image
+              src="/Polygon1.png"
               alt=""
+              width={12}
+              height={12}
               className="w-3 absolute left-0 z-10"
             />
             <div className="bg-gray-200 text-black py-2 px-8 mt-2 border-r border-black">
@@ -76,9 +83,11 @@ const Timeline = () => {
             <div className="bg-gray-200 text-black py-2 px-8 mt-2 border-r border-black">
               2020
             </div>
-            <img
-              src="./Polygon2.png"
+            <Image
+              src="/Polygon2.png"
               alt=""
+              width={12}
+              height={12}
               className="w-3 absolute left-0 z-10"
             />
           </div>
@@ -93,9 +102,11 @@ const Timeline = () => {
                 Unit Hussainabad
               </p>
             </div>
-            <img
-              src="./Polygon1.png"
+            <Image
+              src="/Polygon1.png"
               alt=""
+              width={12}
+              height={12}
               className="w-3 absolute left-0 z-10"
             />
             <div className="bg-gray-200 text-black py-2 px-8 mt-2">2021</div>
@@ -112,9 +123,11 @@ const Timeline = () => {
               </p>
             </div>
             <div className="bg-green-600 text-white py-2 px-8 mt-2">2023</div>
-            <img
-              src="./Polygon2.png"
+            <Image
+              src="/Polygon2.png"
               alt=""
+              width={12}
+              height={12}
               className="w-3 absolute left-0 z-10"
             />
           </div>

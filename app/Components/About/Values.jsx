@@ -1,6 +1,7 @@
 "use client"; // ✅ Required for client-side interactivity
 
 import { useState } from "react";
+import Image from "next/image";
 
 const Values = () => {
   const categories = ["Respect", "Integrity", "Compassion", "Empathy", "Excellence"];
@@ -64,11 +65,10 @@ const Values = () => {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={` cursor-pointer px-12 py-2 bg-transparent text-black text-[12px] md:text-[14px] text-start w-full ${
-                activeCategory === category
+              className={` cursor-pointer px-12 py-2 bg-transparent text-black text-[12px] md:text-[14px] text-start w-full ${activeCategory === category
                   ? "bg-gradient-to-r from-[#F39C12] border-b-4 md:border-b-0 md:border-r-4 border-r-[#F39C12] to-gray-50 rounded-tl-[10px] text-white"
                   : "bg-transparent text-black"
-              }`}
+                }`}
             >
               {category}
             </button>
@@ -82,9 +82,11 @@ const Values = () => {
               key={index}
               className="flex flex-col gap-4 md:gap-0 md:flex-row rounded-[20px] h-full items-center"
             >
-              <img
+              <Image
                 src={item.src}
                 alt={item.alt}
+                width={288}
+                height={300}
                 className="w-full md:w-72 h-full object-cover rounded-lg"
               />
               <div className="text-center h-full py-4 flex items-center justify-center px-4 md:px-8">

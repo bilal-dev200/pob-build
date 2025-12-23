@@ -2,6 +2,7 @@
 
 import React from "react";
 import DOMPurify from "dompurify";
+import Image from "next/image";
 
 const RetinaExcellence = ({
   section_5_main_heading,
@@ -10,28 +11,30 @@ const RetinaExcellence = ({
   section_5_image,
   // parent se pass karo
 }) => {
-    const handleDonateClick = () => {
-  const footer = document.getElementById("footer-section");
-  if (footer) {
-    footer.scrollIntoView({ behavior: "smooth" });
-  }
-};
+  const handleDonateClick = () => {
+    const footer = document.getElementById("footer-section");
+    if (footer) {
+      footer.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section className="flex flex-col-reverse md:flex-row items-center gap-10 px-6 md:px-16 py-12">
       {/* Image Section */}
       <div className="md:w-1/2 relative">
         <div className="w-full h-full overflow-hidden roundedfull">
-          <img
+          <Image
             src={`${section_5_image}`}
             alt="Retina Diagnosis"
+            width={600}
+            height={400}
             className="w-full h-auto rounded-r-full object-cover"
           />
         </div>
       </div>
 
       {/* Content Section */}
-        <div className="md:w-1/2 text-center md:text-start">
+      <div className="md:w-1/2 text-center md:text-start">
         <h3 className="text-[#F39C12] font-Amaranth  uppercase text-lg tracking-wide">
           {section_5_main_heading}
         </h3>

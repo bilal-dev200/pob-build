@@ -1,5 +1,6 @@
 import React from "react";
 import { Image_Url } from "../../../Utils/const";
+import Image from "next/image";
 
 const ClinicalMeetings = ({ section_7 }) => {
   if (!section_7) return null;
@@ -14,10 +15,12 @@ const ClinicalMeetings = ({ section_7 }) => {
     <section className="flex flex-col md:flex-row items-center justify-center gap-10 px-4   md:px-10   md:pt-32 bg-white md:w-[95%]">
       {/* Image Section */}
       <div className=" h-[470px] w-full md:w-1/2 flex justify-center">
-        <img
+        <Image
           src={`${Image_Url}/${weekly_clinical_meetings_image}`}
           alt="Eye Checkup"
-          className="w-[343px] h-[470px] "
+          width={343}
+          height={470}
+          className="w-[343px] h-[470px] object-cover"
         />
       </div>
 

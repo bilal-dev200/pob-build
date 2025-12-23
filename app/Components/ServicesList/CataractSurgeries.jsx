@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const CataractSurgeries = ({slug}) => {
+const CataractSurgeries = ({ slug }) => {
   const data = [
     {
       head: "Leading Expertise in Oculoplastic Surgery",
@@ -41,23 +41,25 @@ const CataractSurgeries = ({slug}) => {
           Enhancing Function And Appearance Safely
         </h2>
         <p className=" text-[#777777] text-center md:text-start  md:max-w-xl ">
-         Oculoplasty focuses on eyelid, tear duct, and orbit disorders that affect both function and appearance. These conditions may arise from aging, trauma, or disease. Our specialists perform corrective surgeries to restore comfort, safety, and natural appearance. The goal is to improve both vision protection and cosmetic balance.
+          Oculoplasty focuses on eyelid, tear duct, and orbit disorders that affect both function and appearance. These conditions may arise from aging, trauma, or disease. Our specialists perform corrective surgeries to restore comfort, safety, and natural appearance. The goal is to improve both vision protection and cosmetic balance.
 
-Discover how oculoplastic and orbital care can benefit you. Click below to explore this service in detail.
+          Discover how oculoplastic and orbital care can benefit you. Click below to explore this service in detail.
 
         </p>
 
-         <Link href={slug}>
-                  <button className="mt-4 px-4 py-2 w-32 rounded-full text-[12px] font-inter text-white bg-[#28A745] group-hover:bg-white group-hover:text-[#28A745] transition-all duration-300">
-                    View Details
-                  </button>
-                </Link>
+        <Link href={slug}>
+          <button className="mt-4 px-4 py-2 w-32 rounded-full text-[12px] font-inter text-white bg-[#28A745] group-hover:bg-white group-hover:text-[#28A745] transition-all duration-300">
+            View Details
+          </button>
+        </Link>
         <p></p>
       </div>
 
       <div>
-        <img
+        <Image
           src="/CataractImg.png"
+          width={450}
+          height={450}
           className=" md:max-w-lg md:h-[450px] md:w-[450px] h-[280px] w-[280px] rounded-full"
           alt=""
         />

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Image_Url } from "../../../Utils/const";
+import Image from "next/image";
 
 const Mission = ({ aboutusPageOurMession, handleDonateClick }) => {
   if (!aboutusPageOurMession) return null;
@@ -17,10 +18,12 @@ const Mission = ({ aboutusPageOurMession, handleDonateClick }) => {
     <div className="flex flex-col md:flex-row pt-12 gap-14 items-center justify-center">
       {/* Image Section */}
       <div className="relative">
-        <img
+        <Image
           src={`${Image_Url}/${image}`}
-          className="md:max-w-lg md:h-[32rem] rounded-full"
+          className="md:max-w-lg md:h-[32rem] rounded-full object-cover"
           alt={heading || "Mission Image"}
+          width={512}
+          height={512}
         />
         <div className="absolute inset-0 bg-black opacity-40 rounded-full"></div>
       </div>

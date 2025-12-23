@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import DOMPurify from "isomorphic-dompurify"; 
+import DOMPurify from "isomorphic-dompurify";
 import { Image_Url } from "../../Utils/const";
 
 const SadaqahBenefits = ({ section_6 }) => {
@@ -12,10 +12,12 @@ const SadaqahBenefits = ({ section_6 }) => {
     <section className="flex flex-col md:flex-row items-center justify-center gap-10 px-4 md:px-10 pt-12 bg-white md:w-[95%]">
       {/* Image Section */}
       <div className="  w-full md:w-5/12 flex justify-center">
-        <img
+        <Image
           src={`${Image_Url}/${benefits_image}`}
           alt="Eye Checkup"
-          className=" w-full h-full  "
+          width={400}
+          height={300}
+          className=" w-full h-full object-cover"
         />
       </div>
 

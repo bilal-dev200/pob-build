@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
-const LaserTreatment = ({ title, subtitle, description, description2, buttonText, image ,slug}) => {
+const LaserTreatment = ({ title, subtitle, description, description2, buttonText, image, slug }) => {
   return (
     <div className="flex flex-col md:flex-row min-w-full pt-12 gap-4 items-center justify-center">
       {/* Text Section */}
@@ -22,7 +23,7 @@ const LaserTreatment = ({ title, subtitle, description, description2, buttonText
           </p>
         )}
 
-       <Link href={`/${slug}`}>
+        <Link href={`/${slug}`}>
           <button className="mt-4 px-4 py-2 w-32 rounded-full text-[12px] font-inter text-white bg-[#28A745] hover:bg-white hover:text-[#28A745] transition-all duration-300">
             View Details
           </button>
@@ -31,8 +32,10 @@ const LaserTreatment = ({ title, subtitle, description, description2, buttonText
 
       {/* Image Section */}
       <div>
-        <img
+        <Image
           src={image}
+          width={450}
+          height={450}
           className="md:max-w-lg md:h-[450px] md:w-[450px] h-[280px] w-[280px] rounded-full"
           alt={title}
         />

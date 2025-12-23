@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Image_Url } from "../../../Utils/const";
+import Image from "next/image";
 
 const Vision = ({ aboutusPageWhatWeDo }) => {
   if (!aboutusPageWhatWeDo) return null;
@@ -34,10 +35,12 @@ const Vision = ({ aboutusPageWhatWeDo }) => {
       <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
         {/* Image */}
         <div>
-          <img
+          <Image
             src={`${Image_Url}/${image}`}
-            className="md:max-w-lg rounded-r-full"
+            className="md:max-w-lg rounded-r-full object-cover"
             alt=""
+            width={512}
+            height={512}
           />
         </div>
 

@@ -17,7 +17,6 @@ import {
 } from "react-icons/fa";
 import fetchData from "./fetchData";
 import axios from "../../Utils/axios"
-import axios from "../../Utils/axios"
 import { Image_Url } from "../../Utils/const";
 import Image from "next/image";
 
