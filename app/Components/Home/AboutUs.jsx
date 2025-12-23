@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import sanitizeHtml from "sanitize-html";
 
 const AboutUs = ({ img, yellowHead, head, pageName, btnName, des }) => {
   // Sanitize description for server-side rendering
