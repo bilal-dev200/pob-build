@@ -1,21 +1,18 @@
-"use client";
+import Image from "next/image";
 
-import { useEffect, useState } from "react";
-import DOMPurify from "isomorphic-dompurify"; 
-
-const Purpose = ({ yellowHead, head, des, pageName, btnName, img,  }) => {
+const Purpose = ({ yellowHead, head, des, pageName, btnName, img, }) => {
   const [isClient, setIsClient] = useState(false);
   // const donateClick = handleDonateClick || (() => console.warn("⚠️ handleDonateClick is not defined"));
 
   useEffect(() => {
     setIsClient(true); // Ensures client-side rendering
   }, []);
-    const handleDonateClick = () => {
-  const footer = document.getElementById("footer-section");
-  if (footer) {
-    footer.scrollIntoView({ behavior: "smooth" });
-  }
-};
+  const handleDonateClick = () => {
+    const footer = document.getElementById("footer-section");
+    if (footer) {
+      footer.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
 
   return (
@@ -53,21 +50,21 @@ const Purpose = ({ yellowHead, head, des, pageName, btnName, img,  }) => {
         ) : (
           // Only render sanitized HTML on client
           isClient && des && (
- <div
-  className="text-[#777777] text-center md:text-start 2xl:text-xl 2xl:max-w-xl md:max-w-lg mt-4"
-  dangerouslySetInnerHTML={{
-    __html: des
-      ?.replaceAll("<ul>", "<ul class='list-disc list-inside space-y-2'>")
-      ?.replaceAll("<li>", "<li class='text-[#777777] leading-relaxed'>")
-  }}
-/>
+            <div
+              className="text-[#777777] text-center md:text-start 2xl:text-xl 2xl:max-w-xl md:max-w-lg mt-4"
+              dangerouslySetInnerHTML={{
+                __html: des
+                  ?.replaceAll("<ul>", "<ul class='list-disc list-inside space-y-2'>")
+                  ?.replaceAll("<li>", "<li class='text-[#777777] leading-relaxed'>")
+              }}
+            />
 
-) 
+          )
 
         )}
 
         <button
-           onClick={handleDonateClick}
+          onClick={handleDonateClick}
           className="mt-4 px-4 py-3 w-32 rounded-full text-[16px] font-inter text-white bg-[#28A745] hover:bg-white hover:text-[#28A745] transition-all duration-300 cursor-pointer"
         >
           {btnName}
@@ -76,7 +73,13 @@ const Purpose = ({ yellowHead, head, des, pageName, btnName, img,  }) => {
 
       {/* Image Section */}
       <div className="flex justify-end md:w-full mt-6 md:mt-0">
-        <img src={img} className="md:max-w-lg 2xl:max-w-3xl" alt="" />
+        <Image
+          src={img}
+          width={800}
+          height={600}
+          alt="Purpose Image"
+          className="md:max-w-lg 2xl:max-w-3xl w-full h-auto"
+        />
       </div>
     </div>
   );

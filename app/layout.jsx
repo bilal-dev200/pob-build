@@ -1,34 +1,44 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import "./globals.css";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import FloatingButtons from "./Components/FloatingButtons";
-import WebLoader from "./Components/WebLoader";
+import { Inter, Poppins, Amaranth, Antonio } from "next/font/google";
+
+const inter = Inter({ 
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-poppins",
+  display: "swap",
+});
+
+const amaranth = Amaranth({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-amaranth",
+  display: "swap",
+});
+
+const antonio = Antonio({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-antonio",
+  display: "swap",
+});
 
 export default function RootLayout({ children }) {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate page load delay
-    const timer = setTimeout(() => setLoading(false), 1500); // 1.5s loader
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <html lang="en">
-      <body className="antialiased relative">
-        {loading ? (
-          <WebLoader />
-        ) : (
-          <>
-            <Header />
-            <FloatingButtons />
-            <main>{children}</main>
-            <Footer />
-          </>
-        )}
+      <body className={`antialiased relative ${inter.variable} ${poppins.variable} ${amaranth.variable} ${antonio.variable} font-inter`}>
+        <Header />
+        <FloatingButtons />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

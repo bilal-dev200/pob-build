@@ -26,13 +26,14 @@ const HeroSlider = ({ slides }) => {
         className="w-full h-full swiper-pagination-custom"
       >
         {Array.isArray(slides) &&
-          slides.map((slide) => (
+          slides.map((slide, index) => (
             <SwiperSlide key={slide.id} className="relative">
               <div className="absolute inset-0 relative w-full h-full">
                 <Image
                   src={`${Image_Url}/${slide.image}`}
                   alt={slide.alt_text || "Slider Image"}
                   fill
+                  priority={index === 0}
                   className="object-fit mt-20"
                 />
               </div>

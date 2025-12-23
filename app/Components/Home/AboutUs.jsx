@@ -1,6 +1,4 @@
-import React from "react";
-import Link from "next/link";
-import sanitizeHtml from "sanitize-html";
+import Image from "next/image";
 
 const AboutUs = ({ img, yellowHead, head, pageName, btnName, des }) => {
   // Sanitize description for server-side rendering
@@ -10,7 +8,9 @@ const AboutUs = ({ img, yellowHead, head, pageName, btnName, des }) => {
     <section className="flex flex-col md:flex-row items-center justify-center gap-10 px-6 md:px-10 md:py-16 mb-6 md:mb-0 bg-white md:w-[95%]">
       {/* Image Section */}
       <div className="w-full md:w-1/2 flex justify-center">
-        <img src={img} alt="Eye Checkup" className="w-[483px] h-[194px] sm:w-[581px] sm:h-[346px] mt-7" />
+        <div className="relative w-[483px] h-[194px] sm:w-[581px] sm:h-[346px] mt-7">
+          <Image src={img} alt="Eye Checkup" fill className="object-cover" />
+        </div>
       </div>
 
       {/* Text Section */}
@@ -22,9 +22,9 @@ const AboutUs = ({ img, yellowHead, head, pageName, btnName, des }) => {
 
         {pageName === "home" ? (
           <div
-  className="font-inter text-gray-600 prose"
-  dangerouslySetInnerHTML={{ __html: sanitizedDescription }}
-/>
+            className="font-inter text-gray-600 prose"
+            dangerouslySetInnerHTML={{ __html: sanitizedDescription }}
+          />
 
         ) : (
           <div className="text-gray-600 mt-4 text-sm">
