@@ -4,7 +4,7 @@ import Footer from "./Components/Footer";
 import FloatingButtons from "./Components/FloatingButtons";
 import { Inter, Poppins, Amaranth, Antonio } from "next/font/google";
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
@@ -34,6 +34,11 @@ const antonio = Antonio({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://pob.datainovate.com" />
+      </head>
       <body className={`antialiased relative ${inter.variable} ${poppins.variable} ${amaranth.variable} ${antonio.variable} font-inter`}>
         <Header />
         <FloatingButtons />

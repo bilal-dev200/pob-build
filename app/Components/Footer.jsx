@@ -469,142 +469,147 @@ const Footer = () => {
       </div>
 
       <div
-        className="h-[55rem] hidden  md:flex justify-end items-center  flex-col bg-cover bg-no-repeat  relative"
-        style={{
-          backgroundImage: "url('/footer-bg.png')",
-        }}
+        className="h-[55rem] hidden  md:flex justify-end items-center  flex-col relative overflow-hidden"
       >
-        {/* Email Subscription */}
-        <div className=" py-6  border-b border-white w-[90%]  ">
-          <div className="md:max-w-7xl  text-white px-6 lg:px-20 flex flex-col   ">
-            <div className=" mb-4 ">
-              <h3 className="text-3xl font-inter font-semibold ">
-                Enter Your E-mail
-              </h3>
-              <p className="font-inter capitalize">
-                Stay Connected. Stay Informed.
-              </p>
-              <p className="font-inter text-[12px] w-96">
-                Subscribe to receive the latest updates, inspiring stories, and
-                ways to make a difference.
-              </p>
-            </div>
+        <Image
+          src="/footer-bg.png"
+          alt="Footer Background"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="relative z-10 w-full flex flex-col items-center">
+          {/* Email Subscription */}
+          <div className=" py-6  border-b border-white w-[90%]  ">
+            <div className="md:max-w-7xl  text-white px-6 lg:px-20 flex flex-col   ">
+              <div className=" mb-4 ">
+                <h3 className="text-3xl font-inter font-semibold ">
+                  Enter Your E-mail
+                </h3>
+                <p className="font-inter capitalize">
+                  Stay Connected. Stay Informed.
+                </p>
+                <p className="font-inter text-[12px] w-96">
+                  Subscribe to receive the latest updates, inspiring stories, and
+                  ways to make a difference.
+                </p>
+              </div>
 
-            <div
-              className="md:w-1/3 flex flex-row justify-center items-center"
-              onSubmit={handleSubscribe}
-            >
-              <form className="w-full relative ">
-                <input
-                  type="text"
-                  placeholder="Enter Your Email "
-                  className="w-full font-inter  text-sm bg-transparent py-3 px-3 outline-none border border-white rounded-full"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <button
-                  className="absolute text-[12px] top-0 font-poppins right-0 h-full px-4 textcenter flex flex-row gap-5 items-center justify-center   text-xs bg-[#F39C12] py-3 outline-none text-white rounded-full"
-                  type="submit"
-                  disabled={loadingSub}
-                >
-                  {loadingSub ? "SUBSCRIBING" : "SUBSCRIBE"}
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-
-        {/* Footer Section */}
-        <div className="max-w-7xl md:max-w-[90%] mx-auto px-6 lg:px-20 py-20 text-white">
-          <div className="grid md:grid-cols-3 gap-4">
-            {/* About Us */}
-            <div>
-              <h4 className="text-lg font-poppins">About us</h4>
-              <p className="text-[#FFFFFF] font-inter mt-2 text-sm">
-                Prevention of Blindness Trust is a registered charity working
-                for the prevention and treatment of avoidable causes of
-                blindness focusing on the deprived and marginalized communities.
-              </p>
-              <div className="flex flex-col gap-3 mt-4">
-                <h4 className="text-lg ">Social Links</h4>
-                <div className=" flex gap-4 ">
-                  <a
-                    href="https://www.facebook.com/pobeyehospitalkarachi?mibextid=wwXIfr&rdid=rOGZqAFm2fgwRRPg&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1YFZdcmqnj%2F%3Fmibextid%3DwwXIfr#"
-                    target="_blank"
-                    rel="noopener noreferrer"
+              <div
+                className="md:w-1/3 flex flex-row justify-center items-center"
+                onSubmit={handleSubscribe}
+              >
+                <form className="w-full relative ">
+                  <input
+                    type="text"
+                    placeholder="Enter Your Email "
+                    className="w-full font-inter  text-sm bg-transparent py-3 px-3 outline-none border border-white rounded-full"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <button
+                    className="absolute text-[12px] top-0 font-poppins right-0 h-full px-4 textcenter flex flex-row gap-5 items-center justify-center   text-xs bg-[#F39C12] py-3 outline-none text-white rounded-full"
+                    type="submit"
+                    disabled={loadingSub}
                   >
-                    <FaFacebookF className="text-white text-lg cursor-pointer hover:text-gray-400 transition duration-300" />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/pobeyehospitalkarachi?igsh=MXU3YzduenY3NWN0bw%3D%3D"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaInstagram className="text-white text-lg cursor-pointer hover:text-gray-400 transition duration-300" />
-                  </a>
-
-                  {/* <FaXTwitter className="text-white text-lg cursor-pointer hover:text-gray-400 transition duration-300" /> */}
-                  <a
-                    href="https://wa.me/923479997772"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaWhatsapp className="text-white text-lg cursor-pointer hover:text-gray-400 transition duration-300" />
-                  </a>
-
-                  <a
-                    href=""
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaLinkedin className="text-white text-lg cursor-pointer hover:text-gray-400 transition duration-300" />
-                  </a>
-                </div>
+                    {loadingSub ? "SUBSCRIBING" : "SUBSCRIBE"}
+                  </button>
+                </form>
               </div>
             </div>
-            {/* Quick Links */}
+          </div>
 
-            <div className="absolute bottom-16 left-20 flex items-end justify-start gap-3 mb-10 ml-14">
-              <Image
-                src="/poblogo.png"
-                alt="Logo 1"
-                width={200}
-                height={116}
-                className="h-[6.3rem] md:h-[7.3rem] object-contain w-auto"
-              />
-              {/* <img
+          {/* Footer Section */}
+          <div className="max-w-7xl md:max-w-[90%] mx-auto px-6 lg:px-20 py-20 text-white">
+            <div className="grid md:grid-cols-3 gap-4">
+              {/* About Us */}
+              <div>
+                <h4 className="text-lg font-poppins">About us</h4>
+                <p className="text-[#FFFFFF] font-inter mt-2 text-sm">
+                  Prevention of Blindness Trust is a registered charity working
+                  for the prevention and treatment of avoidable causes of
+                  blindness focusing on the deprived and marginalized communities.
+                </p>
+                <div className="flex flex-col gap-3 mt-4">
+                  <h4 className="text-lg ">Social Links</h4>
+                  <div className=" flex gap-4 ">
+                    <a
+                      href="https://www.facebook.com/pobeyehospitalkarachi?mibextid=wwXIfr&rdid=rOGZqAFm2fgwRRPg&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1YFZdcmqnj%2F%3Fmibextid%3DwwXIfr#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaFacebookF className="text-white text-lg cursor-pointer hover:text-gray-400 transition duration-300" />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/pobeyehospitalkarachi?igsh=MXU3YzduenY3NWN0bw%3D%3D"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaInstagram className="text-white text-lg cursor-pointer hover:text-gray-400 transition duration-300" />
+                    </a>
+
+                    {/* <FaXTwitter className="text-white text-lg cursor-pointer hover:text-gray-400 transition duration-300" /> */}
+                    <a
+                      href="https://wa.me/923479997772"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaWhatsapp className="text-white text-lg cursor-pointer hover:text-gray-400 transition duration-300" />
+                    </a>
+
+                    <a
+                      href=""
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaLinkedin className="text-white text-lg cursor-pointer hover:text-gray-400 transition duration-300" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              {/* Quick Links */}
+
+              <div className="absolute bottom-16 left-20 flex items-end justify-start gap-3 mb-10 ml-14">
+                <Image
+                  src="/poblogo.png"
+                  alt="Logo 1"
+                  width={200}
+                  height={116}
+                  className="h-[6.3rem] md:h-[7.3rem] object-contain w-auto"
+                />
+                {/* <img
     src="/logoright.png"
     alt="Logo 2"
     className="h-[6.3rem] md:h-[7.3rem] object-contain"
   /> */}
-            </div>
-
-
-
-
-
-
-
-
-            <div>
-              <h4 className="text-lg font-poppins">Quick Links</h4>
-              <div className="text-[#FFFFFF] flex flex-col justify-start mt-2 font-inter text-sm space-y-1">
-                {quickLinks.map((link, index) => (
-                  <Link href={link?.url} key={index}>
-                    {link?.name}
-                  </Link>
-                ))}
-
               </div>
-            </div>
-
-            <div>
 
 
-              <h4 className="text-lg text-white font-poppins ">Contact Us</h4>
 
-              {/* Address Section */}
-              {/* <div className="text-[#FFFFFF] flex items-center gap-2 mt-2 text-sm">
+
+
+
+
+
+              <div>
+                <h4 className="text-lg font-poppins">Quick Links</h4>
+                <div className="text-[#FFFFFF] flex flex-col justify-start mt-2 font-inter text-sm space-y-1">
+                  {quickLinks.map((link, index) => (
+                    <Link href={link?.url} key={index}>
+                      {link?.name}
+                    </Link>
+                  ))}
+
+                </div>
+              </div>
+
+              <div>
+
+
+                <h4 className="text-lg text-white font-poppins ">Contact Us</h4>
+
+                {/* Address Section */}
+                {/* <div className="text-[#FFFFFF] flex items-center gap-2 mt-2 text-sm">
                 <FaMapMarkerAlt className="text-white mt-1" />
                 <div>
                   <strong className=" font-inter ">
@@ -616,20 +621,20 @@ const Footer = () => {
                 </div>
               </div> */}
 
-              <div className="text-[#FFFFFF] flex items-center gap-2 mt-2 text-sm">
-                <FaMapMarkerAlt className="text-white mt-1" />
-                <div>
-                  <strong className=" font-inter ">Karachi:</strong>
-                  <p className="text-[12px] font-inter ">
-                    C-15 Munawar Chowrangi Rd, Block 12 Gulistan-e-Johar,
-                    Karachi, 74500, Pakistan
-                  </p>
+                <div className="text-[#FFFFFF] flex items-center gap-2 mt-2 text-sm">
+                  <FaMapMarkerAlt className="text-white mt-1" />
+                  <div>
+                    <strong className=" font-inter ">Karachi:</strong>
+                    <p className="text-[12px] font-inter ">
+                      C-15 Munawar Chowrangi Rd, Block 12 Gulistan-e-Johar,
+                      Karachi, 74500, Pakistan
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              {/* Phone Section */}
-              <div className="flex gap-4 mt-2">
-                {/* <div className="text-[#FFFFFF] text-sm">
+                {/* Phone Section */}
+                <div className="flex gap-4 mt-2">
+                  {/* <div className="text-[#FFFFFF] text-sm">
                   <div className="flex  gap-2">
                     <FaPhoneAlt className="text-white" />
                     <strong className="  font-inter ">Lahore:</strong>
@@ -646,96 +651,98 @@ const Footer = () => {
                     </p>
                 </div> */}
 
-                <div className="text-[#FFFFFF] text-sm">
-                  <div className="flex  gap-2">
-                    <FaPhoneAlt className="text-white" />
-                    <strong className=" font-inter ">Karachi:</strong>
+                  <div className="text-[#FFFFFF] text-sm">
+                    <div className="flex  gap-2">
+                      <FaPhoneAlt className="text-white" />
+                      <strong className=" font-inter ">Karachi:</strong>
+                    </div>
+                    <p className="ml-6 mt-1 font-inter ">
+                      UAN <span> </span>
+                      <a
+                        href="tel:+9221111762544"
+                        className="hover:text-[#f39c12]"
+                      >
+                        +92-21-111-762-544
+                      </a>
+                    </p>
+                    <p className="ml-6 font-inter ">
+                      <a
+                        href="tel:+922134156597"
+                        className="hover:text-[#f39c12]"
+                      >
+                        +92-21-34156597
+                      </a>
+                    </p>
                   </div>
-                  <p className="ml-6 mt-1 font-inter ">
-                    UAN <span> </span>
-                    <a
-                      href="tel:+9221111762544"
-                      className="hover:text-[#f39c12]"
-                    >
-                      +92-21-111-762-544
-                    </a>
-                  </p>
-                  <p className="ml-6 font-inter ">
-                    <a
-                      href="tel:+922134156597"
-                      className="hover:text-[#f39c12]"
-                    >
-                      +92-21-34156597
-                    </a>
-                  </p>
                 </div>
-              </div>
 
-              {/* Email Section */}
-              <div className="text-[#FFFFFF] font-inter text-sm mt-2">
-                <div className="flex items-center gap-2">
-                  <FaEnvelope className="text-white" />
-                  <strong className=" ">Email Address:</strong>
-                </div>
-                {/* <p className="ml-6 mt-1">info@pobkarachi.org</p>
+                {/* Email Section */}
+                <div className="text-[#FFFFFF] font-inter text-sm mt-2">
+                  <div className="flex items-center gap-2">
+                    <FaEnvelope className="text-white" />
+                    <strong className=" ">Email Address:</strong>
+                  </div>
+                  {/* <p className="ml-6 mt-1">info@pobkarachi.org</p>
                 <p className="ml-6">careers@pobkarachi.org</p> */}
-                <p className="ml-6 mt-1">
-                  <a
-                    href="mailto:info@pobkarachi.org"
-                    className="hover:text-[#f39c12]"
-                  >
-                    info@pobkarachi.org
-                  </a>
-                </p>
-                <p className="ml-6">
-                  <a
-                    href="mailto:careers@pobkarachi.org"
-                    className="hover:text-[#f39c12]"
-                  >
-                    careers@pobkarachi.org
-                  </a>
-                </p>
-              </div>
-
-              {/* Working Hours Section */}
-              <div className="text-[#FFFFFF] font-inter text-sm mt-4">
-                <div className="flex items-center gap-2">
-                  <svg
-                    className="w-5 h-5 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <strong className="">Working Hours:</strong>
+                  <p className="ml-6 mt-1">
+                    <a
+                      href="mailto:info@pobkarachi.org"
+                      className="hover:text-[#f39c12]"
+                    >
+                      info@pobkarachi.org
+                    </a>
+                  </p>
+                  <p className="ml-6">
+                    <a
+                      href="mailto:careers@pobkarachi.org"
+                      className="hover:text-[#f39c12]"
+                    >
+                      careers@pobkarachi.org
+                    </a>
+                  </p>
                 </div>
-                <p className="ml-6 mt-1">8:30 AM to 3:30 PM</p>
-                <p className="ml-6">Monday to Saturday</p>
-                <p className="ml-6">Sunday: Closed</p>
+
+                {/* Working Hours Section */}
+                <div className="text-[#FFFFFF] font-inter text-sm mt-4">
+                  <div className="flex items-center gap-2">
+                    <svg
+                      className="w-5 h-5 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <strong className="">Working Hours:</strong>
+                  </div>
+                  <p className="ml-6 mt-1">8:30 AM to 3:30 PM</p>
+                  <p className="ml-6">Monday to Saturday</p>
+                  <p className="ml-6">Sunday: Closed</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Copyright */}
-        <div className="  w-full  bg-[#F39C12] flex justify-around font-inter   text-center py-2 text-[#FFFFFF] text-sm">
-          <div>Copyright 2024 © POB TRUST </div>
-          <div>
-            <a href="#" className="text-white">
-              Terms & Conditions
-            </a>{" "}
-            <a href="#" className="text-white">
-              Privacy Policy
-            </a>
+          {/* Copyright */}
+          <div className="  w-full  bg-[#F39C12] flex justify-around font-inter   text-center py-2 text-[#FFFFFF] text-sm">
+            <div>Copyright 2024 © POB TRUST </div>
+            <div>
+              <a href="#" className="text-white">
+                Terms & Conditions
+              </a>{" "}
+              <a href="#" className="text-white">
+                Privacy Policy
+              </a>
+            </div>
           </div>
         </div>
       </div>
+
 
       {/* Mobile Footer  */}
       {/* SVG Curved Background */}
@@ -745,132 +752,135 @@ const Footer = () => {
       >
 
         <div
-          className=" h-[100%] font-inter  flex  px-4 items-center flex-col md:bg-cover bg-no-repeat bg-center sm:bg-top "
-          style={{
-            backgroundImage: "url('/footer-bg.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
+          className=" h-[100%] font-inter  flex  px-4 items-center flex-col relative overflow-hidden"
         >
+          <Image
+            src="/footer-bg.png"
+            alt="Footer Background"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="relative z-10 w-full flex flex-col items-center">
 
-          {/* Email Subscription */}
-          <section className=" pt-20">
-            <div className="flex md:flex-row  text-white  flex-col justify-between gap-10 py-10">
-              <div className="md:w-1/3  text-center md:text-start">
-                <p className="font-newsLetter font-poppins md:text-5xl text-3xl py-2">
-                  Join Our Newsletter
-                </p>
-                <p className="font-poppins">
-                  Stay updated with our latest offers, exclusive deals, and
-                  exciting news. Subscribe now!
-                </p>
+            {/* Email Subscription */}
+            <section className=" pt-20">
+              <div className="flex md:flex-row  text-white  flex-col justify-between gap-10 py-10">
+                <div className="md:w-1/3  text-center md:text-start">
+                  <p className="font-newsLetter font-poppins md:text-5xl text-3xl py-2">
+                    Join Our Newsletter
+                  </p>
+                  <p className="font-poppins">
+                    Stay updated with our latest offers, exclusive deals, and
+                    exciting news. Subscribe now!
+                  </p>
+                </div>
+                <div
+                  className="md:w-1/3 flex flex-row justify-center items-center"
+                  onSubmit={handleSubscribe}
+                >
+                  <form className="w-full relative ">
+                    <input
+                      type="text"
+                      placeholder="Enter Your Email "
+                      className="w-full font-inter  text-sm bg-transparent py-3 px-3 outline-none border border-white rounded-full"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <button
+                      className="absolute text-[12px] top-0 font-poppins right-0 h-full px-4 textcenter flex flex-row gap-5 items-center justify-center   text-xs bg-[#F39C12] py-3 outline-none text-white rounded-full"
+                      type="submit"
+                    >
+                      {"SUBSCRIBE"}
+                    </button>
+                  </form>
+                </div>
               </div>
-              <div
-                className="md:w-1/3 flex flex-row justify-center items-center"
-                onSubmit={handleSubscribe}
-              >
-                <form className="w-full relative ">
-                  <input
-                    type="text"
-                    placeholder="Enter Your Email "
-                    className="w-full font-inter  text-sm bg-transparent py-3 px-3 outline-none border border-white rounded-full"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <button
-                    className="absolute text-[12px] top-0 font-poppins right-0 h-full px-4 textcenter flex flex-row gap-5 items-center justify-center   text-xs bg-[#F39C12] py-3 outline-none text-white rounded-full"
-                    type="submit"
-                  >
-                    {"SUBSCRIBE"}
-                  </button>
-                </form>
-              </div>
-            </div>
-          </section>
+            </section>
 
-          <div className=" lg:border-r text-white border-white lg:w-1/4 lg:p-10 md:pl-0 py-10 flex flex-col justify-center items-center md:items-start gap-5">
-            <Image
-              className="w-56 object-cover h-auto"
-              src="/poblogo.png"
-              alt="Company Logo"
-              width={224}
-              height={100}
-            />
-            <p className="text-[14px] text-center font-inter">
-              Prevention of Blindness Trust is a registered charity working for
-              the prevention and treatment of avoidable causes of blindness
-              focusing on the deprived and marginalized communities.
-            </p>
+            <div className=" lg:border-r text-white border-white lg:w-1/4 lg:p-10 md:pl-0 py-10 flex flex-col justify-center items-center md:items-start gap-5">
+              <Image
+                className="w-56 object-cover h-auto"
+                src="/poblogo.png"
+                alt="Company Logo"
+                width={224}
+                height={100}
+              />
+              <p className="text-[14px] text-center font-inter">
+                Prevention of Blindness Trust is a registered charity working for
+                the prevention and treatment of avoidable causes of blindness
+                focusing on the deprived and marginalized communities.
+              </p>
 
-            <ul className="py-2 flex flex-row gap-2 lg:justify-start justify-center">
-              <a
-                // href="https://www.facebook.com/pobeyehospitalkarachi?mibextid=wwXIfr&rdid=rOGZqAFm2fgwRRPg&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1YFZdcmqnj%2F%3Fmibextid%3DwwXIfr#"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaWhatsapp className=" text-white" size={20} />
-              </a>
-              <a
-                href="https://www.facebook.com/pobeyehospitalkarachi?mibextid=wwXIfr&rdid=rOGZqAFm2fgwRRPg&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1YFZdcmqnj%2F%3Fmibextid%3DwwXIfr#"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaFacebookF className=" text-white" size={20} />
-              </a>
-              <a
-                href="https://www.instagram.com/pobeyehospitalkarachi?igsh=MXU3YzduenY3NWN0bw%3D%3D"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaInstagram className="text-white" size={20} />
-              </a>
-              <a
-                href=""
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaLinkedin className="text-white" size={20} />
-              </a>
-            </ul>
-          </div>
-
-          <div className=" md:w-[70%] w-full h-[200px] md:h-[100%]">
-            <div className="md:hidden text-white">
-              <div
-                className="flex justify-between border-b border-[#555555] items-center py-3 cursor-pointer"
-                onClick={() => setQuickLinksOpen(!isQuickLinksOpen)}
-              >
-                <p className="text-[16px] ">Quick Links</p>
-                {isQuickLinksOpen ? (
-                  <MdOutlineExpandLess size={24} />
-                ) : (
-                  <MdOutlineExpandMore size={24} />
-                )}
-              </div>
-              {isQuickLinksOpen && (
-                <ul className="flex flex-col gap-1  ">
-                  {quickLinks.map((link, index) => (
-                    <Link href={link?.url} key={index}>{link?.name}</Link>
-                  ))}
-                </ul>
-              )}
+              <ul className="py-2 flex flex-row gap-2 lg:justify-start justify-center">
+                <a
+                  // href="https://www.facebook.com/pobeyehospitalkarachi?mibextid=wwXIfr&rdid=rOGZqAFm2fgwRRPg&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1YFZdcmqnj%2F%3Fmibextid%3DwwXIfr#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaWhatsapp className=" text-white" size={20} />
+                </a>
+                <a
+                  href="https://www.facebook.com/pobeyehospitalkarachi?mibextid=wwXIfr&rdid=rOGZqAFm2fgwRRPg&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1YFZdcmqnj%2F%3Fmibextid%3DwwXIfr#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaFacebookF className=" text-white" size={20} />
+                </a>
+                <a
+                  href="https://www.instagram.com/pobeyehospitalkarachi?igsh=MXU3YzduenY3NWN0bw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaInstagram className="text-white" size={20} />
+                </a>
+                <a
+                  href=""
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaLinkedin className="text-white" size={20} />
+                </a>
+              </ul>
             </div>
 
-            <div className="md:hidden text-white">
-              <div
-                className="flex justify-between   items-center py-3 cursor-pointer"
-                onClick={() => setisContactOpen(!isContactOpen)}
-              >
-                <p className="text-[16px] ">Contact US</p>
-                {isContactOpen ? (
-                  <MdOutlineExpandLess size={24} />
-                ) : (
-                  <MdOutlineExpandMore size={24} />
+            <div className=" md:w-[70%] w-full h-[200px] md:h-[100%]">
+              <div className="md:hidden text-white">
+                <div
+                  className="flex justify-between border-b border-[#555555] items-center py-3 cursor-pointer"
+                  onClick={() => setQuickLinksOpen(!isQuickLinksOpen)}
+                >
+                  <p className="text-[16px] ">Quick Links</p>
+                  {isQuickLinksOpen ? (
+                    <MdOutlineExpandLess size={24} />
+                  ) : (
+                    <MdOutlineExpandMore size={24} />
+                  )}
+                </div>
+                {isQuickLinksOpen && (
+                  <ul className="flex flex-col gap-1  ">
+                    {quickLinks.map((link, index) => (
+                      <Link href={link?.url} key={index}>{link?.name}</Link>
+                    ))}
+                  </ul>
                 )}
               </div>
-              {isContactOpen && (
-                <div className=" ">
-                  {/* <div className="text-[#FFFFFF]  flex items-center gap-2 mt-2 text-sm">
+
+              <div className="md:hidden text-white">
+                <div
+                  className="flex justify-between   items-center py-3 cursor-pointer"
+                  onClick={() => setisContactOpen(!isContactOpen)}
+                >
+                  <p className="text-[16px] ">Contact US</p>
+                  {isContactOpen ? (
+                    <MdOutlineExpandLess size={24} />
+                  ) : (
+                    <MdOutlineExpandMore size={24} />
+                  )}
+                </div>
+                {isContactOpen && (
+                  <div className=" ">
+                    {/* <div className="text-[#FFFFFF]  flex items-center gap-2 mt-2 text-sm">
                     <FaMapMarkerAlt className="text-white mt-1" />
                     <div>
                       <strong className=" font-inter ">
@@ -881,20 +891,20 @@ const Footer = () => {
                       </p>
                     </div>
                   </div> */}
-                  <div className="text-[#FFFFFF] flex items-center gap-2 mt-2 text-sm">
-                    <FaMapMarkerAlt className="text-white mt-1" />
-                    <div>
-                      <strong className=" font-inter ">Karachi:</strong>
-                      <p className="text-[12px] font-inter ">
-                        C-16, Block 2, Gulistan e Johar, Munawar Chowrangi,
-                        Karachi
-                      </p>
+                    <div className="text-[#FFFFFF] flex items-center gap-2 mt-2 text-sm">
+                      <FaMapMarkerAlt className="text-white mt-1" />
+                      <div>
+                        <strong className=" font-inter ">Karachi:</strong>
+                        <p className="text-[12px] font-inter ">
+                          C-16, Block 2, Gulistan e Johar, Munawar Chowrangi,
+                          Karachi
+                        </p>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Phone Section */}
-                  <div className="flex gap-4 mt-2">
-                    {/* <div className="text-[#FFFFFF] text-sm">
+                    {/* Phone Section */}
+                    <div className="flex gap-4 mt-2">
+                      {/* <div className="text-[#FFFFFF] text-sm">
                       <div className="flex  gap-2">
                         <FaPhoneAlt className="text-white" />
                         <strong className="  font-inter ">
@@ -907,43 +917,44 @@ const Footer = () => {
                       <p className="ml-6 font-inter ">+92 347 999 777 2</p>
                     </div> */}
 
-                    <div className="text-[#FFFFFF] text-sm">
-                      <div className="flex  gap-2">
-                        <FaPhoneAlt className="text-white" />
-                        <strong className=" font-inter ">Karachi:</strong>
+                      <div className="text-[#FFFFFF] text-sm">
+                        <div className="flex  gap-2">
+                          <FaPhoneAlt className="text-white" />
+                          <strong className=" font-inter ">Karachi:</strong>
+                        </div>
+                        <p className="ml-6 mt-1 font-inter ">
+                          UAN +92-21-111-762-544
+                        </p>
+                        <p className="ml-6 font-inter ">+92-21-34156597</p>
                       </div>
-                      <p className="ml-6 mt-1 font-inter ">
-                        UAN +92-21-111-762-544
-                      </p>
-                      <p className="ml-6 font-inter ">+92-21-34156597</p>
                     </div>
-                  </div>
 
-                  {/* Email Section */}
-                  <div className="text-[#FFFFFF] font-inter text-sm mt-2">
-                    <div className="flex items-center gap-2">
-                      <FaEnvelope className="text-white" />
-                      <strong className=" ">Email Address:</strong>
+                    {/* Email Section */}
+                    <div className="text-[#FFFFFF] font-inter text-sm mt-2">
+                      <div className="flex items-center gap-2">
+                        <FaEnvelope className="text-white" />
+                        <strong className=" ">Email Address:</strong>
+                      </div>
+                      <p className="ml-6 mt-1">info@pobkarachi.org</p>
+                      <p className="ml-6">careers@pobkarachi.org</p>
                     </div>
-                    <p className="ml-6 mt-1">info@pobkarachi.org</p>
-                    <p className="ml-6">careers@pobkarachi.org</p>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Copyright */}
-        <div className="  w-full  bg-[#F39C12] flex flex-col justify-around font-inter   text-center py-2 text-[#FFFFFF] text-sm">
-          <div>Copyright 2024 © POB TRUST |</div>
-          <div>
-            <a href="#" className="text-white">
-              Terms & Conditions
-            </a>{" "}
-            <a href="#" className="text-white">
-              Privacy Policy
-            </a>
+          {/* Copyright */}
+          <div className="  w-full  bg-[#F39C12] flex flex-col justify-around font-inter   text-center py-2 text-[#FFFFFF] text-sm">
+            <div>Copyright 2024 © POB TRUST |</div>
+            <div>
+              <a href="#" className="text-white">
+                Terms & Conditions
+              </a>{" "}
+              <a href="#" className="text-white">
+                Privacy Policy
+              </a>
+            </div>
           </div>
         </div>
       </div>

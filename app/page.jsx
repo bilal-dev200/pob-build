@@ -1,22 +1,23 @@
 // app/page.jsx
+import dynamic from 'next/dynamic';
 import HeroSlider from "./Components/Home/HeroSlider/HeroSlider";
-import StatsSection from "./Components/Home/StatsSection";
-import ZakatDonations from "./Components/Home/ZakatDonations";
 import AboutUs from "./Components/Home/AboutUs";
+const StatsSection = dynamic(() => import("./Components/Home/StatsSection"), { ssr: true });
+const ZakatDonations = dynamic(() => import("./Components/Home/ZakatDonations"), { ssr: true });
 import fetchData from "./Components/fetchData";
-import LaserTreatment from "./Components/Home/LaserTreatment";
-import MediaGallery from "./Components/Gallery/MediaGallery";
-import Partners from "./Components/Partners";
+const LaserTreatment = dynamic(() => import("./Components/Home/LaserTreatment"), { ssr: true });
+const MediaGallery = dynamic(() => import("./Components/Gallery/MediaGallery"), { ssr: true });
+const Partners = dynamic(() => import("./Components/Partners"), { ssr: true });
 import { Image_Url } from "../Utils/const";
-import DonationSection from "./Components/DonationSection";
-import Purpose from "./Components/Purpose";
-import SecondCount from "./Components/SecondCount";
-import Testimonial from "./Components/Testimonial/Testimonial";
-import VideoSection from './Components/Gallery/VideoSection';
-import Faqs from "./Components/Home/Faqs";
-import BlogsSection from "./Components/Home/BlogSection";
-import Moments from "./Components/Home/Moments";
-import NewsEvents from "./Components/Home/NewsEvents";
+const DonationSection = dynamic(() => import("./Components/DonationSection"), { ssr: true });
+const Purpose = dynamic(() => import("./Components/Purpose"), { ssr: true });
+const SecondCount = dynamic(() => import("./Components/SecondCount"), { ssr: true });
+const Testimonial = dynamic(() => import("./Components/Testimonial/Testimonial"), { ssr: true });
+const VideoSection = dynamic(() => import("./Components/Gallery/VideoSection"), { ssr: true });
+const Faqs = dynamic(() => import("./Components/Home/Faqs"), { ssr: true });
+const BlogsSection = dynamic(() => import("./Components/Home/BlogSection"), { ssr: true });
+const Moments = dynamic(() => import("./Components/Home/Moments"), { ssr: true });
+// import NewsEvents from "./Components/Home/NewsEvents";
 
 // -------------------------------------------
 // Server-side fetch function
@@ -32,14 +33,14 @@ export async function generateMetadata() {
   const home = await getHomeData();
 
   const CANONICAL = "https://pobtrust.com/";
-  console.log("seo" ,home?.pagesSeoDetail)
+  console.log("seo", home?.pagesSeoDetail)
   return {
     title: home?.pagesSeoDetail?.meta_title || "Default Title",
     description:
       home?.pagesSeoDetail?.meta_description || "Default description",
 
     alternates: {
-      canonical: process.env.NEXT_PUBLIC_URL +  home?.pagesSeoDetail?.canonical_url || CANONICAL,
+      canonical: process.env.NEXT_PUBLIC_URL + home?.pagesSeoDetail?.canonical_url || CANONICAL,
     },
 
     openGraph: {
